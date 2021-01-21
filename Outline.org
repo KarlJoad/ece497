@@ -1,0 +1,52 @@
+#+TITLE: Outline
+#+DATE: January 21, 2021
+
+* Goals
+  * Working system
+    - Smaller issues still being present in the system are OK
+    - Should (for the most part) work correct
+  * Is this a feasible thing in the first few weeks?
+  * Based off of:
+    - [[https://github.com/openhwgroup/cva6][GitHub Repository]]
+    - [[https://github.com/ucb-bar/chipyard][Berkeley]]
+  * Work will be done from home exclusively
+
+* Presentation Slides
+  * 3-5 slides per person per week
+  * Keep them up-to-date
+  * What we have done
+  * What we still need to do
+  * Mention if we couldn't get something done due to conflicts
+
+* Progress Report
+  * 3-6 pages
+  * What we have already done
+  * What we expect to be able to finish in the last 4-5 weeks
+  * What will be required in the final report will be described at this time
+
+* Final Report
+  * 6-10 pages
+  * Overview of what we did (Background)
+  * What we have done
+  * Hint on what other people could be doing/following up with on this project
+  * Pretend that another group of peopple are picking this project up after you
+    - Give the other people an idea of what we did
+  * This can be thought of a tutorial
+  * Mention design decisions
+    - What libraries we chose
+    - Mention library "gotchas"
+
+* Week 01
+  * Get software side figured out
+  * Clone github software
+  * Build the software (Figure out the toolchains)
+  * Need to figure out technical platform aspects
+  * Read tutorial slides and know what's going on inside each platform
+    - Split the job a little bit
+    - What kinds of modules are available in ChipYard?
+      + Accelerators
+      + Processors
+      + Memory
+  * Ways to simulate the system?
+    - Software-only?
+    - Put on FPGA?
