@@ -70,7 +70,6 @@ citestyle=authoryear]{biblatex} % Must include citation somewhere in document to
 \newcommand{\rbxRegister}{\texttt{\%rbx}}
 
 %Stuff Alex added, might be redundent
-\usepackage{enumitem}
 \hypersetup{ 		% yes, I like colored links
     colorlinks=true,
     linkcolor=blue,
