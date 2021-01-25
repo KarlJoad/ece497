@@ -89,20 +89,15 @@
 \subsubsection{Simulation}\label{subsubsec:Simulation}
 \begin{frame}
   \frametitle{\nameref{subsubsec:Simulation}}
-  \begin{itemize}
-  \item Supports several simulation platforms, one of which is Verilator.
-    Verilator is an Open-Source platform for simulating RTL logic, maintained by \href{https://www.veripool.org/}{Veripool}
-  \item For advanced simulation, FireSim can be used to simulate fast FPGA boards to ensure pre-silicon verification and performance testing.
-    FireSim is intended to be used on AWS cloud instances, so funding would be required if we intend to use this simulator.
+  Supports several simulation platforms:
+  \begin{description}
+  \item[Verilator] An Open-Source platform for simulating RTL logic, maintained by \href{https://www.veripool.org/}{Veripool}.
+  \item[FireSim] Intended for advanced simulation and is to be used on AWS cloud instances.
     Provides comprehensive I/O simulation, including timing-accurate DRAM, Ethernet, etc.\ simulations.
-    I anticipate that the Xilinx Vivado suite should provide sufficient FPGA simulation for our needs.
-  \end{itemize}
-\end{frame}
-
-\subsubsection{Simulation}
-\begin{frame}
-  \frametitle{\nameref{subsubsec:Simulation}}
+    Funding would be required if we intend to use this simulator.
+  \end{description}
   \begin{itemize}
+  \item We anticipate that the Xilinx Vivado suite should provide sufficient FPGA simulation for our needs.
   \item Provides instructions for complete simulation using Verilator, including waveform generation. ECE Department Saturn Server provides tools that can be used to analyze waveforms (CosmoScope)
   \end{itemize}
 \end{frame}
