@@ -4,9 +4,6 @@
 \LoadClass[x11names]{beamer}
 \usetheme{default} % Default slide/frame theme
 \usecolortheme{seahorse} % Use the seahorse color variant of default theme
-
-
-
 \useoutertheme{default} % Use the default layout theme for frames/slides
 \setbeamertemplate{footline}[frame number] % Put "frame/totalframes" in footline
 \beamertemplatenavigationsymbolsempty{}
@@ -69,14 +66,14 @@ citestyle=authoryear]{biblatex} % Must include citation somewhere in document to
 \newcommand{\raxRegister}{\texttt{\%rax}}
 \newcommand{\rbxRegister}{\texttt{\%rbx}}
 
-%Stuff Alex added, might be redundent
+% Stuff Alex added, might be redundent
 \hypersetup{ 		% yes, I like colored links
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
 }
-%end Alex Stuff
+% end Alex Stuff
 
 %%% Local Variables:
 %%% mode: latex
