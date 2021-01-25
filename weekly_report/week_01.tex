@@ -14,7 +14,6 @@
   \titlepage{}
 \end{frame}
 
-\section{Existing Work}\label{sec:Existing Work}
 \section{Work We Did}\label{sec:Work_We_Did}
 \begin{frame}
   \frametitle{Software}
@@ -28,6 +27,26 @@
   \item Developed Beamer-derived \LaTeX{} document class for weekly slides.
   \item Read through several sections of ChipYard's documentation.
   \end{itemize}
+\end{frame}
+
+\section{Existing Work}\label{sec:Existing_Work}
+\subsection{\href{https://github.com/openhwgroup/cva6}{CORE-V CVA6}}\label{sec:CORE_V_CVA6}
+\begin{frame}
+  \frametitle{\nameref*{sec:CORE_V_CVA6}}
+  \begin{itemize}
+  \item Depends on verilator ($\geq$ 4.002, but not 4.106 or 4.108)
+  \item Can use \texttt{spike} to resolve instructions to mnemonics
+  \item Can run userland applications
+  \item Supports emulation of the \href{https://reference.digilentinc.com/reference/programmable-logic/genesys-2/reference-manual}{Genesys 2}
+    \begin{itemize}
+    \item Xilinx FPGA
+    \item Part Number XC7K325T-2FFG900C
+    \end{itemize}
+  \item Can flash to FPGA as well
+  \end{itemize}
+
+  Overall, this is a ``complete package'' for a single RISC-V CPU.\@
+  It has components and peripherals already designed and ready to be simulated/flashed to an FPGA.\@
 \end{frame}
 
 \subsection{ChipYard}\label{subsec:ChipYard}
