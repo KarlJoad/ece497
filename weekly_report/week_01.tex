@@ -70,6 +70,14 @@
 \subsubsection{Toolchain}\label{subsubsec:Toolchain} %leaving this for you, Karl. Let me know if you need input
 \begin{frame}
   \frametitle{\nameref{subsubsec:Toolchain}}
+  \begin{enumerate}
+  \item \href{https://github.com/riscv/riscv-tools}{\texttt{riscv-tools}}
+    \begin{itemize}
+    \item Includes compiler, assember, ISA simulator (\href{https://github.com/riscv/riscv-isa-sim}{\texttt{spike}}), Berkeley Boot Loader, and a proxy kernel.
+    \item Many of these have been upstreamed to Linux, GNU binutils, GNU coreutils, etc.
+    \item Included in ChipYard for consistency and usability.
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
 \subsubsection{Simulation}\label{subsubsec:Simulation}
