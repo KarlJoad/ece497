@@ -4,6 +4,19 @@
 \LoadClass[x11names]{beamer}
 \usetheme{default} % Default slide/frame theme
 \usecolortheme{seahorse} % Use the seahorse color variant of default theme
+
+%Stuff Alex added, might be redundent
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\hypersetup{ 		% yes, I like colored links
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+%end Alex Stuff
+
 \useoutertheme{default} % Use the default layout theme for frames/slides
 \setbeamertemplate{footline}[frame number] % Put "frame/totalframes" in footline
 \beamertemplatenavigationsymbolsempty{}

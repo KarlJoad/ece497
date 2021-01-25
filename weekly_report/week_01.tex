@@ -16,12 +16,48 @@
 \subsection{ChipYard}\label{subsec:ChipYard}
 \begin{frame}
   \frametitle{ChipYard}
+  \begin{description}
+  	\item[$\bullet$] A platform for designing, simulating, and implementing RISC-V hardware systems using open-source libraries 
+  	\item[$\bullet$] Supports three main RISC-V core designs: Rocket Core, BOOM (Berkeley Out-of-Order Machine), and CVA6 Core  
+  	\item[$\bullet$] It seems that the Rocket Core is the most uniformly supported (sifive-blocks library provides several system components intended to be used with the Rocket Core)
+  	\item[$\bullet$] It is important to note that FPGA prototyping is supported, and the specific FPGA board I already own is explicitly supported (\href{https://www.xilinx.com/products/boards-and-kits/arty.html}{Xilinx Arty 35T)}
+  \end{description}
+  
 \end{frame}
 
-\subsubsection{Toolchain}\label{subsubsec:Toolchain}
+\subsubsection{Toolchain}\label{subsubsec:Toolchain} %leaving this for you, Karl. Let me know if you need input
 \begin{frame}
   \frametitle{\nameref{subsubsec:Toolchain}}
 \end{frame}
+
+\subsubsection{Simulation}\label{subsubsec:Simulation}
+\begin{frame}
+  \frametitle{\nameref{subsubsec:Simulation}}
+  \begin{description}
+  	\item[$\bullet$] Supports several simulation platforms, one of which is Verilator. Verilator is an Open-Source platform for simulatng RTL logic, maintained by \href{https://www.veripool.org/}{Veripool}
+  	\item[$\bullet$] For advanced simulation, FireSim can be used to simulate fast FPGA boards to ensure pre-silicon verification and performance testing. FireSim is intended to be used on AWS cloud instances, so funding would be required if we intend to use this simulator. Provides comprehensive I/O simulation, including timing-accurate DRAM, Ethernet, etc. simulations. I anticipate that the Xilinx Vivado suite should provide sufficient FPGA simulation for our needs
+  \end{description}
+\end{frame}
+
+\subsubsection{Simulation}
+\begin{frame}
+	\frametitle{\nameref{subsubsec:Simulation}}
+	\begin{description}
+		\item[$\bullet$] Provides instructions for complete simulation using Verilator, including waveform generation. ECE Department Saturn Server provides tools that can be used to analyze waveforms (CosmoScope)
+		\item[$\bullet$] 
+	\end{description}
+\end{frame}
+
+
+\subsubsection{RTL Generators}\label{subsubsec:RTL Generators}
+\begin{frame}
+	\frametitle{\nameref{subsubsec:RTL Generators}}
+	\begin{description}
+		\item[$\bullet$] 
+		\item[$\bullet$] 
+	\end{description}
+\end{frame}
+
 
 \subsubsection{Documentation}\label{subsubsec:Doc}
 \begin{frame}
