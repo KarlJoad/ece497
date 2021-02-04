@@ -51,7 +51,25 @@
   \item To get waveform outputs, run \texttt{make debug} when generating the simulated chip binary.
   \end{itemize}
 \end{frame}
+\begin{frame}
+	\frametitle{\nameref*{sec:What_We_Learned} (cont.)}
+	\begin{itemize}
+		\item The Chipyard built-in tests for simulations are sufficient to ensure complete RISC-V compliance of a custom SoC.
+		\item Testing the entire ISA takes a significant amount of time, should only be completed when finalizing custom design, before FPGA implementation.
+		\item There are many simulator options available. Significant options include "VERILATOR\_THREADS", "make verilog", "make run-binary-debug"
+		\item Using "make verilog" to generate the design completely in verilog, the default design should be able to be synthesized on the FPGA board
+		
+	\end{itemize}
 
+\end{frame}
+\begin{frame}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{"verilator options"}
+		\caption{Chipyard Simulator Options and Flags}
+		\label{fig:verilator-options}
+	\end{figure}
+\end{frame}
 \section{Next Steps}\label{sec:Next_Steps}
 \begin{frame}
   \frametitle{\nameref*{sec:Next_Steps}}
