@@ -33,6 +33,25 @@
   \end{itemize}
 \end{frame}
 
+\section{What We Learned}\label{sec:What_We_Learned}
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Learned}}
+  \begin{itemize}
+  \item \emph{Simulated} chip designs operate at O(\SI{1}{\kilo\hertz}).
+    \begin{itemize}
+    \item According to the documentation, these are significantly easier to debug.
+    \end{itemize}
+  \item \emph{FPGA-accelerated} chip designs operate at O(\SI{100}{\mega\hertz}).
+    \begin{itemize}
+    \item These are also significantly more difficult to debug.
+    \item This speed is reached only when using FireSim (AWS).
+    \item We believe this implies we can write out the Verilog to Alex's FPGA and test there, albeit more slowly.
+    \end{itemize}
+  \item \texttt{make run-asm-tests} runs all the instructions in the CPU design, ensuring ISA compliance.
+  \item To get waveform outputs, run \texttt{make debug} when generating the simulated chip binary.
+  \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{References}
   \printbibliography[heading=bibintoc]{}
