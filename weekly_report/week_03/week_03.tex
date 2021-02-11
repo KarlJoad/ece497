@@ -1,0 +1,64 @@
+\documentclass{../weeklyslides}
+
+\addbibresource{../../References.bib}
+
+\title[Weekly Report]{ECE 497: Special Project \\ Weekly Report}
+\subtitle{Week 03}
+\author{Alexander Lukens \and Karl Hallsby}
+\institute{Illinois Institute of Technology}
+\date{\DTMdisplaydate{2021}{2}{11}{-1}}
+
+\begin{document}
+
+\nocite{chipyard}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\section{What We Did}\label{sec:What_We_Did}
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Did}}
+  \begin{itemize}
+  \item Attempted to flash default chip to Alex's FPGA.\@
+  \item Generate a non-default chip
+  \item Run the \texttt{asm} tests on the non-default chip
+  \item Went spelunking through the repository to find options, their definitions, and their overrides.
+  \end{itemize}
+\end{frame}
+
+\section{What We Learned}\label{sec:What_We_Learned}
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Learned}}
+  \begin{itemize}
+  \item The repository is incredibly complicated
+  \item \textbf{VERY} deep directory nesting (Partly due to Scala/Java project directory conventions).
+  \item Putting the generated chip on an FPGA seems to be much more difficult than originally thought.
+  \item Generating a non-default chip can be very easy or very hard.
+    \begin{itemize}
+    \item Some of the options that must be overriden to ensure a different chip is built and simulated/benchmarked are not easy to understand or find.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Next Steps}\label{sec:Next_Steps}
+\begin{frame}
+  \frametitle{\nameref*{sec:Next_Steps}}
+  \begin{itemize}
+  \item Continue trying to write the default chip out to Alex's FPGA and test.
+  \item Practice generating other non-default chips to understand all the options used when generating a new chip.
+  \item Hopefully, start defining a new, custom, chip using what we know, and building a \emph{very} small proof-of-concept.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  \printbibliography[heading=bibintoc]{}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
