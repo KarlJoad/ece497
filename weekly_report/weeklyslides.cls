@@ -41,6 +41,10 @@ citestyle=authoryear]{biblatex} % Must include citation somewhere in document to
 \RequirePackage[linesnumbered,ruled,vlined]{algorithm2e} % Allows us to write algorithms in a nice style.
 \RequirePackage{nth} % Programmtically give ordinal numbers.
 
+% Programmatically give dates in documents.
+\RequirePackage[useregional]{datetime2}
+\selectlanguage{USenglish}
+
 \counterwithin{figure}{section}
 \counterwithin{table}{section}
 \counterwithin{equation}{section}
