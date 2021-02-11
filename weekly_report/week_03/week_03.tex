@@ -21,37 +21,42 @@
   \frametitle{\nameref*{sec:What_We_Did}}
   \begin{itemize}
   \item Attempted to flash default chip to Alex's FPGA.\@
+  \item Successfully passed USB connection to FPGA through to VirtualBox VM, interfaced with FPGA in Vivado
+  \item Conducted ``Hello World'' project on FPGA to ensure that bitstream was being sent to FPGA correctly.
+  \item Used FPGA Prototyping Flow in Chipyard to generate a bitstream for the Arty FPGA board.
+    Strangely, the default ``example'' project for the Arty did not pass all timing constraints.
+    \begin{itemize}
+    \item Will require additional investigation
+    \end{itemize}
+  \item When creating bitstream in Chipyard, Vivado runs several tests on the design and produces detailed reports in a Chipyard folder.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Synthesized_block_diagram}
+    \caption{Block Diagram for Example FPGA Design}
+    \label{fig:synthesizedblockdiagram}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Report_Overview}
+    \caption{Utilization Report Overview}
+    \label{fig:reportoverview}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Did}}
+  \begin{itemize}
   \item Generate a non-default chip
   \item Run the \texttt{asm} tests on the non-default chip
   \item Went spelunking through the repository to find options, their definitions, and their overrides.
   \end{itemize}
-\end{frame}
-\begin{frame}
-	\frametitle{\nameref*{sec:What_We_Did}}
-	\begin{itemize}
-		\item Successfully passed USB connection to FPGA through to VirtualBox VM, interfaced with FPGA in Vivado
-		\item Conducted "Hello World" project on FPGA to ensure that bitstream was being sent to FPGA correctly.
-		\item Used FPGA Prototyping Flow in Chipyard to generate a bitstream for the Arty FPGA board. Strangely, the default "example" project for the Arty did not pass all timing constraints. Will require investigation
-		\item When creating bitstream in Chipyard, Vivado runs several tests on the design and produces detailed reports in a Chipyard folder.
-	\end{itemize}
-\end{frame}
-\begin{frame}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{Synthesized_block_diagram}
-		\caption{Block Diagram for Example FPGA Design}
-		\label{fig:synthesizedblockdiagram}
-	\end{figure}
-
-\end{frame}
-\begin{frame}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{Report_Overview}
-		\caption{Utilization Report Overview}
-		\label{fig:reportoverview}
-	\end{figure}
-
 \end{frame}
 
 \section{What We Learned}\label{sec:What_We_Learned}
@@ -67,7 +72,6 @@
     \end{itemize}
   \end{itemize}
 \end{frame}
-
 
 \section{Next Steps}\label{sec:Next_Steps}
 \begin{frame}
