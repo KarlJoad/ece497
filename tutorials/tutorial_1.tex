@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[margin=1.0in]{geometry}
+\usepackage{authblk}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+\begin{document}
+	\begin{titlepage}
+		\vspace{1in}
+		\title{Chipyard SoC Design Framework: Preparation}
+		\author{Alexander Lukens | A20417036}
+		\date{\today}
+		\affil{Illinois Institute of Technology}
+	\end{titlepage}
+	\maketitle
+	\vspace*{\fill}
+	\begin{center}
+	Acknowledgement: I acknowledge all of the work (including figures and codes) belongs to me and/or persons who are referenced.
+	
+	
+	Signature: \textit{\underline{Alexander Lukens}}
+\end{center} 
+	\newpage
+	\section{Introduction}
+	This document is intended to serve as a record of the work performed for the ECE 497 special project supervised by Professor Jia Wang during the Spring 2021 semester. In this document, I will specify how our project repository was created, outline issues we ran into, and provide guidance on how to better setup the Chipyard Framework.
+	
+	\section{Setup}
+	\subsection{Obtaining Dependencies}
+	\subsubsection{Project Environment}
+	The first obstacle in utilizing the Chipyard Framework is creating a project environment and obtaining all of the Chipyard dependencies.	In my case, I decided to use Ubuntu 20.04 LTS running in a Virtualbox virtual machine with 4 cores, 8GB of ram, and a 250GB disk image. Much of this space will be utilized, as the entire RISC-V toolchain and Xilinx Vivado suite require a large amount of disk space.
+	
+	\subsubsection{Chipyard Dependencies}
+	To gather the Chipyard dependencies, I followed the \hyperref{https://chipyard.readthedocs.io/en/latest/}{}{}{Chipyard} documentation closely. Specifically, the documentation section 1.4 outlines how to prepare the Chipyard framework for use under Ubuntu. At this point (and before cloning the repositories) you should create a specific project folder somewhere on your Desktop where all of the Chipyard files will live.
+	
+	To alleviate any issues that may occur due to misconfigured environment variables, it is a smart idea to add the line "source /*path-to-chipyard*/env.sh" to your .bashrc file in your home directory. After adding this to your .bashrc file, reboot and continue.
+	
+	\subsubsection{Xilinx Vivado Suite Installation}
+	The \hyperref{https://www.xilinx.com/support/download.html}{}{}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted. In my case, I downloaded the "offline installation" version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster. When conducting the installation, be sure to select "Vitis" instead of just selecting "Vivado". Installing Vitis will install the complete Xilinx package, including Vivado, and is useful for implementing FPGA projects.
+	
+	
+	
+	
+\end{document}
