@@ -1,0 +1,63 @@
+\documentclass{../weeklyslides}
+
+\addbibresource{../../References.bib}
+
+\title[Weekly Report]{ECE 497: Special Project \\ Weekly Report}
+\subtitle{Week 05}
+\author{Alexander Lukens \and Karl Hallsby}
+\institute{Illinois Institute of Technology}
+\date{\DTMdisplaydate{2021}{2}{25}{-1}}
+
+\begin{document}
+
+\nocite{chipyard}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\section{What We Did}\label{sec:What_We_Did}
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Did}}
+  \begin{itemize}
+  	\item Spent lots of time digging through the repository trying to determine how to run a program on the SPI flash on FPGA
+  	\item Turns out, base Arty FPGA implementation does not support the SPI flash function. Was creating "SimSPI" flash that is used only for verilator (not synthesizable) Expected to use only ROM \& run tethered to the simulator
+  	\item Sifive has a repository that generated an FPGA image for the Arty with SPI flash support
+  \end{itemize}
+  
+\end{frame}
+
+\section{What We Learned}\label{sec:What_We_Learned}
+\begin{frame}
+  \frametitle{\nameref*{sec:What_We_Learned}}
+  \begin{itemize}
+  	\item Was able to connect to FPGA using OpenOCD debugging tool \& USB debugger
+  	\item Uploaded generated bitstream to FPGA, but still couldn't utilize SPI flash
+  	\item At this point, tried to retrofit the SiFive implementation into the Chipyard Repository so I can customize using Chipyard components
+  	\item Largely Unsuccessful. SiFive requires depricated scala classes that have been removed from the Chipyard Repository.
+  \end{itemize}
+  
+  \end{frame}
+
+\section{Next Steps}\label{sec:Next_Steps}
+\begin{frame}
+  \frametitle{\nameref*{sec:Next_Steps}}
+  	\begin{itemize}
+  		\item I believe the next step is to start learning Scala so that I can better understand how to create a class specifically for our needs
+  		\item A base "ArtyShell" class is provided that gives the correct pinouts for the Arty board, but it is unclear to me how SiFive utilized this when generating an FPGA image
+  		\item Almost ready to give in, have spent approx. 20 hours across the past week on tinkering with the FPGA board
+  	\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  Not Applicable this week
+  \printbibliography[heading=bibintoc]{}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
