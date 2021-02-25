@@ -41,6 +41,19 @@
 	The \hyperref{https://www.xilinx.com/support/download.html}{}{}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted. In my case, I downloaded the "offline installation" version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster. When conducting the installation, be sure to select "Vitis" instead of just selecting "Vivado". Installing Vitis will install the complete Xilinx package, including Vivado, and is useful for implementing FPGA projects.
 	
 	
+	\section{Repository Deep Dive}
+	\subsection{Verilator Simulator}
+	\subsubsection{About}
+	The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations the directory for verilator is \mintinline{bash}{/path/to/chipyard/sims/verilator}. A base/example simulation can be run by using \mintinline{bash}{make} in the verilator directory. Custom Chipyard configs can be simulated by running \mintinline{bash}{make CONFIG=*your custom config*}. Running the make command produces a simulator executable in the verilator directory. For example, if your project name was "TestConfig", running \mintinline{bash}{make CONFIG=TestConfig} would create an executable called simulator-chipyard-TestConfig in the verilator directory. Custom RISCV code can be run by using the command \mintinline{bash}{./simulator-chipyard-TestConfig /path/to/riscv/executable}. 
+	\subsubsection{Custom Configurations}Custom Configs can be created in the directory \mintinline{bash}{/path/to/chipyard/generators/chipyard/src/main/scala/config/}. For example, I created a new scala file called "NewTestConfig.scala" in the directory, allowing me to create a simulator from a class inside the NewTestConfig.scala file. Example Configs can be found in the RocketConfigs.scala file in the same directory.
 	
+	
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{NewTestConfig}
+	\caption[]{NewTestConfig.scala}
+	\label{fig:newtestconfig}
+\end{figure}
 	
 \end{document}
