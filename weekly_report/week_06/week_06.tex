@@ -6,7 +6,7 @@
 \subtitle{Week 06}
 \author{Alexander Lukens \and Karl Hallsby}
 \institute{Illinois Institute of Technology}
-\date{\DTMdisplaydate{2021}{3}{3}{-1}}
+\date{\DTMdisplaydate{2021}{3}{4}{-1}}
 
 \begin{document}
 
@@ -20,37 +20,36 @@
 \begin{frame}
   \frametitle{\nameref*{sec:What_We_Did}}
   \begin{itemize}
- 	\item Alex spent lots of time going over Scala tutorials and reference material
- 	\item Successfully used Scala (and chipyard objects) to connect a switch on the FPGA with an LED on the FPGA
- 	\item Karl built and ran a simple FPGA image using Xilinx Vivado (catching up to Alex with FPGA)
+  \item Alex spent lots of time going over Scala tutorials and reference material
+  \item Successfully used Scala (and chipyard objects) to connect a switch on the FPGA with an LED
+  \item Karl built and ran a simple FPGA image using Xilinx Vivado (catching up to Alex with FPGA)
   \end{itemize}
-  
 \end{frame}
 
 \section{What We Learned}\label{sec:What_We_Learned}
 \begin{frame}
   \frametitle{\nameref*{sec:What_We_Learned}}
   \begin{itemize}
-  	\item Getting an FPGA to communicate over UART is \emph{very} difficult. Will reach out to Chipyard maintainers to inquire about Arty \& UART communications.
-  	\item The design seems to be failing Design Rule Checking (DRC) in our version of Vivado?
-  	
+  \item Getting an FPGA to communicate over UART is \emph{very} difficult.
+    \begin{itemize}
+    \item Reached out to Chipyard maintainers to inquire about Arty \& UART communications.
+    \end{itemize}
+  \item The design seems to be failing Design Rule Checking (DRC) in our version of Vivado?
   \end{itemize}
-  
-  \end{frame}
+\end{frame}
 
 \section{Next Steps}\label{sec:Next_Steps}
 \begin{frame}
   \frametitle{\nameref*{sec:Next_Steps}}
-  	\begin{itemize}
-  		\item one
-  		\item two
-
-  	\end{itemize}
+  \begin{itemize}
+  \item Work with core maintainer(s) to debug UART problems
+  \item Karl program SPI flash with MCS image that has been causing Alex problems
+  \item Karl continue working on Scala and getting custom project to build
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{References}
-  Not Applicable this week
   \printbibliography[heading=bibintoc]{}
 \end{frame}
 
