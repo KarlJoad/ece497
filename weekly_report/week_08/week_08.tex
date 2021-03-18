@@ -1,0 +1,58 @@
+\documentclass{../weeklyslides}
+
+\addbibresource{../../References.bib}
+
+\title[Weekly Report]{ECE 497: Special Project \\ Weekly Report}
+\subtitle{Week 07}
+\author{Alexander Lukens \and Karl Hallsby}
+\institute{Illinois Institute of Technology}
+\date{\DTMdisplaydate{2021}{3}{17}{-1}}
+
+\begin{document}
+
+\nocite{chipyard}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\section{What We Did}
+\begin{frame}
+	\frametitle{What We Did}
+	\begin{itemize}
+		\item Olimex JTAG debugger came in, works correctly
+		\item We can now finally upload C code to the FPGA and run it successfully
+		\item At the moment, we are using the "Sifive Freedom E300" configuration (built on a previous version of Chipyard)
+	\end{itemize}
+\end{frame}
+
+\section{What We Learned}\label{sec:What_We_Learned}
+\begin{frame}
+	\frametitle{What We Learned}
+	\begin{itemize}
+		\item Chipyard Arty functionality is actively being worked on.
+		\item Don't trust documentation, it is not always correct. (Sifive documents provide wrong UART speed, caused issues with UART communications)
+	\end{itemize}
+\end{frame}
+
+\section{Next Steps}\label{sec:Next_Steps}
+\begin{frame}
+	\frametitle{Next Steps}
+	\begin{itemize}
+		\item Prepare full documentation of what we have learned so far.
+		\item Identify reasonable goals in preparation for ECE Research Day.
+		\item Read other Verilog simulators to have a better grasp of ChipYard's.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{References}
+	\printbibliography[heading=bibintoc]{}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
