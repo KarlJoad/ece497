@@ -11,7 +11,7 @@ In my case, I decided to use Ubuntu 20.04 LTS running in a Virtualbox virtual ma
 Much of this space will be utilized, as the entire RISC-V toolchain and Xilinx Vivado suite require a large amount of disk space.
 
 \subsection{Chipyard Dependencies}
-To gather the Chipyard dependencies, I followed the \hyperref{https://chipyard.readthedocs.io/en/latest/}{}{}{Chipyard} documentation closely.
+To gather the Chipyard dependencies, I followed the \href{https://chipyard.readthedocs.io/en/latest/}{Chipyard} documentation closely.
 Specifically, the documentation section 1.4 outlines how to prepare the Chipyard framework for use under Ubuntu.
 At this point (and before cloning the repositories) you should create a specific project folder somewhere in your home directory where all of the Chipyard files will live.
 
@@ -19,19 +19,19 @@ To alleviate any issues that may occur due to misconfigured environment variable
 After adding this to your \texttt{.bashrc} file, reboot and continue.
 
 \subsection{Xilinx Vivado Suite Installation}
-The \hyperref{https://www.xilinx.com/support/download.html}{}{}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
+The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
 In my case, I downloaded the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster.
 When conducting the installation, be sure to select ``Vitis'' instead of just selecting ``Vivado''.
 Installing Vitis will install the complete Xilinx package, including Vivado, and is useful for implementing FPGA projects.
 
 \section{Other Useful Projects}
 \subsection{Freedom E SDK}
-\hyperref{https://github.com/sifive/freedom-e-sdk}{}{}{This repository} is maintained by SiFive, and provides several useful tools for designing, uploading, and debugging software to FPGA devices.
+\hyperref{https://github.com/sifive/freedom-e-sdk}{This repository} is maintained by SiFive, and provides several useful tools for designing, uploading, and debugging software to FPGA devices.
 This repository is specifically meant for use with SiFive IP, but can still be utilized for Chipyard projects with some modification.
 
 \subsection{Freedom Tools}
-\hyperref{https://github.com/sifive/freedom-tools}{}{}{This repository} is maintained by SiFive, and is used to generate several tools that will be used during this project, such as the GCC cross-compiler for RISC-V (and many extension sets of RISC-V), OpenOCD, which assists users in debugging their FPGA designs, RISC-V QEMU, and other useful software.
-These tools take a considerable amount of time and disk space to compile so it is best to run the make command with \mintinline{bash}{-j`nproc`} to parallelize compiling
+\hyperref{https://github.com/sifive/freedom-tools}{This repository} is maintained by SiFive, and is used to generate several tools that will be used during this project, such as the GCC cross-compiler for RISC-V (and many extension sets of RISC-V), OpenOCD, which assists users in debugging their FPGA designs, RISC-V QEMU, and other useful software.
+These tools take a considerable amount of time and disk space to compile so it is best to run the \texttt{make} command as \mintinline{bash}{make -j`nproc`} to parallelize compiling.
 
 %%% Local Variables:
 %%% mode: latex
