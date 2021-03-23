@@ -6,6 +6,41 @@
 \usepackage{hyperref}
 
 \usepackage[binary-units=true]{siunitx}
+
+\usepackage[utf8]{inputenc} % Define the input encoding
+\usepackage[T1]{fontenc}
+\usepackage[USenglish]{babel} % Define language used
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{amsthm} % Gives us plain, definition, and remark to use in \theoremstyle{style}
+\usepackage{mathtools} % Allow for text and math in align* environment.
+\usepackage{thmtools}
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=authoryear]{biblatex} % Must include citation somewhere in document to print bibliography
+\usepackage{hyperref} % Generate hyperlinks to referenced items
+\usepackage[noabbrev,nameinlink]{cleveref} % Fancy cross-references in the document everywhere
+\usepackage{nameref} % Can make references by name to places
+\usepackage{caption} % Allows for greater control over captions in figure, algorithm, table, etc. environments
+\usepackage{subcaption} % Allows for multiple figures in one Figure environment
+\usepackage[binary-units=true]{siunitx} % Gives us ways to typeset units for stuff
+\usepackage{csquotes} % Context-sensitive quotation facilities
+\usepackage{chngcntr} % Allows us to tamper with the counter a little more
+\usepackage{empheq} % Allow boxing of equations in special math environments
+\usepackage{xcolor} % Gives access to coloring text in environments or just text, MUST be before tikz
+
+% Programmatically give dates in documents.
+\usepackage[useregional]{datetime2}
+% \selectlanguage{english}
+
+% Color hyperlinks differently
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,
+  urlcolor=cyan,
+}
+
 \usepackage{minted}
 
 \newcommand{\file}[1]{\texttt{#1}}
