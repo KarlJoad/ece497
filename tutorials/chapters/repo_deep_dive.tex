@@ -1,6 +1,13 @@
 \chapter{Repository Deep Dive}\label{chap:Repository_Deep_Dive}
 In this section, we lightly discuss each of the subdirectories present within the root of Chipyard, take note of any particularly important files, and demonstrate how this entire system is put together.
 
+\section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
+Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
+Variables and/or values that are more shared between different ways of building systems are higher in the directory structure.
+
+Thus, some of the most overarching commands and variables for this project are defined in \file{chipyard/variables.mk}.
+One of the first things defined within this file are numerous output messages.
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
