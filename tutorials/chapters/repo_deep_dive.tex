@@ -69,11 +69,32 @@ Custom Chipyard configs can be simulated by running \mintinline{bash}{make CONFI
 For example, if your project name was ``TestConfig'', running \mintinline{bash}{make CONFIG=TestConfig} would create an executable called \file{simulator-chipyard-TestConfig} in the \file{verilator} directory.
 Custom RISCV code can be run by using the command \mintinline{bash}{./simulator-chipyard-TestConfig /path/to/riscv/executable} from the \file{chipyard/sims/verilator} directory.
 
-\subsection{Generators}\label{sec:Generators}
-\subsubsection{Chipyard Generator}\label{sec:Chipyard_Generator}
-\subsubsection{SHA3 Accelerators}\label{sec:SHA3_Accelerators_Generator}
+\section{Generators}\label{sec:Generators}
+In this section, we look at each of the subdirectories inside the \file{chipyard/generators} subdirectory in turn.
+Each of the CPU generators presented below are each slightly unique in their implementation of the open RISC-V ISA.\@
 
-\subsection{Custom Configurations}\label{sec:Custom_Configurations}
+\subsubsection{BOOM}\label{sec:BOOM_Generator}
+BOOM~(Berkeley Out-of-Order Machine) is a CPU defined and built by Univerity of California at Berkeley that implements the RISC-V Instruction Set Architecture (ISA).
+Its claim to fame is that it can execute RISC-V instructions out-of-order, thereby drastically improving performance.
+
+These CPU definitions are used by \nameref{sec:Chipyard_Generator} when elaborating CPU designs defined by the end-programmer.
+
+\subsubsection{Chipyard}\label{sec:Chipyard_Generator}
+This is the main source of truth inside this repository.
+Here is where all of the code required to get these disparate CPUs to work and build together is located.
+
+\subsubsection{cva6}\label{sec:cva6_Generator}
+\subsubsection{Gemmini}\label{sec:Gemmini_Generator}
+\subsubsection{Hwacha}\label{sec:Hwacha}
+\subsubsection{Icenet}\label{sec:Icenet_Generator}
+\subsubsection{NVDLA}\label{sec:NVDLA_Generator}
+\subsubsection{RISC-V Sodor}\label{sec:RISC-V_Sodor}
+\subsubsection{Rocket-Chip}\label{sec:Rocket_Chip}
+\subsubsection{SHA3}\label{sec:SHA3_Accelerators_Generator}
+\subsubsection{SiFive Blocks}\label{sec:SiFive_Blocks}
+\subsubsection{SiFive Cache}\label{sec:SiFive_Cache}
+\subsubsection{\file{testchipip}}\label{sec:testchipip}
+
 Custom Configs can be created in the directory \mintinline{bash}{chipyard/generators/chipyard/src/main/scala/config/}.
 For example, I created a new scala file called \file{NewTestConfig.scala} in the directory, allowing me to create a simulator from a class inside the NewTestConfig.scala file.
 Example Configs can be found in  \file{RocketConfigs.scala} in the same directory.
