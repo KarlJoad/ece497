@@ -17,6 +17,9 @@
 
 \RequirePackage{graphicx}
 
+% Will require compilation using the -shell-escape flag
+\RequirePackage{minted}
+
 \RequirePackage[
 backend=biber,
 style=alphabetic,
