@@ -1,10 +1,13 @@
-The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations the directory for verilator is \mintinline{bash}{/path/to/chipyard/sims/verilator}.
-A base/example simulation can be run by using \mintinline{bash}{make} in the verilator directory.
-Custom Chipyard configs can be simulated by running \mintinline{bash}{make CONFIG=*your custom config*}.
-Running the make command produces a simulator executable in the verilator directory.
 \chapter{Repository Deep Dive}\label{chap:Repository_Deep_Dive}
 \section{Verilator Simulator}\label{sec:Verilator_Simulator}
 \subsection{About}\label{sec:About_Verilator_Simulator}
+The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
+The directory for verilator is \file{chipyard/sims/verilator}.
+An example simulation can be run by using \mintinline{bash}{make} in the verilator directory.
+Running the \texttt{make} command produces a simulator executable in the verilator directory.
+
+Custom Chipyard configs can be simulated by running \mintinline{bash}{make CONFIG=<your custom config>}.
+
 For example, if your project name was ``TestConfig'', running \mintinline{bash}{make CONFIG=TestConfig} would create an executable called simulator-chipyard-TestConfig in the verilator directory.
 Custom RISCV code can be run by using the command \mintinline{bash}{./simulator-chipyard-TestConfig /path/to/riscv/executable}.
 
