@@ -1,0 +1,88 @@
+\documentclass{../weeklyslides}
+
+\addbibresource{../../References.bib}
+
+\title[Weekly Report]{ECE 497: Special Project \\ Weekly Report}
+\subtitle{Week 09}
+\author{Alexander Lukens \and Karl Hallsby}
+\institute{Illinois Institute of Technology}
+\date{\DTMdisplaydate{2021}{3}{25}{-1}}
+
+\begin{document}
+
+\nocite{chipyard}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\section{What We Did}
+\begin{frame}
+  \frametitle{What We Did}
+  \begin{itemize}
+	\item Successfully implemented Chipyard design with ability to output over UART
+	\item Was solved by combination of Chipyard dev doing work on a branch \& us solving an issue with the general FPGA implementation
+	\item Error in the previous Uart "HarnessBinder" that attached the UART interface to the FPGA. Found by inspection
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What We Did}
+  \begin{itemize}
+	\item Solved erroneous UART characters \& glitches. Use command from Freedom-e-sdk: \mintinline{bash}{metal_tty_putc()} to output char[] to serial interface
+	
+	\item Made simple monitor program to receive user input. Working on parsing commands in C
+	
+	\item Reformatted documentation tex file to improve reading \& writing abilities. Writing source files now simpler, reading output pdf simpler. Useful for final report, documentation, and ECE day presentation
+	
+	\item Elaborated on the setup process in our documentation with specific step-by-step instructions.
+  \end{itemize}
+\end{frame}
+\section{Demo}\label{sec:Demo}
+\begin{frame}
+	\frametitle{Demo}
+	\begin{itemize}
+		\item Bitstream upload to FPGA
+		\item Flash C Program to FPGA memory
+		\item Monitor program in serial terminal
+	\end{itemize}
+	
+\end{frame}
+
+\section{What We Learned}\label{sec:What_We_Learned}
+\begin{frame}
+  \frametitle{What We Learned}
+  \begin{itemize}
+  	\item There were several issues preventing UART communication on the FPGA. Improper implementation
+  	\item Freedom-e-sdk does not instantiate GPIO correctly $\rightarrow$ need to manually edit GPIO to make buttons/switches/leds work in our C code.
+  	\item Writing comprehensive documentation is time consuming
+  \end{itemize}
+\end{frame}
+
+\section{Next Steps}\label{sec:Next_Steps}
+\begin{frame}
+  \frametitle{Next Steps}
+  \begin{itemize}
+  \item Prepare full documentation of what we have learned so far.
+    \begin{itemize}
+    \item Debugger $\rightarrow$ Setup, Upload, Tethered debug
+    \item Chipyard and its build process $\rightarrow$ setup, examples, supplementatal projects
+    \item Software used
+    \item Monitor Program for FPGA. Functionality to include memory examination, execute program at specific address, IO tests
+    \end{itemize}
+  \item Make recorded presentation for ECE Research Day
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  
+  \printbibliography[heading=bibintoc]{}
+\end{frame}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
