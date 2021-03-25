@@ -66,10 +66,11 @@ These include SiFive's CPU designs, the BOOM CPU design, rocket-chip, and severa
 \label{lst:Fetch_Chipyard_and_Submodules}
 \end{listing}
 
+\subsubsection{Building a Toolchain}\label{sec:Building_Toolchain}
+To compile programs from C to RISC-V instructions, there are several tools you need, when grouped together is called a toolchain.
+Your cloned Chipyard repository contains a script to install these.
+You can run the script to build a good general-purpose toolchain using \bashinline{./scripts/build-toolchains.sh riscv-tools} while inside your local copy of the cloned Chipyard repository.
 
-\section{Other Useful Projects}
-\subsection{Freedom E SDK}
-\hyperref{https://github.com/sifive/freedom-e-sdk}{This repository} is maintained by SiFive, and provides several useful tools for designing, uploading, and debugging software to FPGA devices.
 This repository is specifically meant for use with SiFive IP, but can still be utilized for Chipyard projects with some modification.
 
 \subsection{Freedom Tools}
