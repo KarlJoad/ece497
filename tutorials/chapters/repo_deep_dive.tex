@@ -8,6 +8,13 @@ Variables and/or values that are more shared between different ways of building 
 Thus, some of the most overarching commands and variables for this project are defined in \file{chipyard/variables.mk}.
 One of the first things defined within this file are numerous output messages.
 
+\subsection{\texttt{SUB\_PROJECT}}\label{subsec:Makefile_SUB_PROJECT}
+The first notable part of the \file{variables.mk} file is the \texttt{SUB\_PROJECT} defaulting variable.
+This particular variable is what allows for easy re-configuration of the entire framework to support elaborating your own CPU designs.
+By changing this file between one of the well-defined options, one can easily re-use major portions of Chipyard's architecture.
+
+For example, to switch from a CPU deifned by Chipyard to one that is uses the Hwacha accelerator, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necesssary configuration variables are changed.
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
