@@ -22,6 +22,28 @@ These subproject defining blocks each define multiple higher-level variables whi
 Each of the variables is important, and Chipyard provided documentation for each variable inside \file{variables.mk}.
 However, additional information that we gathered through trial-and-error is presented below.
 
+\begin{description}
+\item[\texttt{SUB\_PROJECT}] This corresponds to one of the projects in the \file{chipyard/generators} directory.
+  More formally, it is defined by one of the entries in the \file{build.sbt} files in the respective generators directory, and by the main \file{build.sbt} file in the root of Chipyard.
+\item[\texttt{SBT\_PROJECT}] This corresponds to a top-level of the repository of the chip to build.
+  This is where many of the higher-level constructs, such as the test harness and test bench are defined from.
+\item[\texttt{MODEL}] The model is the top-level module of the project that should be used by Chisel.
+  Normally, this should be defined to the be same as the test harness, but does not necessarily have to be.
+\item[\texttt{VLOG\_MODEL}] This is the top-level module of the project that should be used by FIRRTL/Verilog.
+  Like \texttt{MODEL}, this is usually the same as the test harness, but does not necessarily need to be.
+\item[\texttt{MODEL\_PACKAGE}] This is the Scala package that is used to find the overall model of the CPU.\@
+  This should correspond to the \mintinline{scala}{package <packageName>} in a Scala CPU configuration file.
+\item[\texttt{CONFIG}] This defines the parameters that should be used for the project.
+  Typically, this is used to select one of the CPU configurations defined in the \texttt{SBT\_PROJECT}.
+\item[\texttt{CONFIG\_PACKAGE}] This is the Scala package that defines the \texttt{Config} class.
+  This file \textbf{MUST} contain the class definition for \texttt{Config}, meaning \mintinline{scala}{object Config} must be present.
+\item[\texttt{GENERATOR\_PACKAGE}] This is the Scala package that defines the \texttt{Generator} class.
+  This file \textbf{MUST} contain the class definition for \texttt{Generator}, meaning \mintinline{scala}{object Generator} must be present.
+\item[\texttt{TB}] This defines the test bench wrapper that extends over the test harness to allow for simulation in a Verilog simulator.
+\item[\texttt{TOP}] This is the top-level module of the project.
+  Typically, this is the module instantiated by the test harness.
+\end{description}
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
