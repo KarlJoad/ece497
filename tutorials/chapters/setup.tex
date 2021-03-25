@@ -41,6 +41,18 @@ Note that this does \textbf{not} work for installing the dependencies for Linux 
 \label{lst:Ubuntu_Chipyard_Deps_Setup}
 \end{listing}
 
+\subsubsection{Build Verilator from Source}\label{sec:Build_Verilator_from_Source}
+Chipyard's documentation recommends building \href{https://www.veripool.org/wiki/verilator}{Verilator} (an open-source (System)Verilog simulator and compiler) from source.
+
+A small script has been provided that handles this for you in \Cref{lst:Build_Verilator_from_Source}.
+Note that this does \textbf{not} work for installing the dependencies required to build Verilator for Linux distributions that do not use the \texttt{apt} package manager.
+
+\begin{listing}[h!tbp]
+\bashsourcefile{./code/build-verilator.sh}
+\caption{Building Verilator from Source}
+\label{lst:Build_Verilator_from_Source}
+\end{listing}
+
 The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
 In my case, I downloaded the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster.
 When conducting the installation, be sure to select ``Vitis'' instead of just selecting ``Vivado''.
