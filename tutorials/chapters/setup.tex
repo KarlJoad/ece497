@@ -71,6 +71,17 @@ To compile programs from C to RISC-V instructions, there are several tools you n
 Your cloned Chipyard repository contains a script to install these.
 You can run the script to build a good general-purpose toolchain using \bashinline{./scripts/build-toolchains.sh riscv-tools} while inside your local copy of the cloned Chipyard repository.
 
+\subsubsection{Environment Variables}\label{sec:Environment_Variables}
+Once the toolchain is built, an environment-setup script is emitted to the root of your local copy of Chipyard, with the name \file{env.sh}.
+This file is a bash script that changes your \texttt{PATH}, \texttt{RISCV}, and \texttt{LD\_LIBRARY\_PATH} environment variables so that Chipyard can find everything it needs.
+
+To alleviate any issues that may occur due to misconfigured or non-existent environment variables, there are two possible quality of life improvements you can make.
+\begin{enumerate}
+\item Add the line \mintinline{bash}{source /path/to/chipyard/env.sh} to your \texttt{.bashrc} file in your home directory.
+  After adding this to your \texttt{.bashrc} file, restart your shell, or re-\texttt{source} your \file{.bashrc} and continue.
+\item Install the \href{https://direnv.net/}{\texttt{direnv}} package and use it to automatically change your environment variables for you, instead of having them constantly loaded the way the previous option does.
+\end{enumerate}
+
 This repository is specifically meant for use with SiFive IP, but can still be utilized for Chipyard projects with some modification.
 
 \subsection{Freedom Tools}
