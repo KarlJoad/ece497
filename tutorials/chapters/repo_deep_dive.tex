@@ -44,6 +44,11 @@ However, additional information that we gathered through trial-and-error is pres
   Typically, this is the module instantiated by the test harness.
 \end{description}
 
+\section{\file{build.sbt}}\label{sec:build.sbt}
+There are two main \file{build.sbt} files that you should be aware of.
+There is a \file{build.sbt} for each of the generator subdirectories.
+These define some metadata information about each of the projects, such as the name of the design, the authors of the design, the targetted \texttt{sbt} version, and others.
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
