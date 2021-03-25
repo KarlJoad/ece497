@@ -3,12 +3,9 @@
 This document is intended to serve as a record of the work performed for the ECE 497 special project supervised by Professor Jia Wang during the Spring 2021 semester.
 In this document, we will specify how our project repository was created, outline issues we ran into, and provide guidance on how to better setup the Chipyard Framework.
 
-\section{Obtaining Dependencies}
+\section{Project Environment}\label{chap:Project_Environment}
 
-\subsection{Project Environment}
-The first obstacle in utilizing the Chipyard Framework is creating a project environment and obtaining all of the Chipyard dependencies.
-In my case, I decided to use Ubuntu 20.04 LTS running in a Virtualbox virtual machine with 4 cores, \SI{8}{\giga\byte} of RAM, and a \SI{250}{\giga\byte} disk image.
-Much of this space will be utilized, as the entire RISC-V toolchain and Xilinx Vivado suite require a large amount of disk space.
+Much of the disk space that has been allocated will be utilized, as the entire RISC-V toolchain and Xilinx Vivado suite require a large amount of disk space.
 
 \subsection{Chipyard Dependencies}
 To gather the Chipyard dependencies, I followed the \href{https://chipyard.readthedocs.io/en/latest/}{Chipyard} documentation closely.
