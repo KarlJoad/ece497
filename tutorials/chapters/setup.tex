@@ -53,10 +53,19 @@ Note that this does \textbf{not} work for installing the dependencies required t
 \label{lst:Build_Verilator_from_Source}
 \end{listing}
 
-The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
-In my case, I downloaded the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster.
-When conducting the installation, be sure to select ``Vitis'' instead of just selecting ``Vivado''.
-Installing Vitis will install the complete Xilinx package, including Vivado, and is useful for implementing FPGA projects.
+\subsubsection{Fetching Chipyard and its Direct Dependencies}\label{sec:Fetching_Chipyard_Direct_Dependencies}
+In addition to the library and external programs that Chipyard depends on, it also uses git submodules to track direct dependencies.
+Direct dependencies are projects that Chipyard directly relies on.
+These include SiFive's CPU designs, the BOOM CPU design, rocket-chip, and several others.
+
+\Cref{lst:Fetch_Chipyard_and_Submodules} has been provided that handles this for you.
+
+\begin{listing}[h!tbp]
+\bashsourcefile{./code/fetch-chipyard-and-submodules.sh}
+\caption{Fetch Chipyard and Submodules}
+\label{lst:Fetch_Chipyard_and_Submodules}
+\end{listing}
+
 
 \section{Other Useful Projects}
 \subsection{Freedom E SDK}
