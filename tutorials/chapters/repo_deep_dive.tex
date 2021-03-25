@@ -51,6 +51,14 @@ These define some metadata information about each of the projects, such as the n
 
 However, the \file{build.sbt} file in the root of Chipyard is a metadata file not just for Chipyard itself, but also pulls together all the dependencies in \file{chipyard/generators/} so that they all can be elaborated upon with Chipyard.
 
+% TODO: Rework this paragraph about circular dependency in main build.sbt file.
+This file is also the one that should be used for defining your \emph{own} CPU.\@
+Note that this means you are building your own Verilog code which defines the generation rules for a CPU.\@
+However, one must be careful that they do not introduce circular dependencies into the dependency graph between the CPU generation and elaboration tools.
+Even though Scala has support for lazy evaluation, it does not completely extend to dependency evaluation, and the entire system can fall apart.
+This does \emph{not} mean that you use this to build a new CPU on top of the architecture already defined by Chipyard, or any other CPU.\@
+However, you can use other CPU-generating systems inside your design.
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
