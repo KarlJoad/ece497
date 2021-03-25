@@ -28,6 +28,19 @@ Specifically, the \href{https://chipyard.readthedocs.io/en/latest/Chipyard-Basic
 
 A paraphrased reproduction of these steps are shown below.
 
+\subsubsection{Retrieve/Install Dependencies}\label{sec:Retrive_Install_Dependencies}
+Chipyard relies on numerous dependencies and libraries to read files and build the required Verilog files.
+In addition, Chipyard relies on \texttt{sbt}, the Scala Build Tool, as a majority of Chipyard and its dependencies are written in Scala.
+
+\Cref{lst:Ubuntu_Chipyard_Deps_Setup} is a script that handles fetching and installing all the dependencies for you.
+Note that this does \textbf{not} work for installing the dependencies for Linux distributions that do not use the \texttt{apt} package manager.
+
+\begin{listing}[h!tbp]
+\bashsourcefile{./code/ubuntu-chipyard-deps-setup.sh}
+\caption{Fetch Chipyard Dependencies using \texttt{apt} on Ubuntu}
+\label{lst:Ubuntu_Chipyard_Deps_Setup}
+\end{listing}
+
 The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
 In my case, I downloaded the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2) so that the actually installation process will complete faster.
 When conducting the installation, be sure to select ``Vitis'' instead of just selecting ``Vivado''.
