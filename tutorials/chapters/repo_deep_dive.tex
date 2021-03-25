@@ -15,6 +15,13 @@ By changing this file between one of the well-defined options, one can easily re
 
 For example, to switch from a CPU deifned by Chipyard to one that is uses the Hwacha accelerator, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necesssary configuration variables are changed.
 
+\subsection{Building Each Subproject}\label{subsec:Building_Each_Subproject}
+The next notable part of this file is its large \mintinline{make}{ifeq ... endif} blocks.
+Each one of these defines a different subproject that can be built and elaborated upon by Chipyard and its surrounding framework.
+These subproject defining blocks each define multiple higher-level variables which are the variables that are actually used to build and test each of the CPUs.
+Each of the variables is important, and Chipyard provided documentation for each variable inside \file{variables.mk}.
+However, additional information that we gathered through trial-and-error is presented below.
+
 \subsection{About}\label{sec:About_Verilator_Simulator}
 The primary way to simulate SoCs' designed using the Chipyard framework is via Verilator simulations.
 The directory for verilator is \file{chipyard/sims/verilator}.
