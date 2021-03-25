@@ -89,10 +89,11 @@ Xilinx is supported for a variety for a variety of operating systems, including 
 When conducting the installation, be sure to select the ``Vitis'' installation target instead of just selecting ``Vivado''.
 Installing Vitis will install both Vivado, and all other Xilinx tools needed for implementing FPGA projects.
 
+\href{https://github.com/sifive/freedom-e-sdk}{This repository} is maintained by SiFive, and provides several useful tools for designing, uploading, and debugging software to FPGA devices.
 This repository is specifically meant for use with SiFive IP, but can still be utilized for Chipyard projects with some modification.
 
 \subsection{Freedom Tools}
-\hyperref{https://github.com/sifive/freedom-tools}{This repository} is maintained by SiFive, and is used to generate several tools that will be used during this project, such as the GCC cross-compiler for RISC-V (and many extension sets of RISC-V), OpenOCD, which assists users in debugging their FPGA designs, RISC-V QEMU, and other useful software.
+\href{https://github.com/sifive/freedom-tools}{This repository} is maintained by SiFive.
 These tools take a considerable amount of time and disk space to compile so it is best to run the \texttt{make} command as \mintinline{bash}{make -j`nproc`} to parallelize compiling.
 
 %%% Local Variables:
