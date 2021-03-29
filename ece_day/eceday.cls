@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{weeklyslides}[ECE 497 Weekly Report Slides]
+\ProvidesClass{eceday}[ECE Day Slide Class]
 
 \LoadClass[x11names]{beamer}
 \usetheme{default} % Default slide/frame theme
