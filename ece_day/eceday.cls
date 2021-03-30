@@ -19,7 +19,7 @@
 
 % Will require compilation using the -shell-escape flag
 \RequirePackage{minted}
-
+\RequirePackage{textcomp}
 \RequirePackage[
 backend=biber,
 style=alphabetic,
