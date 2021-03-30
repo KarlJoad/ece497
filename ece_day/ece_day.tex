@@ -69,6 +69,16 @@
 % Image of silicon they've taped out using Chipyard and its associated tools
 \begin{frame}
   \frametitle{\nameref{sec:What_is_Chipyard}}
+  \begin{itemize}
+  \item A framework for generating and testing RISC-V CPUs
+  \item Elaborate CPUs using declarative Scala which generates appropriate Verilog
+    \begin{itemize}
+    \item Can also generate FPGA bitstreams, \texttt{mcs} files, and other data formats
+    \end{itemize}
+  \item Can use a variety of Verilog compilers and simulators, including Verilog, VCS, FireSim
+  \item Spike for testing RISC-V ISA compatibility
+  \item Includes tools for VLSI workflow
+  \end{itemize}
 \end{frame}
 
 \section{What We Did}\label{sec:What_We_Did}
