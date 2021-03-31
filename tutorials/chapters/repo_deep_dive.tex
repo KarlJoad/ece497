@@ -3,7 +3,7 @@ In this section, we lightly discuss each of the subdirectories present within th
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
-Variables and/or values that are more shared between different ways of building systems are higher in the directory structure.
+Variables and/or values that are shared between different ways of building systems are higher in the directory structure.
 
 Thus, some of the most overarching commands and variables for this project are defined in \file{chipyard/variables.mk}.
 One of the first things defined within this file are numerous output messages.
@@ -13,7 +13,7 @@ The first notable part of the \file{variables.mk} file is the \texttt{SUB\_PROJE
 This particular variable is what allows for easy re-configuration of the entire framework to support elaborating your own CPU designs.
 By changing this file between one of the well-defined options, one can easily re-use major portions of Chipyard's architecture.
 
-For example, to switch from a CPU deifned by Chipyard to one that is uses the Hwacha accelerator, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necesssary configuration variables are changed.
+For example, to switch from a CPU defined by Chipyard to one that is uses the Hwacha accelerator, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necessary configuration variables are changed.
 
 \subsection{Building Each Subproject}\label{subsec:Building_Each_Subproject}
 The next notable part of this file is its large \mintinline{make}{ifeq ... endif} blocks.
@@ -47,7 +47,7 @@ However, additional information that we gathered through trial-and-error is pres
 \section{\file{build.sbt}}\label{sec:build.sbt}
 There are two main \file{build.sbt} files that you should be aware of.
 There is a \file{build.sbt} for each of the generator subdirectories.
-These define some metadata information about each of the projects, such as the name of the design, the authors of the design, the targetted \texttt{sbt} version, and others.
+These define some metadata information about each of the projects, such as the name of the design, the authors of the design, the targeted \texttt{sbt} version, and others.
 
 However, the \file{build.sbt} file in the root of Chipyard is a metadata file not just for Chipyard itself, but also pulls together all the dependencies in \file{chipyard/generators/} so that they all can be elaborated upon with Chipyard.
 
