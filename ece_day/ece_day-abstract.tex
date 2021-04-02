@@ -106,6 +106,16 @@ citestyle=numeric]{biblatex} % Must include citation somewhere in document to pr
 
 \nocite{chipyard}
 
+Alex Lukens and Karl Hallsby are undergraduate students researching Chipyard~\cite{chipyard} and RISC-V.
+RISC-V is a open-source Reduced Instruction Set Computing~(RISC) instruction set architecture.
+It is sponsored by many companies, and is under heavy research at University of California at Berkeley.
+It was specifically designed to have a minimal core instruction set, that allows for string consutomization.
+This allows RISC-V to scale as needed in appropriate situations.
+Chipyard removes some of the manual aspects of designing a RISC-V CPU design, and instead moves the chip designer's responsibilities to determining the feature-set desired.
+This promises to make development of these designs both quicker and more correct.
+These promises also come at the price of Chipyard being under \emph{very} active development.
+The API of Chipyard is not considered stable, and some features for working with FPGAs is not yet implemented.
+
 % To make this print, you must include a citation somewhere in the document
 \printbibliography[heading=bibintoc]{}
 \end{document}
