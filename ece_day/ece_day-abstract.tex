@@ -121,6 +121,11 @@ This revision defines a very small core set of integer-based instructions allowi
 RISC-V also defines a variety of standardized extensions, enabling hardware support for floating-point arithmetic, atomic instructions, SIMD\footnote{Single Instruction Multiple Data} instructions, and mixed-multiply-divide instructions.
 % TODO: Explain why this standardization is beneficial for RISC-V.
 
+Chipyard is a framework for designing, building, testing, and refining RISC-V CPU designs.
+It uses a combination of Verilog and Scala to provide its utilities.
+The hardware is described using Verilog, and Scala is used to parameterize and automate the generation of these Verilog modules to build full-fledged processors.
+To aid in testing, Chipyard also provided utilities to generate FPGA bitstreams, \texttt{mcs} files, among other data formats.
+
 % To make this print, you must include a citation somewhere in the document
 \printbibliography[heading=bibintoc]{}
 \end{document}
