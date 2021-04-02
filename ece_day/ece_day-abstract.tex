@@ -126,6 +126,12 @@ It uses a combination of Verilog and Scala to provide its utilities.
 The hardware is described using Verilog, and Scala is used to parameterize and automate the generation of these Verilog modules to build full-fledged processors.
 To aid in testing, Chipyard also provided utilities to generate FPGA bitstreams, \texttt{mcs} files, among other data formats.
 
+In this project we went in a variety of directions.
+We started by building some of the already-defined CPU designs and creating custom CPU designs using Scala.
+Then, we used the tools provided in Chipyard to test these designs against the RISC-V ISA standard, to ensure the generated designs were compliant with the RISC-V standard.
+We moved onto testing the standard processor designs using an FPGA both as an accelerator, and as a general-purpose testing platform.
+Lastly, we also uploaded a program written in a high-level language (C) to the FPGA, and ran it on the generated RISC-V CPU.\@
+
 % To make this print, you must include a citation somewhere in the document
 \printbibliography[heading=bibintoc]{}
 \end{document}
