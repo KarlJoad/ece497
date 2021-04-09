@@ -103,6 +103,16 @@ Most of the editing in this repository comes in the form of defining your own CP
 \nocite{zaruba2019cost}
 cva6 is a 6-stage, single issue, in-order CPU.\@
 This means that unlike the \nameref{sec:BOOM_Generator} design, instructions are \emph{always} executed in order.
+It fully implements the 64-bit RISC-V instruction set, and several extensions, including:
+\begin{description}
+\item[I] Base Integer (the base 64-bit instruction set)
+\item[M] Integer Multiplication and Division
+\item[A] Atomic Operations
+\item[C] Compression/Decompression Operations
+\end{description}
+In addition, it supports three different privilege levels, M, S, and U.
+This allows the chip to run a full Unix-like operating system.
+
 
 \subsubsection{Gemmini}\label{sec:Gemmini_Generator}
 \subsubsection{Hwacha}\label{sec:Hwacha}
