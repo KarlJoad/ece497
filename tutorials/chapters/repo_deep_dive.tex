@@ -116,6 +116,10 @@ This allows the chip to run a full Unix-like operating system.
 \subsection{Gemmini}\label{sec:Gemmini_Generator}
 \nocite{gemminiGithub}
 \nocite{gemminiPaper}
+Gemmini is not a CPU, per se.
+Instead, it is a CPU \emph{accelerator}, implemented alongside another CPU, such as a \nameref{sec:BOOM_Generator} or \nameref{sec:Rocket_Chip} design.
+It is intended for hardware-level matrix operations, such as matrix multiplication, machine learning, and other SIMD\footnote{Single Instruction Multiple Data} operations.
+A general logic design for the Gemmini accelerators is shown in \Cref{fig:Gemmini_Accelerator}.
 
 \subsubsection{Hwacha}\label{sec:Hwacha}
 \subsubsection{Icenet}\label{sec:Icenet_Generator}
