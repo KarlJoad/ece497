@@ -109,6 +109,7 @@ acs-*.bib
 *.glo
 *.gls
 *.glsdefs
+*.glslabels
 
 # gnuplottex
 *-gnuplottex-*
