@@ -121,15 +121,13 @@ Instead, it is a CPU \emph{accelerator}, implemented alongside another CPU, such
 It is intended for hardware-level matrix operations, such as matrix multiplication, machine learning, and other SIMD\footnote{Single Instruction Multiple Data} operations.
 A general logic design for the Gemmini accelerators is shown in \Cref{fig:Gemmini_Accelerator}.
 
-\subsubsection{Hwacha}\label{sec:Hwacha}
-\subsubsection{Icenet}\label{sec:Icenet_Generator}
-\subsubsection{NVDLA}\label{sec:NVDLA_Generator}
-\subsubsection{RISC-V Sodor}\label{sec:RISC-V_Sodor}
-\subsubsection{Rocket-Chip}\label{sec:Rocket_Chip}
-\subsubsection{SHA3}\label{sec:SHA3_Accelerators_Generator}
-\subsubsection{SiFive Blocks}\label{sec:SiFive_Blocks}
-\subsubsection{SiFive Cache}\label{sec:SiFive_Cache}
-\subsubsection{\file{testchipip}}\label{sec:testchipip}
+\begin{figure}[h!tbp]
+  \centering
+  \includegraphics[scale=0.55]{./gemmini-system.png}
+  \caption{Gemmini Accelerator Logic Design \parencite{gemminiGithub}}
+  \label{fig:Gemmini_Accelerator}
+\end{figure}
+
 
 \section{Custom Configurations}\label{sec:Custom_Configurations}
 Custom Configs can be created in the directory \mintinline{bash}{chipyard/generators/chipyard/src/main/scala/config/}.
