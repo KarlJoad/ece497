@@ -14,9 +14,12 @@
 \usepackage{amsthm} % Gives us plain, definition, and remark to use in \theoremstyle{style}
 \usepackage{mathtools} % Allow for text and math in align* environment.
 \usepackage{thmtools}
+
 \usepackage[
 backend=biber,
 style=numeric]{biblatex} % Must include citation somewhere in document to print bibliography
+\renewcommand{\subtitlepunct}{\addcolon\addspace}
+
 \usepackage{hyperref} % Generate hyperlinks to referenced items
 \usepackage[noabbrev,nameinlink]{cleveref} % Fancy cross-references in the document everywhere
 \usepackage{nameref} % Can make references by name to places
