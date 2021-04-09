@@ -79,6 +79,14 @@ BOOM~(Berkeley Out-of-Order Machine) is a CPU defined and built by Univerity of 
 Its claim to fame is that it can execute RISC-V instructions out-of-order, thereby drastically improving performance.
 It is designed to be highly performant, synthesizable, and parameterizable.
 
+BOOM includes support for the following operations:
+\begin{itemize}
+\item Floating Point (IEEE 754--2008)
+\item Atomic Operations
+\item Caching
+\item Virtual Memory
+\end{itemize}
+In addition, BOOM supports external debugging.
 
 These CPU definitions are used by \nameref{sec:Chipyard_Generator} when elaborating CPU designs defined by the end-programmer.
 
