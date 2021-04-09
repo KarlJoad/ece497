@@ -138,6 +138,15 @@ Like the \nameref{sec:Gemmini_Generator}, Hwacha is meant to be an accelerator.
 Hwacha is a co-processor, designed to be run with other CPU processors, namely the \nameref{sec:Rocket_Chip}s.
 Hwacha, like \nameref{sec:Gemmini_Generator}, is another SIMD co-processor, but designed to work with vectors instead or matrices.
 
+It uses several alternative concepts in its design, including:
+\begin{itemize}
+\item A configurable register file, which is defined by software
+\item A runtime-variable vector length register
+\item Aggressive prefetching of memory, due to constant-stride memory accesses
+\item Resolving memory references as early as possible.
+\item Along with several others
+\end{itemize}
+
 
 \subsection{Icenet}\label{sec:Icenet_Generator}
 \subsection{NVDLA}\label{sec:NVDLA_Generator}
