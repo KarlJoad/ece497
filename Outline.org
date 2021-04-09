@@ -50,3 +50,6 @@
   * Ways to simulate the system?
     - Software-only?
     - Put on FPGA?
+
+* Need to be able to build to Docker Image
+[[https://nixos.org/guides/building-and-running-docker-images.html][Link]]
