@@ -1,0 +1,26 @@
+\newglossaryentry{fpgag}{
+  name = {Field Programmable Gate Array},
+  description = {An integrated circuit designed to be configured by a customer or a designer after manufacturing using software},
+}
+
+%\newacronym{fpga}{FPGA}{\Gls{FPGA}}
+\newglossaryentry{fpga}{
+  type = \acronymtype,
+  name = {FPGA},
+  description = {Field Programmable Gate Array},
+  first = {FPGA~(Field Programmable Gate Array)\glsadd{fpgag}},
+  see=[Glossary:]{fpgag}
+}
+
+% \newacronym{nic}{NIC}{Network Interface Card}
+\newglossaryentry{nic}{
+  type = \acronymtype,
+  name = {NIC},
+  description = {Network Interface Card},
+}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "doc"
+%%% End:
