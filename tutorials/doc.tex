@@ -80,6 +80,9 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 % Add paths to search for images here
 \graphicspath{{./Images/}}
 
+% Enable the printing of a glossary
+\usepackage[toc,acronym,writeglslabels]{glossaries}
+\makeglossaries{}
 \begin{titlepage}
   \title{Chipyard SoC Design Framework}
   \author{Alexander Lukens \and Karl Hallsby}
@@ -102,4 +105,6 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 \backmatter{}
 \printbibliography[heading=bibintoc]{}
 
+\printacronyms{}
+\printglossary{}
 \end{document}
