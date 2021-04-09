@@ -165,6 +165,15 @@ Icenet is a generator that is no less interesting, but less applicable to our us
 It is intended to provide Ethernet-based networking components in support of the \nameref{sec:FireSim_Simulator} design simulator.
 Like all other components in Chipyard, this is also parameterizable, allowing for multiple \Glspl{nic} to be defined.
 Because we were more focused on getting generated RISC-V images written to an \Gls{fpga} for local testing, we did not investigate this particular generator.
+The overall design of Icenet is shown in \Cref{fig:Icenet_Generator}.
+
+\begin{figure}[h!tbp]
+  \centering
+  % TODO: Recreate with vector graphics. The Rasterized PNG is terrible.
+  \includegraphics[scale=0.50]{./icenet-design.png}
+  \caption{Icenet Design}
+  \label{fig:Icenet_Generator}
+\end{figure}
 
 \subsection{NVDLA}\label{sec:NVDLA_Generator}
 \subsection{RISC-V Sodor}\label{sec:RISC-V_Sodor}
