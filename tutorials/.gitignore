@@ -1,3 +1,6 @@
+## Ignore the output PDF, but not PDFs used for images.
+doc.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
