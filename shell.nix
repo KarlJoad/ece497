@@ -1,5 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
+with pkgs.lib;
+
 let
   texPaths = [
     "."
@@ -38,4 +40,8 @@ in pkgs.mkShell {
     # keep this line if you use bash
     bashInteractive
   ];
+
+  shellHook = ''
+    export TEXINPUTS=${concatStringsSep ":" texPaths}
+  '';
 }
