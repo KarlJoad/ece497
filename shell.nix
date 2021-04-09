@@ -1,5 +1,15 @@
 { pkgs ? import <nixpkgs> {} }:
 
+let
+  texPaths = [
+    "."
+    ./.
+    ./weekly_report
+    ./ece_day
+    ./tutorials
+    "$TEXINPUTS"
+  ];
+
 in pkgs.mkShell {
   buildInputs = with pkgs; [
     verilog   # Icarus Verilog compiler
