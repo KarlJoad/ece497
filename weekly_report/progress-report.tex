@@ -1,0 +1,117 @@
+\documentclass[10pt,letterpaper,final,twoside,notitlepage]{article}
+\usepackage[margin=1.0in]{geometry} % 1 inch margins on all pages
+\usepackage[utf8]{inputenc} % Define the input encoding
+\usepackage[USenglish]{babel} % Define language used
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{amsthm} % Gives us plain, definition, and remark to use in \theoremstyle{style}
+\usepackage{mathtools} % Allow for text and math in align* environment.
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{graphicx}
+
+\usepackage[useregional]{datetime2}
+
+\usepackage[
+backend=biber,
+style=numeric,
+citestyle=numeric]{biblatex} % Must include citation somewhere in document to print bibliography
+\usepackage{hyperref} % Generate hyperlinks to referenced items
+\usepackage[nottoc]{tocbibind} % Prints the Reference/Bibliography in TOC as well
+\usepackage[noabbrev,nameinlink]{cleveref} % Fancy cross-references in the document everywhere
+\usepackage{nameref} % Can make references by name to places
+\usepackage{caption} % Allows for greater control over captions in figure, algorithm, table, etc. environments
+\usepackage{subcaption} % Allows for multiple figures in one Figure environment
+\usepackage[binary-units=true]{siunitx} % Gives us ways to typeset units for stuff
+\sisetup{per-mode=symbol}
+\usepackage{csquotes} % Context-sensitive quotation facilities
+\usepackage{enumitem} % Provides [noitemsep, nolistsep] for more compact lists
+\usepackage{chngcntr} % Allows us to tamper with the counter a little more
+\usepackage{empheq} % Allow boxing of equations in special math environments
+\usepackage[x11names]{xcolor} % Gives access to coloring text in environments or just text, MUST be before tikz
+\usepackage{tcolorbox} % Allows us to create boxes of various types for examples
+\usepackage{ctable} % Greater control over tables and how they look
+\usepackage{diagbox} % Allow us to have shared diagonal cells in tables
+\usepackage{multirow} % Allow us to have a single cell in a table span multiple rows
+\usepackage{titling} % Put document information throughout the document programmatically
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e} % Allows us to write algorithms in a nice style.
+\usepackage{nth} % Programmtically give ordinal numbers.
+
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+\counterwithin{algocf}{section}
+\crefname{algocf}{algorithm}{algorithms}
+\Crefname{algocf}{Algorithm}{Algorithms}
+
+% Redefine the 'end of proof' symbol to be a black square, not blank
+\renewcommand{\qedsymbol}{$\blacksquare$} % Change proofs to have black square at end
+
+% Create a command for question-equation symbol
+\newcommand{\qeq}{\ensuremath{\overset{?}{=}}}
+
+% Common Mathematical Stuff
+\newcommand{\Abs}[1]{\ensuremath{\lvert #1 \rvert}}
+\newcommand{\DNE}{\ensuremath{\mathrm{DNE}}} % Used when limit of function Does Not Exist
+
+% Vector Functions
+\newcommand{\Magnitude}[1]{\ensuremath{\lVert #1 \rVert}}
+\newcommand{\Proj}[2]{\ensuremath{\mathrm{proj}_{#2}(#1)}}
+\newcommand{\Rej}[2]{\ensuremath{\mathrm{rej}_{#2}(#1)}}
+
+% Math Operators that are useful to abstract the written math away to one spot
+% Number Sets
+\DeclareMathOperator{\RealNumbers}{\ensuremath{\mathbb{R}}}
+\DeclareMathOperator{\AllIntegers}{\ensuremath{\mathbb{Z}}}
+\DeclareMathOperator{\PositiveInts}{\ensuremath{\mathbb{Z}^{+}}}
+\DeclareMathOperator{\NegativeInts}{\ensuremath{\mathbb{Z}^{-}}}
+\DeclareMathOperator{\NaturalNumbers}{\ensuremath{\mathbb{N}}}
+\DeclareMathOperator{\ComplexNumbers}{\ensuremath{\mathbb{C}}}
+\DeclareMathOperator{\RationalNumbers}{\ensuremath{\mathbb{Q}}}
+
+% Calculus operators
+\DeclareMathOperator*{\argmax}{argmax} % Thin Space and subscripts are UNDER in display
+
+% Signal and System Functions
+\DeclareMathOperator{\UnitStep}{\mathcal{U}}
+\DeclareMathOperator{\sinc}{sinc} % sinc(x) = (sin(pi x)/(pi x))
+
+% Transformations
+\DeclareMathOperator{\Lapl}{\mathcal{L}} % Declare a Laplace symbol to be used
+
+% Logical Operators
+\DeclareMathOperator{\XOR}{\oplus}
+
+% These packages are more specific to certain documents, but will be availabe in the template
+% \usepackage{esint} % Provides us with more types of integral symbols to use
+% \usepackage[outputdir=./TeX_Output]{minted} % Allow us to nicely typeset 300+ programming languages
+% \crefname{lstlisting}{listing}{listings}
+% \Crefname{lstlisting}{Listing}{Listings}
+% This document must be compiled with the -shell-escape flag if the packages above are uncommented
+
+\graphicspath{{./Images/}} % Uncomment this to use pictures in this document
+\addbibresource{../References.bib}
+
+\begin{titlepage}
+  \title{Chipyard: Progress Report}
+  \author{Alexander Lukens \and Karl Hallsby}
+  % DTMdisplaydate{YYYY}{MM}{DD}{DoW}
+  \date{\DTMdisplaydate{2021}{4}{11}{-1}} % We want to inform people when this document was last edited
+\end{titlepage}
+
+\begin{document}
+\selectlanguage{USenglish}
+\pagenumbering{gobble}
+\maketitle
+\pagenumbering{arabic} % 1,2,3 on content pages
+
+\nocite{chipyard}
+
+
+% To make this print, you must include a citation somewhere in the document
+\printbibliography[heading=bibintoc]{}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
