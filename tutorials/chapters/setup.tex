@@ -118,6 +118,11 @@ The commands to run, in order, are:
 \item \bashinline{make}
 \end{enumerate}
 
+\begin{blackbox}
+  To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to the \texttt{make} command.
+  As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
+\end{blackbox}
+
 
 \subsection{Simulating the Example Design}\label{sec:Simulating_Example_Design}
 
