@@ -69,6 +69,11 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 \usepackage{minted}
 \crefname{lstlisting}{listing}{listings}
 \Crefname{lstlisting}{Listing}{Listings}
+
+\newcommand{\BashFancyFormatLine}{%
+  \def\FancyVerbFormatLine##1{\$\,##1}
+}
+
 \def\mintedbashargs{
   frame=lines, % Surround the source code with lines on top and bottom
   linenos, % We want to show line numbers for each line in the margin
@@ -79,6 +84,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
   % bgcolor=white,
   autogobble=true, % Automatically remove shared indentation from files
   breaklines=true, % Break lines that are too long at convenient locations
+  formatcom=\BashFancyFormatLine{},
 }
 \newcommand{\makenewmintedfiles}[1]{
   \newminted[bashsource]{bash}{#1} % Use with \begin{bashsource} code \end{bashsource}
