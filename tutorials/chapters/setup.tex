@@ -138,6 +138,17 @@ An example of the command to run is shown in \Cref{lst:Running_Example_Design}.
 \label{lst:Running_Example_Design}
 \end{listing}
 
+Chipyard also provides a quality-of-life \texttt{make} directive when running these programs, shown in \Cref{lst:Running_Example_Design-Make}.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+make run-binary BINARY=<path/to/riscv/elf>
+\end{bashsource}
+\caption{\texttt{make} command to run arbitrary RISC-V programs using Example Design}
+\label{lst:Running_Example_Design-Make}
+\end{listing}
+
+Using the \texttt{make} directive also allows the built design to accept many common command line options, including redirecting \texttt{STDOUT} to a file.
 
 \subsection{Simulating the Example Design}\label{sec:Simulating_Example_Design}
 
