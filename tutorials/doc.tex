@@ -30,6 +30,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 \usepackage{chngcntr} % Allows us to tamper with the counter a little more
 \usepackage{empheq} % Allow boxing of equations in special math environments
 \usepackage{xcolor} % Gives access to coloring text in environments or just text, MUST be before tikz
+\usepackage{tcolorbox} % Allows us to create boxes of various types
 \usepackage{nth} % Programmatically give ordinal numbers in the text
 
 % Programmatically give dates in documents.
@@ -43,6 +44,25 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
   filecolor=magenta,
   urlcolor=cyan,
   citecolor=red,
+}
+
+\newtcolorbox[% auto counter,
+% number within=section,
+% number format=\arabic,
+% crefname={example}{examples}, % Define reference format for cref (No Capitals)
+% Crefname={Example}{Examples}, % Reference format for cleveref (With Capitals)
+]{blackbox}{
+  width=\textwidth,
+  % title={},
+  fonttitle=\bfseries,
+  % label={},
+  % nameref=,
+  colbacktitle=white!100!black,
+  coltitle=black!100!white,
+  colback=white!100!black,
+  upperbox=visible,
+  lowerbox=visible,
+  sharp corners=all
 }
 
 % These packages require the use of the -shell-escape flag when compiling
