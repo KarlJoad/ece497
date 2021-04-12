@@ -16,6 +16,11 @@ In short, Make and its Makefiles are used to glue all the separate parts of the 
 By calling a single \texttt{make} command, and possibly providing flags, all the necessary dependencies are found locally, and placed in the right search locations.
 It also handles the process of directing \gls{sbt} to work on the proper files.
 
+Each of the generators and Chipyard itself parameterizes the Verilog code using Scala.
+Verilog is the lowest-level ``programming language'' used in this framework.
+It defines the semantic behavior of circuits.
+Scala is then used to allow multiple of the same Verilog module to be used in parallel, or composed in other, more exotic ways.
+
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
