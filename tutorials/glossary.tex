@@ -5,6 +5,19 @@
 % Instead, keep it lowercase, and use the \Gls command to have LaTeX uppercase
 % the letter for you.
 
+\newglossaryentry{socg}{
+  name = {System on a Chip},
+  description = {An integrated circuit that integrates all or most components of a computer or other electronic system},
+}
+
+\newglossaryentry{soc}{
+  type = \acronymtype,
+  name = {SoC},
+  description = {System on a Chip},
+  first = {SoC~(System on a Chip)\glsadd{socg}},
+  see=[Glossary:]{socg}
+}
+
 \newglossaryentry{fpgag}{
   name = {Field Programmable Gate Array},
   description = {An integrated circuit designed to be configured by a customer or a designer after manufacturing using software},
