@@ -2,6 +2,16 @@
 In this section, we lightly discuss each of the subdirectories present within the root of Chipyard, take note of any particularly important files, and demonstrate how this entire system is put together.
 
 \section{Languages Used in Chipyard}\label{sec:Langs_used_in_Chipyard}
+There are several programming languages used in the construction of Chipyard that you should be at least familiar with.
+They are:
+\begin{itemize}
+\item \href{https://www.gnu.org/software/make/}{Make}.
+  Discussed in \Cref{sec:Makefiles_in_Chipyard}
+\item \href{https://www.scala-lang.org/}{Scala}
+\item \href{https://www.chisel-lang.org/}{Chisel}/\Gls{firrtl}
+\item \href{https://en.wikipedia.org/wiki/Verilog}{Verilog}
+\end{itemize}
+
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
