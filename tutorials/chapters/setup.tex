@@ -98,6 +98,20 @@ To build the example design that Chipyard defines, all you must do is enter one 
 This \textbf{does} require that both the RISC-V toolchain you built and Verilator Verilog simulator be loaded into your environment~(see \Cref{sec:Environment_Variables}).
 If one of these is not available, the \texttt{make} command will print out an error message describing what it is failing on.
 
+\begin{blackbox}
+  It is strongly recommended that you parallelize the elaboration of the CPU design.
+  You can achieve this by passing the \texttt{-j [N]} flag to \texttt{make}.
+  You may replace the \texttt{[N]} with a number to indicate the number of your CPU cores to use for building.
+
+  \textbf{If you omit the \texttt{[N]} entirely, the build system will use ALL cores!}
+
+  The elaboration of the default \texttt{RocketConfig} requires about \SI{6.5}{\giga\byte} of main memory.
+  Otherwise the process will fail with \bashinline{make: *** [firrtl_temp] Error 137} which is most likely related to limited resources.
+  Other configurations might require even more main memory~\cite{chipyard}.
+
+  Using many cores increases the amount of system memory required, so be sure that you do not request too many cores be used if you are limited on memory.
+\end{blackbox}
+
 
 \subsection{Simulating the Example Design}\label{sec:Simulating_Example_Design}
 
