@@ -18,7 +18,7 @@ In this document, we assume you are using Ubuntu 20.04 LTS, running in a virtual
 \item \SI{250}{\giga\byte} disk image
 \end{itemize}
 
-Much of the disk space that has been allocated will be utilized, as the entire RISC-V toolchain and Xilinx Vivado suite require a large amount of disk space.
+Much of the disk space that has been allocated will be utilized, as the entire RISC-V toolchain and Xilinx Vivado Suite require a large amount of disk space.
 
 This document will work equally well in other distributions, so long as the versions of the dependencies are matched.
 Chipyard also has explicit support for CentOS, which extends to Fedora and RHEL as well.
@@ -84,7 +84,7 @@ This file is a bash script that changes your \texttt{PATH}, \texttt{RISCV}, and 
 
 To alleviate any issues that may occur due to misconfigured or non-existent environment variables, there are two possible quality of life improvements you can make.
 \begin{enumerate}
-\item Add the line \mintinline{bash}{source /path/to/chipyard/env.sh} to your \texttt{.bashrc} file in your home directory.
+\item Add the line \bashinline{source /path/to/chipyard/env.sh} to your \texttt{.bashrc} file in your home directory.
   After adding this to your \texttt{.bashrc} file, restart your shell, or re-\texttt{source} your \file{.bashrc} and continue.
 \item Install the \href{https://direnv.net/}{\texttt{direnv}} package and use it to automatically change your environment variables for you, instead of having them constantly loaded the way the previous option does.
 \end{enumerate}
