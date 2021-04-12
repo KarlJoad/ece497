@@ -154,6 +154,14 @@ Using the \texttt{make} directive also allows the built design to accept many co
 Similar to \Cref{sec:Running_Example_Design}, the simulations are actually just a set of RISC-V programs designed to test the built designs.
 There are two main commands for running the simulation test suite: \Cref{lst:ASM_Tests,lst:Run_Benchmark_Tests}.
 
+\begin{listing}[h!tbp]
+\begin{bashsource}
+make run-asm-tests
+\end{bashsource}
+\caption{Run Compliance Tests to RISC-V ISA}
+\label{lst:ASM_Tests}
+\end{listing}
+
 
 \section{Xilinx Vivado Suite Installation}\label{sec:Xilinx_Vivado_Suide_Install}
 The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
