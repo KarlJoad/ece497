@@ -161,9 +161,8 @@ This allows the chip to run a full Unix-like operating system.
 \subsection{Gemmini}\label{sec:Gemmini_Generator}
 \nocite{gemminiGithub}
 \nocite{gemminiPaper}
-Gemmini is not a CPU, per se.
-Instead, it is a CPU \emph{accelerator}, implemented alongside another CPU, such as a \nameref{sec:BOOM_Generator} or \nameref{sec:Rocket_Chip} design.
-It is intended for hardware-level matrix operations, such as matrix multiplication, machine learning, and other SIMD\footnote{Single Instruction Multiple Data} operations.
+Gemmini is not a CPU;\@ instead, it is a CPU \emph{accelerator}, implemented alongside another CPU, such as a \nameref{sec:BOOM_Generator} or \nameref{sec:Rocket_Chip} design.
+It is intended for hardware-level matrix operations, such as matrix multiplication, machine learning, and other \gls{simd} operations.
 A general logic design for the Gemmini accelerators is shown in \Cref{fig:Gemmini_Accelerator}.
 
 \begin{figure}[h!tbp]
@@ -180,7 +179,7 @@ Gemmini is intended for integration with other \nameref{sec:Rocket_Chip}s, but c
 \nocite{hwachaPresentation}
 Like the \nameref{sec:Gemmini_Generator}, Hwacha is meant to be an accelerator.
 Hwacha is a co-processor, designed to be run with other CPU processors, namely the \nameref{sec:Rocket_Chip}s.
-Hwacha, like \nameref{sec:Gemmini_Generator}, is another SIMD co-processor, but designed to work with vectors instead or matrices.
+Hwacha, like \nameref{sec:Gemmini_Generator}, is another \gls{simd} co-processor, but designed to work with vectors instead or matrices.
 
 It uses several alternative concepts in its design, including:
 \begin{itemize}
