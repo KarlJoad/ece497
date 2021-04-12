@@ -138,6 +138,11 @@ Here is where all of the code required to get these disparate CPUs to work and b
 Typically, very little editing is needed to be done here.
 Most of the editing in this repository comes in the form of defining your own CPUs, which are themselves defined in terms of other CPUs or other lower-level Chipyard constructs.
 
+The main point of interest is the \file{chipyard/generators/chipyard/src/main/scala/config} directory.
+This houses CPU design configuration files written in Scala.
+Each of them defines a different class of CPU, ranging from \nameref{sec:BOOM_Generator} to \nameref{sec:cva6_Generator}, to \nameref{sec:RISC-V_Sodor} configurations.
+Each design is a class described in each one of these files.
+
 \subsection{cva6}\label{sec:cva6_Generator}
 \nocite{cva6Github}
 \nocite{zaruba2019cost}
