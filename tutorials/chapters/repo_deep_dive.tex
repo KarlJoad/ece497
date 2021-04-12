@@ -34,6 +34,11 @@ class QuadRocketConfig extends Config(
 \label{lst:Scala_Parameterized_Verilog}
 \end{listing}
 
+In \Cref{lst:Scala_Parameterized_Verilog}, the method \texttt{WithNBigCores} will return a class of big \nameref{sec:Rocket_Chip} cores.
+By providing an integer to the class constructor, that many core objects are returned.
+This informs \gls{firrtl} about the proper system setup, so that it can elaborate the design, creating the final product.
+If someone wanted eight, twelve, or even thirty-two cores, they simply have to change the passed integer, and have a hosting system that has enough resources to elaborate such a complicated design.
+This eases the Verilog writer's job as well, because they only need to write their hardware description module for a single CPU, and they do not need to worry about multiple processors.
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
