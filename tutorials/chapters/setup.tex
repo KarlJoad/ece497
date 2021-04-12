@@ -94,6 +94,10 @@ In this section, we show how to build and simulate the default CPU Chipyard defi
 This particular CPU is relatively easy to elaborate, requiring just \SI{6}{\giga\byte} of memory.
 
 \subsection{Building the Example Design}\label{sec:Building_Example_Design}
+To build the example design that Chipyard defines, all you must do is enter one of the simulator directories and type \bashinline{make}.
+This \textbf{does} require that both the RISC-V toolchain you built and Verilator Verilog simulator be loaded into your environment~(see \Cref{sec:Environment_Variables}).
+If one of these is not available, the \texttt{make} command will print out an error message describing what it is failing on.
+
 
 \subsection{Simulating the Example Design}\label{sec:Simulating_Example_Design}
 
