@@ -21,6 +21,19 @@ Verilog is the lowest-level ``programming language'' used in this framework.
 It defines the semantic behavior of circuits.
 Scala is then used to allow multiple of the same Verilog module to be used in parallel, or composed in other, more exotic ways.
 
+The most direct example of this is the use of Scala to parameterize the number of Rocket cores to include in the generated CPU design.
+\Cref{lst:Scala_Parameterized_Verilog} is a good example of this.
+
+\begin{listing}[h!tbp]
+\begin{minted}[frame=lines,linenos]{scala}
+class QuadRocketConfig extends Config(
+    new freechips.rocketchip.subsystem.WithNBigCores(4) ++
+    new chipyard.config.AbstractConfig)
+\end{minted}
+\caption{Example of Scala-Parameterized Verilog}
+\label{lst:Scala_Parameterized_Verilog}
+\end{listing}
+
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
