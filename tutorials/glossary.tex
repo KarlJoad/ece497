@@ -26,6 +26,20 @@
   description = {Network Interface Card},
 }
 
+\newglossaryentry{irg}{
+  name = {Intermediate Representation},
+  description = {The data structure or code used internally by a compiler or virtual machine to represent source code.
+    An IR is designed to be conducive for further processing, such as optimization and translation},
+}
+
+\newglossaryentry{ir}{
+  type = \acronymtype,
+  name = {IR},
+  description = {Intermediate Representation},
+  first = {IR~(Intermediate Representation)\glsadd{irg}},
+  see=[Glossary:]{irg}
+}
+
 \newglossaryentry{firrtlg}{
   name = {Flexible Intermediate Representation Register Transfer Language},
   description = {An \gls{ir} for digital circuits designed as a platform for writing circuit-level transformations},
