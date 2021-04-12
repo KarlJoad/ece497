@@ -12,6 +12,10 @@ They are:
 \item \href{https://en.wikipedia.org/wiki/Verilog}{Verilog}
 \end{itemize}
 
+In short, Make and its Makefiles are used to glue all the separate parts of the Chipyard framework together.
+By calling a single \texttt{make} command, and possibly providing flags, all the necessary dependencies are found locally, and placed in the right search locations.
+It also handles the process of directing \gls{sbt} to work on the proper files.
+
 
 \section{Makefiles, or the Glue of this Framework}\label{sec:Makefiles_in_Chipyard}
 Chipyard makes \textbf{heavy} use of Makefiles to pull together and automate various parts of the build system.
