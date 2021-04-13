@@ -110,6 +110,20 @@
   see=[Glossary:]{simdg}
 }
 
+\newglossaryentry{mmiog}{
+  name = {Memory-Mapped Input/Output},
+  description = {Memory-mapped Input/Output uses the same address space to address both memory and I/O devices.
+    The memory and registers of the I/O devices are mapped to (associated with) address values},
+}
+
+\newglossaryentry{mmio}{
+  type = \acronymtype,
+  name = {MMIO},
+  description = {Memory-Mapped I/O},
+  first = {MMIO~(Memory-Mapped Input/Output)\glsadd{mmiog}},
+  see=[Glossary:]{mmiog}
+}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "doc"
