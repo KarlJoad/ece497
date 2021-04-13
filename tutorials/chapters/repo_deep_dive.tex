@@ -219,6 +219,11 @@ The overall design of Icenet is shown in \Cref{fig:Icenet_Generator}.
   \label{fig:Icenet_Generator}
 \end{figure}
 
+Icenet's controller works by exposing a set of \gls{mmio} registers to the CPU.\@
+These registers define where in memory to read data from/write data to.
+The design also has a reservation queue buffer so that TileLink responses that come out of order are provided to the CPU in the proper order.
+Icenet also provides a kernel driver so that the \gls{nic} has a full Linux networking stack in userspace.
+
 \subsection{NVDLA}\label{sec:NVDLA_Generator}
 \subsection{RISC-V Sodor}\label{sec:RISC-V_Sodor}
 \subsection{Rocket-Chip}\label{sec:Rocket_Chip}
