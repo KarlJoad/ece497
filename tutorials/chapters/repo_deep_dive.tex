@@ -238,6 +238,15 @@ Sodor is actually a collection of several different simple integer pipelines for
 Each one of these implementes the full RISC-V 32b user-level integer base (RV32I).
 \textbf{None} of the cores support virtual memory, and all of them interace with a simple asynchronous single-cycle block of memory.
 
+There are five different pipelines:
+\begin{description}
+\item[1-Stage] An \gls{isa} simulator.
+\item[2-Stage] Demonstrates pipelining in Chisel.
+\item[3-Stage] Uses sequential memory, supporting both Harvard and Princeton CPU architectures.
+\item[5-Stage] Toggle between bypassed or interlocked memory.
+\item[Bus-Based] A CPU based around a central bus.
+\end{description}
+
 
 \subsection{Rocket-Chip}\label{sec:Rocket_Chip}
 \nocite{rocketChipPaper}
