@@ -86,16 +86,34 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
   breaklines=true, % Break lines that are too long at convenient locations
   formatcom=\BashFancyFormatLine{},
 }
-\newcommand{\makenewmintedfiles}[1]{
+\newcommand{\makenewmintedbash}[1]{
   \newminted[bashsource]{bash}{#1} % Use with \begin{bashsource} code \end{bashsource}
 
   \newmintedfile[bashsourcefile]{bash}{#1} % Use with \bashsourcefile[additional-options]{Filename}
 }
-\expandafter\makenewmintedfiles\expandafter{\mintedbashargs}
+\expandafter\makenewmintedbash\expandafter{\mintedbashargs}
 \newmintinline[bashinline]{bash}{% Use with \bashinline{code}
   style=emacs,
   bgcolor=white,
 }
+
+\def\mintedargs{
+  frame=lines, % Surround the source code with lines on top and bottom
+  linenos, % We want to show line numbers for each line in the margin
+  % Colors used here are xcolor X11 colors.
+  % style=fruity, % Use the fruity color scheme. Best for use on black backgrounds. Use for code blocks.
+  % bgcolor=black, % Set the background used
+  % style=emacs,
+  % bgcolor=white,
+  autogobble=true, % Automatically remove shared indentation from files
+  breaklines=true, % Break lines that are too long at convenient locations
+}
+\newcommand{\makenewmintedfiles}[1]{
+  \newminted[scalasource]{scala}{#1}
+
+  \newmintedfile[scalasourcefile]{scala}{#1}
+}
+\expandafter\makenewmintedfiles\expandafter{\mintedargs}
 
 % Extra commands we choose to define
 \newcommand{\file}[1]{\texttt{#1}}
