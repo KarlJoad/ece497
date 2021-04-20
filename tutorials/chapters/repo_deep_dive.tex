@@ -284,6 +284,13 @@ The overall design of the accelerator is given in \Cref{fig:SHA3_Accelerator_Des
 The design is a fully featured SHA3 computing unit that has the ability to be given the memory address whose contents are to be hashed, the computation to perform, and the memory location where to store the result.
 All of this is done in a ``set and forget'' kind of way, where the main processor gives the accelerator the required information and the accelerator is free to run on its own.
 
+To add a SHA3 accelerator to your \nameref{sec:Rocket_Chip} or \nameref{sec:BOOM_Generator} design, follow the example code shown in \Cref{lst:SHA3_Accelerator_Addition}.
+
+\begin{listing}[h!tbp]
+\scalasourcefile{./code/add-sha3-accelerator.scala}
+\caption{Add SHA3 Accelerator to Rocket Design}
+\label{lst:SHA3_Accelerator_Addition}
+\end{listing}
 
 \subsection{SiFive Blocks}\label{sec:SiFive_Blocks}
 \subsection{SiFive Cache}\label{sec:SiFive_Cache}
