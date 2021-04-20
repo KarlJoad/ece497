@@ -86,12 +86,12 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
   breaklines=true, % Break lines that are too long at convenient locations
   formatcom=\BashFancyFormatLine{},
 }
-\newcommand{\makenewmintedfiles}[1]{
+\newcommand{\makenewmintedbash}[1]{
   \newminted[bashsource]{bash}{#1} % Use with \begin{bashsource} code \end{bashsource}
 
   \newmintedfile[bashsourcefile]{bash}{#1} % Use with \bashsourcefile[additional-options]{Filename}
 }
-\expandafter\makenewmintedfiles\expandafter{\mintedbashargs}
+\expandafter\makenewmintedbash\expandafter{\mintedbashargs}
 \newmintinline[bashinline]{bash}{% Use with \bashinline{code}
   style=emacs,
   bgcolor=white,
