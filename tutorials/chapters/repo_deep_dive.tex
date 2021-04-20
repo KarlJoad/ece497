@@ -281,6 +281,9 @@ The overall design of the accelerator is given in \Cref{fig:SHA3_Accelerator_Des
   \label{fig:SHA3_Accelerator_Design}
 \end{figure}
 
+The design is a fully featured SHA3 computing unit that has the ability to be given the memory address whose contents are to be hashed, the computation to perform, and the memory location where to store the result.
+All of this is done in a ``set and forget'' kind of way, where the main processor gives the accelerator the required information and the accelerator is free to run on its own.
+
 
 \subsection{SiFive Blocks}\label{sec:SiFive_Blocks}
 \subsection{SiFive Cache}\label{sec:SiFive_Cache}
