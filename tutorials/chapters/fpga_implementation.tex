@@ -9,16 +9,18 @@ This branch fixes the UART implementation, and enables the SPI Flash storage on 
 
 \section{Prerequisites}\label{sec:Prerequisites}
 To assist with the proper setup, we approached the FPGA implementation of an SoC by following the "SiFive Freedom E310 Arty FPGA Dev Kit Getting Started Guide".~\cite{FreedomDevGuide}
-This outlined many of the steps we would eventually need to take, starting with purchasing an \href{https://www.digikey.com/en/products/detail/olimex-ltd/ARM-USB-TINY-H/3471388}{Olimex JTAG Debugger}~\cite{OlimexJTAG}
+This outlined many of the steps we would eventually need to take, starting with purchasing an \href{https://www.digikey.com/en/products/detail/olimex-ltd/ARM-USB-TINY-H/3471388}{Olimex JTAG Debugger}~\cite{OlimexJTAG}. 
+Once the final image is flashed to the FPGA, the debugger will allow the user to upload C programs and execute them on the RISC-V processor. 
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Images/OlimexSetup}
-	\caption[Olimex Debugger Setup]{}
-	\caption{}
+	\caption[]{Olimex Debugger Setup}
 	\label{fig:olimexsetup}
 	\cite[p.~5]{FreedomDevGuide}
 \end{figure}
+
+
 
 %%% Local Variables:
 %%% mode: latex
