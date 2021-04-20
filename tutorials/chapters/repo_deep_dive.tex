@@ -256,8 +256,8 @@ In addition, the \href{https://github.com/ucb-bar/riscv-sodor}{repository} for t
 \nocite{rocketChipGithub}
 Rocket Chip is a \gls{soc} design generator that outputs synthesizable \gls{rtl}.
 This allows for this \gls{soc} to be composed of computer-generated cores, caches, and interconnects.
-The Rocket Chip is a general-purpose processor core that uses the RISC-V \gls{isa}.
-It is a superset of the \nameref{sec:BOOM_Generator}, because it provides both an in-order execution core generator (Rocket), and the \nameref{sec:BOOM_Generator} for out-of-order execution.
+The Rocket Chip is a general-purpose processor core that uses the RISC-V \gls{isa}, and includes support for virtual memory.
+It is a superset of the \nameref{sec:BOOM_Generator}, because it provides both an in-order execution core generator (Rocket), and the specialized \nameref{sec:BOOM_Generator} configuration for out-of-order execution.
 
 What makes Rocket different than other chips is that it can be used to create larger heterogenous \glspl{soc}.
 This means that a single package can be composed of not only Rocket CPUs, but \emph{also} custom acclerators, co-processors, or completely independent cores, or even a mix of all three.
