@@ -300,6 +300,10 @@ Because Chipyard requires integration with many other technologies, they also re
 
 \subsection{SiFive Cache}\label{sec:SiFive_Cache}
 \nocite{siFiveCacheGithub}
+Like \nameref{sec:SiFive_Blocks}, SiFive's cache is intended to be used to build higher-level modules.
+It defines the necessary terms to paramterize and generate the required \gls{rtl} to create a last-level inclusive cache.
+Cache coherence is enforced using an invalidation policy.
+SiFive Cache is intended to be a drop-in replacement for \nameref{sec:Rocket_Chip}'s \texttt{tilelink.BroadcastHub} coherence manager.
 
 \subsection{\file{testchipip}}\label{sec:testchipip}
 \nocite{testchipipGithub}
