@@ -383,6 +383,9 @@ We strongly recommend that:
 The passing of \texttt{CONFIG} to the \texttt{make} command is because of the values defined in \file{chipyard/variables.mk}.
 See \Cref{subsec:Building_Each_Subproject} for a more detailed explanation of what each variable is designed to do.
 
+\subsubsection{Notes about Altering JVM Behavior}\label{sec:Notes_Altering_JVM_Behavior}
+The arguments the JVM uses when running \gls{firrtl}, Chisel, and all other programs written in Scala and/or Java are controlled by the \file{chipyard/variables.mk} file.
+
 \subsection{Testing}\label{sec:Custom_Config-Testing}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
