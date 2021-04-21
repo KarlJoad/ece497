@@ -334,6 +334,9 @@ We will be building a processor using four medium-sized \nameref{sec:Rocket_Chip
 We will cover how to write a generated design image out to an \gls{fpga} in \Cref{chap:FPGA_Implementation}, rather than here, because the process is the same for every generated chip.
 
 \subsection{File and Class Creation}\label{sec:Custom_Config-File_Class}
+Start by creating the \file{NewTestConfig.scala} file in the \file{chipyard/generators/chipyard/src/main/scala/config/} directory.
+Inside of this file, we will start defining the \texttt{NewTestConfig} class, which will declare the desired configuration.
+
 
 % TODO: Include custom config example
 \begin{figure}[h!tbp]
