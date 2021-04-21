@@ -398,6 +398,11 @@ By editing the \mintinline{make}{JAVA_OPTS} variable, additional parameters can 
 This would be the location to inform the \Gls{jvm} how large a thread's stack may be, the garbage collection algorithm to use, an any other behavior-altering configurations.
 
 \subsection{Testing}\label{sec:Custom_Config-Testing}
+When running \emph{any} \texttt{make} command on your custom configuration, you \emph{must} provide the \texttt{CONFIG} parameter.
+Every time you want to simulate or run tests on your new design and use \texttt{make}, you must specify everything needed to select that particular design.
+For example, to run the RISC-V compliance tests with our example custom design, you must enter \bashinline{make CONFIG=NewTestConfig} (you can also add \mintinline{make}{VERILATOR_THREADS=N} to parallelize the execution of Verilator).
+If additional make variables were defined when the design was built, you must include them in the simulation command as well.
+
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
 
