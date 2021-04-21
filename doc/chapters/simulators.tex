@@ -25,6 +25,10 @@ Lastly, Arty support in VCS is still in active development, and is only on Chipy
 
 \section{FireSim}\label{sec:FireSim_Simulator}
 \nocite{firesimPresentation}
+FireSim is an interesting technology that allows a system designer to upload a generated design to AWS and test it there.
+By using the \nameref{sec:Icenet_Generator} generator, the \gls{fpga} design can be made to have networking capabilities.
+AWS/Amazon is then able to write this bitstream out to their \glspl{fpga} for closer to real-time testing.
+The value of this is that near normal \gls{fpga} speeds can be reached from an environment that appears to be composed completely in software (from the developer's point of view).
 
 %%% Local Variables:
 %%% mode: latex
