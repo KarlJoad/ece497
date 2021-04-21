@@ -373,6 +373,13 @@ We strongly recommend that:
   If you do \emph{not} pass the integer \texttt{N} to the \texttt{-j} flag, then Chipyard will use all available processors.
 \end{itemize}
 
+\begin{blackbox}
+  When building your custom configurations, you will likely require \emph{significantly} more memory than what was required for the example design described in \Cref{sec:Building_Example_Design}.
+  You will likely also need to change the amount of heap memory the \gls{jvm} has available to it.
+  This can be done by editing the \file{chipyard/variables.mk} file.
+  Change the line \mintinline{make}{JAVA_HEAP_SIZE ?= 8G} to a larger value (fractional values can be used, but are not recommended).
+\end{blackbox}
+
 \subsection{Testing}\label{sec:Custom_Config-Testing}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
