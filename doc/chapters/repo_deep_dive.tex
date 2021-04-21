@@ -307,6 +307,15 @@ SiFive Cache is intended to be a drop-in replacement for \nameref{sec:Rocket_Chi
 
 \subsection{\file{testchipip}}\label{sec:testchipip}
 \nocite{testchipipGithub}
+This last generator module is used to integrate proprietary intellectual property~(IP) components with the rest of the generated system.
+It provides:
+\begin{enumerate}
+\item Clock utilities
+\item Utilities to interface SERDES to and from TileLink
+\item Custom serial interfaces for debugging with simulator interface
+\item TileLink splitter, switcher
+\item Several other components
+\end{enumerate}
 
 \section{Custom Configurations}\label{sec:Custom_Configurations}
 Custom Configs can be created in the directory \mintinline{bash}{chipyard/generators/chipyard/src/main/scala/config/}.
