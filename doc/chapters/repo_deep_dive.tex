@@ -394,6 +394,9 @@ As of the time of last editing this document (\today), the portion of the file c
 \label{lst:Altering_JVM_Behavior}
 \end{listing}
 
+By editing the \mintinline{make}{JAVA_OPTS} variable, additional parameters can be specified for \emph{every} \Gls{jvm} invocation.
+This would be the location to inform the \Gls{jvm} how large a thread's stack may be, the garbage collection algorithm to use, an any other behavior-altering configurations.
+
 \subsection{Testing}\label{sec:Custom_Config-Testing}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
