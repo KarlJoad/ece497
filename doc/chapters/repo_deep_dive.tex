@@ -345,6 +345,14 @@ We want our processor design to be quite simple, so we are designing a processor
 In addition, we want to design a processor that has multiple cores on it,because a single CPU design for general-purpose use is not enough today.
 Lastly, we want to include a \nameref{sec:SHA3_Accelerators_Generator} accelerator module to allow us to perform SHA3 computations in hardware.
 
+In short, our design will have:
+\begin{enumerate}
+\item Multiple \nameref{sec:Rocket_Chip} cores.
+  We are going to start with four medium-sized cores.
+  There are both larger and smaller sizes already defined.
+\item A single \nameref{sec:SHA3_Accelerators_Generator} accelerator.
+\end{enumerate}
+
 
 \subsection{Building}\label{sec:Custom_Config-Building}
 
