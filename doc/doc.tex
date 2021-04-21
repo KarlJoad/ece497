@@ -110,10 +110,19 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 }
 \newcommand{\makenewmintedfiles}[1]{
   \newminted[scalasource]{scala}{#1}
-
   \newmintedfile[scalasourcefile]{scala}{#1}
+  \newminted[makesource]{make}{#1}
+  \newmintedfile[makesourcefile]{make}{#1}
 }
 \expandafter\makenewmintedfiles\expandafter{\mintedargs}
+\newmintinline[scalainline]{scala}{% Use with \bashinline{code}
+  style=emacs,
+  bgcolor=white,
+}
+\newmintinline[makeinline]{make}{% Use with \bashinline{code}
+  style=emacs,
+  bgcolor=white,
+}
 
 % Extra commands we choose to define
 \newcommand{\file}[1]{\texttt{#1}}
