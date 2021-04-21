@@ -17,8 +17,11 @@ In addition, it offers sa wide range of functionality for Chipyard.
 However, its biggest drawback right now is that it cannot perform validation simulations of procesor designs that would be implemented on a \gls{fpga}.
 
 \section{VCS}\label{sec:VCS_Simulator}
-Only VCS can be used to simulate the Arty \Gls{fpga}.
-Currently, this is only on the Git branch \href{https://github.com/ucb-bar/chipyard/tree/arty-sim}{\texttt{arty-sim}}.
+\href{https://www.synopsys.com/verification/simulation/vcs.html}{VCS} is a closed-source proprietary (System)Verilog simulator and verifier.
+It is trusted by some of the largest hardware design companies in the world, and is quite powerful.
+It is currently used to simulate designs using all the available features of x86-based microprocessors.
+In addition, VCS is the only Verilog simulator that can be used to simulate the Arty \Gls{fpga}.
+Lastly, Arty support in VCS is still in active development, and is only on Chipyard's git \href{https://github.com/ucb-bar/chipyard/tree/arty-sim}{\texttt{arty-sim}} branch.
 
 \section{FireSim}\label{sec:FireSim_Simulator}
 \nocite{firesimPresentation}
