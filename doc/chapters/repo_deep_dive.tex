@@ -341,6 +341,10 @@ Inside of this file, we will start defining the \texttt{NewTestConfig} class, wh
   Example configurations of various homogenous and heterogenous chips can be found in \file{RocketConfigs.scala}, in the same directory.
 \end{blackbox}
 
+We want our processor design to be quite simple, so we are designing a processor that uses only in-order execution.
+In addition, we want to design a processor that has multiple cores on it,because a single CPU design for general-purpose use is not enough today.
+Lastly, we want to include a \nameref{sec:SHA3_Accelerators_Generator} accelerator module to allow us to perform SHA3 computations in hardware.
+
 
 \subsection{Building}\label{sec:Custom_Config-Building}
 
