@@ -131,6 +131,14 @@ BOOM includes support for the following operations:
 In addition, BOOM supports external debugging.
 Microarchitectural documentation can be found \href{https://docs.boom-core.org/en/latest/}{here}.
 The GitHub organization and its development can be found \href{https://github.com/riscv-boom}{here}.
+A detailed flowchart of BOOM's pipeline design is shown in \Cref{fig:BOOM_Pipeline}.
+
+\begin{figure}[h!tbp]
+  \centering
+  \includegraphics[scale=0.50]{./boom-pipeline-detailed.png}
+  \caption{\nameref*{sec:BOOM_Generator} Pipeline~\cite{boomPaper}}
+  \label{fig:BOOM_Pipeline}
+\end{figure}
 
 These CPU definitions are used by \nameref{sec:Chipyard_Generator} when elaborating CPU designs defined by the end-programmer.
 
