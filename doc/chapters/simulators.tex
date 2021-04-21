@@ -27,6 +27,10 @@ It is currently used to simulate designs using all the available features of x86
 In addition, VCS is the only Verilog simulator that can be used to simulate the Arty \Gls{fpga}.
 Lastly, Arty support in VCS is still in active development, and is only on Chipyard's git \href{https://github.com/ucb-bar/chipyard/tree/arty-sim}{\texttt{arty-sim}} branch.
 
+Due to the proprietary nature of this product, this particular (System)Verilog simulator was not investigated.
+Verilator suited our needs, and provided the right amount of support that we needed.
+However, in a larger organization, or one that requires formal verification of their design, this would be the appropriate tool to use.
+
 \section{FireSim}\label{sec:FireSim_Simulator}
 \nocite{firesimPresentation}
 FireSim is an interesting technology that allows a system designer to upload a generated design to AWS and test it there.
