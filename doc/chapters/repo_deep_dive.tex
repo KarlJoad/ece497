@@ -318,7 +318,15 @@ It provides:
 \end{enumerate}
 
 \section{Custom Configurations}\label{sec:Custom_Configurations}
-Custom Configs can be created in the directory \mintinline{bash}{chipyard/generators/chipyard/src/main/scala/config/}.
+When defining a custom configuration that is based on the work already done in Chipyard, and you want to pull in the all the other work from all other generators, the new configuration class \textbf{must} be defined in the \file{chipyard/generators/chipyard/src/main/scala/config/} directory.
+
+\begin{blackbox}
+  Note that this is distinctly different than the case when you define your own custom parameterized \gls{rtl} Verilog to generate \textbf{new} modules.
+  In the case you are defining a new processor design, but you want to continue building off the work of the code that is already defined, you \textbf{must} place your custom class in Chipyard's \file{config/} directory.
+
+  In the case you are defining a completely new design (a new accelerator for instance), you can separate this definition out to a different generator directory entirely, and have Chipyard import, pull in, and dynamically handle your new project as a dependency of the one that generates the CPU design.
+\end{blackbox}
+
 For example, I created a new scala file called \file{NewTestConfig.scala} in the directory, allowing me to create a simulator from a class inside the NewTestConfig.scala file.
 Example Configs can be found in  \file{RocketConfigs.scala} in the same directory.
 
