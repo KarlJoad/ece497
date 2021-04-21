@@ -380,6 +380,9 @@ We strongly recommend that:
   Change the line \mintinline{make}{JAVA_HEAP_SIZE ?= 8G} to a larger value (fractional values can be used, but are not recommended).
 \end{blackbox}
 
+The passing of \texttt{CONFIG} to the \texttt{make} command is because of the values defined in \file{chipyard/variables.mk}.
+See \Cref{subsec:Building_Each_Subproject} for a more detailed explanation of what each variable is designed to do.
+
 \subsection{Testing}\label{sec:Custom_Config-Testing}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
