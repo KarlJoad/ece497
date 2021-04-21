@@ -6,8 +6,15 @@ Chipyard currently has support for three simulators:
 \item \nameref{sec:FireSim_Simulator}
 \end{enumerate}
 
+Each of these are perfectly suitable for their task.
+However, each one of these comes with its own benefits and drawbacks.
+These will be discussed in their respective sections.
 
 \section{Verilator}\label{sec:Verilator_Simulator}
+\href{https://www.veripool.org/wiki/verilator}{Verilator} is an open-source (System)Verilog compiler and simulator.
+Because it is open-source and written in a relatively high-level language (C/C++), it can be copmiled to any platform.
+In addition, it offers sa wide range of functionality for Chipyard.
+However, its biggest drawback right now is that it cannot perform validation simulations of procesor designs that would be implemented on a \gls{fpga}.
 
 \section{VCS}\label{sec:VCS_Simulator}
 Only VCS can be used to simulate the Arty \Gls{fpga}.
