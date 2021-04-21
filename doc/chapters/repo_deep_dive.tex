@@ -386,6 +386,14 @@ See \Cref{subsec:Building_Each_Subproject} for a more detailed explanation of wh
 \subsubsection{Notes about Altering JVM Behavior}\label{sec:Notes_Altering_JVM_Behavior}
 The arguments the JVM uses when running \gls{firrtl}, Chisel, and all other programs written in Scala and/or Java are controlled by the \file{chipyard/variables.mk} file.
 
+As of the time of last editing this document (\today), the portion of the file concerned with this is shown in \Cref{lst:Altering_JVM_Behavior}.
+
+\begin{listing}[h!tbp]
+\scalasourcefile{./code/alter-jvm-behavior.mk}
+\caption{Altering \Gls{jvm} Behavior}
+\label{lst:Altering_JVM_Behavior}
+\end{listing}
+
 \subsection{Testing}\label{sec:Custom_Config-Testing}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
