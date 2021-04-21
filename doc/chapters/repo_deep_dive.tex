@@ -328,8 +328,11 @@ When defining a custom configuration that is based on the work already done in C
   Then, you can track that as a submodule of Chipyard, have Chipyard import, and dynamically handle your new project as a dependency of the one that generates the CPU design.
 \end{blackbox}
 
-For example, I created a new scala file called \file{NewTestConfig.scala} in the directory, allowing me to create a simulator from a class inside the NewTestConfig.scala file.
-Example Configs can be found in  \file{RocketConfigs.scala} in the same directory.
+In this section, we show how to create a new, custom, configuration that combines the already-existing projects.
+We will be building a processor using four medium-sized \nameref{sec:Rocket_Chip} general-purpose cores, the default memory configuration, and will attach a SHA3 accelerator to the design for hardware-accelerated SHA3 calculation.
+
+We will cover how to write a generated design image out to an \gls{fpga} in \Cref{chap:FPGA_Implementation}, rather than here, because the process is the same for every generated chip.
+
 
 % TODO: Include custom config example
 \begin{figure}[h!tbp]
