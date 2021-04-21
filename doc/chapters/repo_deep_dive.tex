@@ -353,6 +353,14 @@ In short, our design will have:
 \item A single \nameref{sec:SHA3_Accelerators_Generator} accelerator.
 \end{enumerate}
 
+Using the design parameters we have defined, we can write a processor definition class that \emph{declaratively} describes the resulting CPU we want.
+The code for this is shown in \Cref{lst:Custom_Config-NewTestConfig} and is also available alongside the source code for this document.
+
+\begin{listing}[h!tbp]
+\scalasourcefile{./code/NewTestConfig.scala}
+\caption{\file{NewTestConfig.scala} Contents}
+\label{lst:Custom_Config-NewTestConfig}
+\end{listing}
 
 \subsection{Building}\label{sec:Custom_Config-Building}
 
