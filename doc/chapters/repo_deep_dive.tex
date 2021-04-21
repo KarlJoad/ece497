@@ -403,6 +403,10 @@ Every time you want to simulate or run tests on your new design and use \texttt{
 For example, to run the RISC-V compliance tests with our example custom design, you must enter \bashinline{make CONFIG=NewTestConfig} (you can also add \mintinline{make}{VERILATOR_THREADS=N} to parallelize the execution of Verilator).
 If additional make variables were defined when the design was built, you must include them in the simulation command as well.
 
+\begin{blackbox}
+  If you do not provide the necessary \texttt{CONFIG} parameter, \texttt{make} will assume you are running the default processor design and look for that particular set of files.
+  You can configure what \texttt{make} will assume is the default by editing the \file{chipyard/variables.mk} makefile.
+\end{blackbox}
 
 \subsection{Simulating}\label{sec:Custom_Config-Simulating}
 
