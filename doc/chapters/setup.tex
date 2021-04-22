@@ -24,6 +24,23 @@ This document will work equally well in other distributions, so long as the vers
 Chipyard also has explicit support for CentOS, which extends to Fedora and RHEL as well.
 In addition, installing and using Linux natively works as well.
 
+\section{Document Typesetting}\label{sec:Doc_Typesetting}
+This document makes use of a variety of different fonts and colors to denote different aspects of this work.
+Each of the different font settings are explained here.
+
+\begin{description}
+\item[\texttt{Teletype Text}] Computing-related topics/items.
+  This is typically used to denote terms you will see in this document, repository, and other materials surroudning this topic, but do not correlate to any of the other options here.
+\item[\file{file/path}] A relative file path.
+  This is typically used with \file{chipyard/subdir}, meaning you should move to the specified subdirectory or file \emph{inside} of the Chipyard subdirectory.
+\item[\file{/file/path}] An absolute file path.
+% NOTE: The textcolor below should match the linkcolor in hypersetup in doc.tex!
+\item[\textnormal{\textcolor{blue}{Blue Text}}] A link within this document.
+  Clicking other word(s) that look like this will take you to a different place inside this document.
+\item[\bashinline{cmd-to-run}] A command to run in your terminal.
+  We assume you are using the Bash shell.
+\end{description}
+
 \section{Building Chipyard}\label{sec:Building_Chipyard}
 Here, we present the necessary steps to retrieving all the dependencies required to set up Chipyard for local development and simulation use.
 All of the code shown in the listings of this section is gathered in the \file{code} subdirectory.
