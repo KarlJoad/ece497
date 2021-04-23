@@ -216,7 +216,19 @@
   description = {The fifth revision of an open-source \Gls{risc} architecture, developed at University of California Berkeley},
 }
 
+\newglossaryentry{riscg}{
+  name = {Reduced Instruction Set Computer},
+  description = {A virtual machine that enables a computer to run Java programs as well as programs written in other languages that are also compiled to Java bytecode},
+}
+
+\newglossaryentry{risc}{
   type = \acronymtype,
+  name = {RISC},
+  description = {Reduced Instruction Set Computer},
+  first = {RISC~(Reduced Instruction Set Computer)\glsadd{riscg}},
+  see=[Glossary:]{riscg}
+}
+
 }
 
 %%% Local Variables:
