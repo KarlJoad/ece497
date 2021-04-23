@@ -155,7 +155,7 @@ The commands to run, in order, are:
 
 \begin{blackbox}
   To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to the \texttt{make} command.
-  \textbf{You must parallelize Verilator during building, not just during simulation time.}
+  \textbf{You must \glslink{multithread}{parallelize} Verilator during building, not just during simulation time.}
   As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
 \end{blackbox}
 
