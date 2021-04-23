@@ -29,7 +29,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 \usepackage{csquotes} % Context-sensitive quotation facilities
 \usepackage{chngcntr} % Allows us to tamper with the counter a little more
 \usepackage{empheq} % Allow boxing of equations in special math environments
-\usepackage{xcolor} % Gives access to coloring text in environments or just text, MUST be before tikz
+\usepackage[x11names]{xcolor} % Gives access to coloring text in environments or just text, MUST be before tikz
 \usepackage{tcolorbox} % Allows us to create boxes of various types
 \usepackage{nth} % Programmatically give ordinal numbers in the text
 \usepackage{authblk}
@@ -126,7 +126,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 }
 
 % Extra commands we choose to define
-\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\textcolor{Magenta2}{\texttt{#1}}}
 
 % Add bibliography files here
 \addbibresource{../References.bib}
