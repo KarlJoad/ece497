@@ -46,6 +46,9 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
   citecolor=red,
 }
 
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
 \newtcolorbox[% auto counter,
 % number within=section,
 % number format=\arabic,
@@ -69,6 +72,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 \usepackage{minted}
 \crefname{lstlisting}{listing}{listings}
 \Crefname{lstlisting}{Listing}{Listings}
+\counterwithin{listing}{chapter}
 
 \newcommand{\BashFancyFormatLine}{%
   \def\FancyVerbFormatLine##1{\$\;##1}
