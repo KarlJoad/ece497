@@ -22,6 +22,7 @@ in pkgs.mkShell {
     # ChipYard Dependencies
     bison
     flex
+    gnum4 expect
     gmp mpfr libmpc zlib
     vim git jdk
     texinfo gengetopt
