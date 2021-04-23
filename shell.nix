@@ -8,7 +8,7 @@ let
     ./.
     ./weekly_report
     ./ece_day
-    ./tutorials
+    ./doc
     "$TEXINPUTS"
   ];
 
