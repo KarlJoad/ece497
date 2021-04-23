@@ -119,8 +119,8 @@ This file is a bash script that changes your \texttt{PATH}, \texttt{RISCV}, and 
 
 To alleviate any issues that may occur due to misconfigured or non-existent environment variables, there are two possible quality of life improvements you can make.
 \begin{enumerate}
-\item Add the line \bashinline{source /path/to/chipyard/env.sh} to your \texttt{.bashrc} file in your home directory.
-  After adding this to your \texttt{.bashrc} file, restart your shell, or re-\texttt{source} your \file{.bashrc} and continue.
+\item Add the line \bashinline{source /path/to/chipyard/env.sh} to the end of your \file{.bashrc} file in your home directory.
+  After adding this to your \file{.bashrc} file, restart your shell, or re-\bashinline{source} your \file{.bashrc} and continue.
 \item Install the \href{https://direnv.net/}{\texttt{direnv}} package and use it to automatically change your environment variables for you, instead of having them constantly loaded the way the previous option does.
 \end{enumerate}
 
