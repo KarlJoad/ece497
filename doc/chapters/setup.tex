@@ -114,7 +114,7 @@ Your cloned Chipyard repository contains a script to install these.
 You can run the script to build a good general-purpose toolchain using \bashinline{./scripts/build-toolchains.sh riscv-tools} while inside your local copy of the cloned Chipyard repository.
 
 \subsubsection{Environment Variables}\label{sec:Environment_Variables}
-Once the toolchain is built, an environment-setup script is emitted to the root of your local copy of Chipyard, with the name \file{env.sh}.
+Once the toolchain is built, an environment-setup script is emitted to the root of your local copy of Chipyard, with the name \file{env.sh} (located at \file{chipyard/env.sh}).
 This file is a bash script that changes your \texttt{PATH}, \texttt{RISCV}, and \texttt{LD\_LIBRARY\_PATH} environment variables so that Chipyard can find everything it needs.
 
 To alleviate any issues that may occur due to misconfigured or non-existent environment variables, there are two possible quality of life improvements you can make.
