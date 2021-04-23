@@ -49,6 +49,15 @@ Each of the different font settings are explained here.
 
 In addition, we make use of \gls{man} syntax here.
 This means that text inside of angle brackes is mandatory, inside of square brackets is optional, and the vertical pipe is an ``or.''
+An example is shown in \Cref{lst:man_Syntax}.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+command <mandatory-arg> [optional-arg-1] [optional-arg-2a | optional-arg-2b]
+\end{bashsource}
+\caption{\gls{man} Syntax}
+\label{lst:man_Syntax}
+\end{listing}
 
 \section{Building Chipyard}\label{sec:Building_Chipyard}
 Here, we present the necessary steps to retrieving all the dependencies required to set up Chipyard for local development and simulation use.
