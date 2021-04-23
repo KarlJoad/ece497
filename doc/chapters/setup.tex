@@ -3,11 +3,11 @@
 This document is intended to serve as a record of the work performed for the ECE 497 special project supervised by Professor Jia Wang during the Spring 2021 semester.
 In this document, we will specify how our project repository was created, outline issues we ran into, and provide guidance on how to better setup the Chipyard Framework.
 
-Chipyard is a framework for designing, \glslink{elaborate}{elaborating}, simulating, testing, and building RISC-V CPU designs.
+Chipyard is a framework for designing, \glslink{elaboration}{elaborating}, simulating, testing, and building \Gls{riscv} CPU designs.
 It provides the functionality to define a set of standard CPU designs, but also allows for the end-user to describe their own custom designs and integrate them as first-class citizens in the framework.
-It also provides a toolkit for verifying that elaborated CPU designs meet the RISC-V ISA standard, ensuring designed chips are compliant.
-There are also tools for writing the elaborated designs out to \gls{fpga} bitstreams, so that simulation can be sped up and execution can occur on \glspl{softcore}.
-Lastly, Chipyard includes tools for a VLSI-design workflow, to implement the elaborated CPU design on actual silicon.
+It also provides a toolkit for verifying that \glslink{elaboration}{elaborated} CPU designs meet the \Gls{riscv} \Gls{isa} standard, ensuring designed chips are compliant.
+There are also tools for writing the \glslink{elaboration}{elaborated} designs out to \gls{fpga} bitstreams, so that simulation can be sped up and execution can occur on \glspl{softcore}.
+Lastly, Chipyard includes tools for a VLSI-design workflow, to implement the \glslink{elaboration}{elaborated} CPU design on actual silicon.
 
 \section{Project Environment}\label{chap:Project_Environment}
 The first step to using the Chipyard Framework is creating a project environment and obtaining all of the Chipyard dependencies.
@@ -66,7 +66,7 @@ Note that this does \textbf{not} work for installing the dependencies for Linux 
 \end{listing}
 
 \subsubsection{Build Verilator from Source}\label{sec:Build_Verilator_from_Source}
-Chipyard's documentation recommends building \href{https://www.veripool.org/wiki/verilator}{Verilator} (an open-source (System)Verilog simulator and compiler) from source.
+Chipyard's documentation recommends building \href{https://www.veripool.org/wiki/verilator}{Verilator} (an open-source (System)Verilog simulator and compiler) from \gls{source}.
 
 A small script has been provided that handles this for you in \Cref{lst:Build_Verilator_from_Source}.
 Note that this does \textbf{not} work for installing the dependencies required to build Verilator for Linux distributions that do not use the \texttt{apt} package manager.
@@ -108,7 +108,7 @@ To alleviate any issues that may occur due to misconfigured or non-existent envi
 
 \section{Example CPU Design}\label{sec:Example_CPU_Design}
 In this section, we show how to build and simulate the default CPU Chipyard defines.
-This particular CPU is relatively easy to elaborate, requiring just \SI{6}{\giga\byte} of memory.
+This particular CPU is relatively easy to \glslink{elaboration}{elaborate}, requiring just \SI{6}{\giga\byte} of memory.
 
 \subsection{Building the Example Design}\label{sec:Building_Example_Design}
 To build the example design that Chipyard defines, all you must do is enter one of the simulator directories and type \bashinline{make}.
@@ -116,13 +116,13 @@ This \textbf{does} require that both the RISC-V toolchain you built and Verilato
 If one of these is not available, the \texttt{make} command will print out an error message describing what it is failing on.
 
 \begin{blackbox}
-  It is strongly recommended that you parallelize the elaboration of the CPU design.
+  It is strongly recommended that you parallelize the \gls{elaboration} of the CPU design.
   You can achieve this by passing the \texttt{-j [N]} flag to \texttt{make}.
   You may replace the \texttt{[N]} with a number to indicate the number of your CPU cores to use for building.
 
   \textbf{If you omit the \texttt{[N]} entirely, the build system will use ALL cores!}
 
-  The elaboration of the default \texttt{RocketConfig} requires about \SI{6.5}{\giga\byte} of main memory.
+  The \gls{elaboration} of the default \texttt{RocketConfig} requires about \SI{6.5}{\giga\byte} of main memory.
   Otherwise the process will fail with \bashinline{make: *** [firrtl_temp] Error 137} which is most likely related to limited resources.
   Other configurations might require even more main memory~\cite{chipyard}.
 
@@ -141,7 +141,7 @@ The commands to run, in order, are:
   As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
 \end{blackbox}
 
-Once the elaboration of the design is finished, an \textbf{executable} called \file{simulator-chipyard-RocketConfig} is produced.
+Once the \gls{elaboration} of the design is finished, an \textbf{executable} called \file{simulator-chipyard-RocketConfig} is produced.
 This is an executable that is capable of running any RISC-V compatible code.
 
 \subsection{Running the Example Design}\label{sec:Running_Example_Design}
