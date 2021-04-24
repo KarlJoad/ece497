@@ -281,6 +281,19 @@
   first = {AWS~(Amazon Web Services)},
 }
 
+\newglossaryentry{elfg}{
+  name = {Reduced Instruction Set Computer},
+  description = {A common standard file format for executable files, object code, shared libraries, and core dumps},
+}
+
+\newglossaryentry{elf}{
+  type = \acronymtype,
+  name = {ELF},
+  description = {Executable and Linkable Format},
+  first = {ELF~(Executable and Linkable Format)\glsadd{elfg}},
+  see=[Glossary:]{elfg}
+}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "doc"
