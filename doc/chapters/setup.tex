@@ -59,9 +59,14 @@ command <mandatory-arg> [optional-arg-1] [optional-arg-2a | optional-arg-2b]
 \label{lst:man_Syntax}
 \end{listing}
 
+\begin{blackbox}
+  Text inside black boxes, like this one, is meant to provide an area for notes that should be remembered.
+  For example, some of these provide reminders to \glslink{multithread}{parallelize} code compilation to speed up the process.
+\end{blackbox}
+
 \section{Building Chipyard}\label{sec:Building_Chipyard}
 Here, we present the necessary steps to retrieving all the dependencies required to set up Chipyard for local development and simulation use.
-All of the code shown in the listings of this section is gathered in the \file{code} subdirectory.
+The larger code listings shown in this document is gathered in the \file{code} subdirectory of this document's project directory.
 We developed this documentation using version \href{https://github.com/ucb-bar/chipyard/releases/tag/1.4.0}{\textbf{1.4.0}}\footnote{Git Commit Hash: \href{https://github.com/ucb-bar/chipyard/commit/58076cfb260a3be502d6d1c25b577da39277a7fc}{58076cfb260a3be502d6d1c25b577da39277a7fc}} of Chipyard.
 
 \subsection{Chipyard Dependencies}\label{sec:Chipyard_Dependencies}
@@ -72,7 +77,7 @@ A paraphrased reproduction of these steps are shown below.
 
 \subsubsection{Retrieve/Install Dependencies}\label{sec:Retrive_Install_Dependencies}
 Chipyard relies on numerous dependencies and libraries to read files and build the required Verilog files.
-In addition, Chipyard relies on \texttt{sbt}, the Scala Build Tool, as a majority of Chipyard and its dependencies are written in Scala.
+In addition, Chipyard relies on \gls{sbt}, because a majority of Chipyard and its dependencies are written in Scala.
 
 \Cref{lst:Ubuntu_Chipyard_Deps_Setup} is a script that handles fetching and installing all the dependencies for you.
 Note that this does \textbf{not} work for installing the dependencies for Linux distributions that do not use the \texttt{apt} package manager.
@@ -117,7 +122,7 @@ You can run the script to build a good general-purpose toolchain using \bashinli
 Once the toolchain is built, an environment-setup script is emitted to the root of your local copy of Chipyard, with the name \file{env.sh} (located at \file{chipyard/env.sh}).
 This file is a bash script that changes your \texttt{PATH}, \texttt{RISCV}, and \texttt{LD\_LIBRARY\_PATH} environment variables so that Chipyard can find everything it needs.
 
-To alleviate any issues that may occur due to misconfigured or non-existent environment variables, there are two possible quality of life improvements you can make.
+To alleviate any issues that may occur due to misconfigured or non-existent environment variables, we recommend you do one of the following:
 \begin{enumerate}
 \item Add the line \bashinline{source /path/to/chipyard/env.sh} to the end of your \file{.bashrc} file in your home directory.
   After adding this to your \file{.bashrc} file, restart your shell, or re-\bashinline{source} your \file{.bashrc} and continue.
@@ -131,10 +136,10 @@ This particular CPU is relatively easy to \glslink{elaboration}{elaborate}, requ
 \subsection{Building the Example Design}\label{sec:Building_Example_Design}
 To build the example design that Chipyard defines, all you must do is enter one of the simulator directories and type \bashinline{make}.
 This \textbf{does} require that both the RISC-V toolchain you built and Verilator Verilog simulator be loaded into your environment~(see \Cref{sec:Environment_Variables}).
-If one of these is not available, the \texttt{make} command will print out an error message describing what it is failing on.
+If one of these is not available, the \texttt{make} command will print out an error message why it is failing.
 
 \begin{blackbox}
-  It is strongly recommended that you parallelize the \gls{elaboration} of the CPU design.
+  We strongly recommended that you parallelize the \gls{elaboration} of the CPU design.
   You can achieve this by passing the \texttt{-j [N]} flag to \texttt{make}.
   You may replace the \texttt{[N]} with a number to indicate the number of your CPU cores to use for building.
 
@@ -159,8 +164,8 @@ The commands to run, in order, are:
   As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
 \end{blackbox}
 
-Once the \gls{elaboration} of the design is finished, an \textbf{executable} called \file{simulator-chipyard-RocketConfig} is produced.
-This is an executable that is capable of running any RISC-V compatible code.
+Finishing the \gls{elaboration} of the design produces an \textbf{executable} called \file{simulator-chipyard-RocketConfig}.
+This executable is capable of running any RISC-V compatible code.
 
 \subsection{Running the Example Design}\label{sec:Running_Example_Design}
 To run arbitrary code, the executable takes the ELF file of the program to run as a parameter.
@@ -207,9 +212,15 @@ make run-bmark-tests
 \end{listing}
 
 \section{Xilinx Vivado Suite Installation}\label{sec:Xilinx_Vivado_Suide_Install}
-The \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} is important to be installed if any work regarding an FPGA is to be conducted.
-While performing this work and preparing this document, we used the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2), so no \nth{3} party libraries would need to be installed.
+It is important to install the \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} if any work regarding an \Gls{fpga} is to be conducted.
+The suite features tools a variety of tools used in teh design, building, and testing of hardware designs using \glspl{softcore}.
+
+Vivado, one of the programs in the suite, is used for all aspects of managing \Glspl{fpga}.
+It handles the setup process for the \Gls{fpga}, writing the bitstream to the \Gls{fpga}, among many other features.
+
+We used the ``offline installation'' version of the Xilinx Unified Installer (version 2020.2), so no \nth{3} party libraries would need to be installed.
 Xilinx is supported for a variety of operating systems, including Ubuntu\footnote{Xilinx only officially offers support for Ubuntu 16.04.2 LTS, but it should work on any Ubuntu version since then.}
+
 When conducting the installation, be sure to select the ``Vitis'' installation target instead of just selecting ``Vivado''.
 Installing Vitis will install both Vivado, and all other Xilinx tools needed for implementing FPGA projects.
 
@@ -229,6 +240,7 @@ It will be used to generate several tools that will be used during this project,
 \item RISC-V QEMU for system testing through emulation
 \item And other useful software.
 \end{itemize}
+% TODO: Explain what each of these programs does.
 
 These tools take a considerable amount of time and disk space to compile so it is best to run the \texttt{make} command as \mintinline{bash}{make -j`nproc`} to parallelize compiling.
 Note that this will consume many system resources, and you should be prepared to have an unresponsive machine while the system is building these tools.

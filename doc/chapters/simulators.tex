@@ -12,8 +12,8 @@ These will be discussed in their respective sections.
 
 \section{Verilator}\label{sec:Verilator_Simulator}
 \href{https://www.veripool.org/wiki/verilator}{Verilator} is an open-source (System)Verilog compiler and simulator.
-Because it is open-source and written in a relatively high-level language (C/C++), it can be copmiled to any platform.
-In addition, it offers sa wide range of functionality for Chipyard.
+Because it is open-source and written in a relatively high-level language (C/C++), it can be compiled to any platform.
+In addition, it offers a wide range of functionality for Chipyard.
 However, its biggest drawback right now is that it cannot perform validation simulations of procesor designs that would be implemented on a \gls{fpga}.
 
 Throughout the entire research project that was conducted, this was the only simulator that was used.
@@ -21,8 +21,8 @@ This was due to our relatively minor requirements of the simulations and our foc
 However, in the laboratory, this would be an invaluable feature for students to have available to them, as \glspl{fpga} are likely not always available.
 
 \section{VCS}\label{sec:VCS_Simulator}
-\href{https://www.synopsys.com/verification/simulation/vcs.html}{VCS} is a closed-source proprietary (System)Verilog simulator and verifier.
-It is trusted by some of the largest hardware design companies in the world, and is quite powerful.
+\href{https://www.synopsys.com/verification/simulation/vcs.html}{VCS} is a closed-source, proprietary (System)Verilog simulator and verifier.
+It is trusted by some of the largest hardware design companies in the world and is quite powerful.
 It is currently used to simulate designs using all the available features of x86-based microprocessors.
 In addition, VCS is the only Verilog simulator that can be used to simulate the Arty \Gls{fpga}.
 Lastly, Arty support in VCS is still in active development, and is only on Chipyard's git \href{https://github.com/ucb-bar/chipyard/tree/arty-sim}{\texttt{arty-sim}} branch.
@@ -33,7 +33,7 @@ However, in a larger organization, or one that requires formal verification of t
 
 \section{FireSim}\label{sec:FireSim_Simulator}
 \nocite{firesimPresentation}
-FireSim is an interesting technology that allows a system designer to upload a generated design to AWS and test it there.
+FireSim is an interesting technology that allows a system designer to upload a generated design to \Gls{aws} and test it there.
 By using the \nameref{sec:Icenet_Generator} generator, the \gls{fpga} design can be made to have networking capabilities.
 AWS/Amazon is then able to write this bitstream out to their \glspl{fpga} for closer to real-time testing.
 The value of this is that near normal \gls{fpga} speeds can be reached from an environment that appears to be composed completely in software (from the developer's point of view).
