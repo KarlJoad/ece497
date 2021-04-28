@@ -116,7 +116,23 @@ These include SiFive's CPU designs, the \nameref{sec:BOOM_Generator} CPU design,
 \subsection{Building a Toolchain}\label{sec:Building_Toolchain}
 To compile programs from C to RISC-V instructions, there are several tools you need, when grouped together is called a toolchain.
 Your cloned Chipyard repository contains a script to install these.
-You can run the script to build a good general-purpose toolchain using \bashinline{./scripts/build-toolchains.sh riscv-tools} while inside your local copy of the cloned Chipyard repository.
+You can run the script to build a good general-purpose toolchain using \Cref{lst:Build_RISCV_Toolchain} or \Cref{lst:Build_RISCV_Toolchain-Parallel} while inside your local copy of the cloned Chipyard repository.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+./scripts/build-toolchains.sh riscv-tools
+\end{bashsource}
+\caption{Build \Gls{riscv} Toolchain}
+\label{lst:Build_RISCV_Toolchain}
+\end{listing}
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+export MAKEFLAGS=-j[N]; ./scripts/build-toolchains.sh riscv-tools}
+\end{bashsource}
+\caption{Parallel Build \Gls{riscv} Toolchain}
+\label{lst:Build_RISCV_Toolchain-Parallel}
+\end{listing}
 
 \subsubsection{Environment Variables}\label{sec:Environment_Variables}
 Once the toolchain is built, an environment-setup script is emitted to the root of your local copy of Chipyard, with the name \file{env.sh} (located at \file{chipyard/env.sh}).
