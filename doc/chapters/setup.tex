@@ -178,12 +178,6 @@ The commands to run, in order, are:
 \item \bashinline{make}
 \end{enumerate}
 
-\begin{blackbox}
-  To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to \bashinline{make}.
-  \textbf{You must \glslink{multithread}{parallelize} Verilator during building, not just during simulation time.}
-  As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
-\end{blackbox}
-
 Finishing the \gls{elaboration} of the design produces an \textbf{executable} called \file{simulator-chipyard-RocketConfig}.
 This executable is capable of running any RISC-V compatible code.
 
@@ -230,6 +224,15 @@ make run-bmark-tests
 \caption{Run Benchmark Tests}
 \label{lst:Run_Benchmark_Tests}
 \end{listing}
+
+\begin{blackbox}
+  To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to \bashinline{make}.
+  As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
+
+  Note that if you pass the \texttt{-j[N]} flag to \texttt{make}, then \textbf{each} spawned thread will use the specified number of \texttt{VERILATOR\_THREADS}.
+  The result is that you will need $\mathtt{N} \times \mathtt{VERILATOR\_THREADS}$ to simulate the design.
+  If you do not have that many cores on your hosting CPU, the simulation will be greatly slowed.
+\end{blackbox}
 
 \section{Xilinx Vivado Suite Installation}\label{sec:Xilinx_Vivado_Suide_Install}
 It is important to install the \href{https://www.xilinx.com/support/download.html}{Xilinx Vivado Suite} if any work regarding an \Gls{fpga} is to be conducted.
