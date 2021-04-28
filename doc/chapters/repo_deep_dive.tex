@@ -54,7 +54,7 @@ The first notable part of the \file{variables.mk} file is the \texttt{SUB\_PROJE
 This variable allows for easy re-configuration of the entire framework to support elaborating your own CPU designs.
 By changing this file between one of the well-defined options, one can easily re-use major portions of Chipyard's architecture.
 
-For example, to switch from a CPU defined by Chipyard to one that is uses the Hwacha accelerator, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necessary configuration variables are changed.
+For example, to switch from a CPU defined by Chipyard to one that is uses the Hwacha \gls{accelerator}, one just needs to say \mintinline{bash}{make SUB_PROJCT=hwacha}, and all the necessary configuration variables are changed.
 
 \subsection{Building Each Subproject}\label{subsec:Building_Each_Subproject}
 The next notable part of this file is its large \mintinline{make}{ifeq ... endif} blocks.
@@ -113,8 +113,8 @@ Custom RISCV code can be run by using the command \mintinline{bash}{./simulator-
 \section{Generators}\label{sec:Generators}
 In this section, we look at each of the subdirectories inside the \file{chipyard/generators} subdirectory in turn.
 Each of the CPU generators presented below are unique in their implementation of the open \Gls{riscv} \Gls{isa}.\@
-Some of the generators are accelerators; they are meant to be implemented as add-on processors to main CPUs.
-For example, the \nameref{sec:SHA3_Accelerators_Generator} accelerator is meant to be implemented with a \nameref{sec:Rocket_Chip} as its main CPU.\@
+Some of the generators are \glspl{accelerator}; they are meant to be implemented as add-on processors to main CPUs.
+For example, the \nameref{sec:SHA3_Accelerators_Generator} \gls{accelerator} is meant to be implemented with a \nameref{sec:Rocket_Chip} as its main CPU.\@
 
 \subsection{BOOM}\label{sec:BOOM_Generator}
 \nocite{boomHomepage}
@@ -176,9 +176,9 @@ This allows the chip to run a full Unix-like operating system.
 \subsection{Gemmini}\label{sec:Gemmini_Generator}
 \nocite{gemminiGithub}
 \nocite{gemminiPaper}
-Gemmini is not a CPU;\@ instead, it is a CPU \emph{accelerator}, implemented alongside another CPU, such as a \nameref{sec:BOOM_Generator} or \nameref{sec:Rocket_Chip} design.
+Gemmini is not a CPU;\@ instead, it is a CPU \emph{\gls{accelerator}}, implemented alongside another CPU, such as a \nameref{sec:BOOM_Generator} or \nameref{sec:Rocket_Chip} design.
 It is intended for hardware-level matrix operations, such as matrix multiplication, machine learning, and other \gls{simd} operations.
-A general logic design for the Gemmini accelerators is shown in \Cref{fig:Gemmini_Accelerator}.
+A general logic design for the Gemmini \glspl{accelerator} is shown in \Cref{fig:Gemmini_Accelerator}.
 
 \begin{figure}[h!tbp]
   \centering
@@ -192,7 +192,7 @@ Gemmini is intended for integration with other \nameref{sec:Rocket_Chip}s, but c
 \subsection{Hwacha}\label{sec:Hwacha}
 \nocite{hwachaGithub}
 \nocite{hwachaPresentation}
-Like the \nameref{sec:Gemmini_Generator}, Hwacha is meant to be an accelerator.
+Like the \nameref{sec:Gemmini_Generator}, Hwacha is meant to be an \gls{accelerator}.
 Hwacha is a co-processor, designed to be run with other CPU processors, namely the \nameref{sec:Rocket_Chip}s.
 Hwacha, like \nameref{sec:Gemmini_Generator}, is another \gls{simd} co-processor, but designed to work with vectors instead of matrices.
 % TODO: Explain the difference between vectors and matrices in terms of computation,
@@ -242,7 +242,7 @@ Icenet also provides a kernel driver so that the \gls{nic} has a full Linux netw
 \subsection{NVDLA}\label{sec:NVDLA_Generator}
 \nocite{nvdlaPaper}
 \nocite{nvdlaNVIDIAPresentation}
-NVDLA, short for NVIDIA Deep Learning Accelerator, is a domain-specific \gls{soc}, designed for deep learning.
+NVDLA, short for NVIDIA Deep Learning \Gls{accelerator}, is a domain-specific \gls{soc}, designed for deep learning.
 It is optimized for deep learning tasks, such as Convolutional Neural Networks and computer vision.
 It is targeted for edge-computing devices, primarily for \Gls{iot}.
 This particular \gls{soc} design was \emph{not} investigated, as it is both proprietary and outside the scope of this research.
@@ -282,7 +282,7 @@ A diagram of the Rocket Chip's design is shown in \Cref{fig:Rocket_Chip_Design}.
 \end{figure}
 
 Rocket is different from other chips because it can be used to create larger heterogenous \glspl{soc}.
-This means that a single package can be composed of not only Rocket CPUs, but \emph{also} custom accelerators, co-processors, or completely independent cores, or even a mix of all three.
+This means that a single package can be composed of not only Rocket CPUs, but \emph{also} custom \glspl{accelerator}, co-processors, or completely independent cores, or even a mix of all three.
 
 Overall, the Rocket chip is an \gls{soc} design that is most useful for general-purpose computing platforms and CPU and \gls{fpga} research.
 Its open development platform and \gls{extensible} design allows for anyone to use the already defined designs and extend on top of them.
@@ -291,10 +291,10 @@ The Rocket Chip design is the paragon of RISC-V extensibility due to its support
 \subsection{SHA3}\label{sec:SHA3_Accelerators_Generator}
 \nocite{sha3Paper}
 \nocite{sha3Github}
-The SHA3 generator is a \glslink{parameterize}{parameterized} accelerator compute unit, like the \nameref{sec:Gemmini_Generator} and \nameref{sec:Hwacha}.
+The SHA3 generator is a \glslink{parameterize}{parameterized} \gls{accelerator} compute unit, like the \nameref{sec:Gemmini_Generator} and \nameref{sec:Hwacha}.
 Because, it is parameterized, its overall characteristics and funtionality can change based on the input parameters to the design system.
 It was designed to be an example of making an add-on computational unit for the \nameref{sec:Rocket_Chip} and \nameref{sec:BOOM_Generator} cores.
-The overall design of the accelerator is given in \Cref{fig:SHA3_Accelerator_Design}, drawn from~\cite{sha3Paper} and fetched from~\cite{sha3Github}.
+The overall design of the \gls{accelerator} is given in \Cref{fig:SHA3_Accelerator_Design}, drawn from~\cite{sha3Paper} and fetched from~\cite{sha3Github}.
 
 \begin{figure}[h!tbp]
   \centering
@@ -304,7 +304,7 @@ The overall design of the accelerator is given in \Cref{fig:SHA3_Accelerator_Des
 \end{figure}
 
 The design is a fully featured SHA3 computing unit that can be given the memory address whose contents are to be hashed, the computation to perform, and the memory location where to store the result.
-All of this is done in a ``set and forget'' way, where the main processor gives the accelerator the required information and the accelerator is free to run on its own.
+All of this is done in a ``set and forget'' way, where the main processor gives the \gls{accelerator} the required information and the accelerator is free to run on its own.
 
 To add a SHA3 accelerator to your \nameref{sec:Rocket_Chip} or \nameref{sec:BOOM_Generator} design, follow the example code shown in \Cref{lst:SHA3_Accelerator_Addition}.
 
@@ -346,8 +346,9 @@ If defining a custom configuration that is based on the work already done in Chi
   Note that this case is distinctly different than when you define your own custom parameterized \gls{rtl} Verilog to generate \textbf{new} modules.
   In the case you are defining a new processor design, but you want to continue building off the work of the code that is already defined, you \textbf{must} place your custom class in Chipyard's \file{config/} directory.
 
-  If you are defining a completely new design (a new accelerator for instance), then you can separate this definition out to a different generator directory entirely.
-  You can also track that as a submodule of Chipyard, have Chipyard import, and dynamically handle your new project as a dependency of the one that generates the CPU design.
+  If you are defining a completely new design (a new \gls{accelerator} for instance), then you can separate this definition out to a different directory in the \file{chipyard/generator/} directory entirely.
+  You can also track that new directory as a git submodule of Chipyard.
+  Then, Chipyard can import and dynamically handle your new project as a dependency of a higher-level definition that generates the CPU design.
 \end{blackbox}
 
 In this section, we show how to create a new custom configuration that combines the already-existing projects.
