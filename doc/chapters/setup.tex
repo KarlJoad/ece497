@@ -160,7 +160,7 @@ If one of these is not available, the \texttt{make} command will print out an er
 
 \begin{blackbox}
   We strongly recommended that you parallelize the \gls{elaboration} of the CPU design.
-  You can achieve this by passing the \texttt{-j [N]} flag to \texttt{make}.
+  You can achieve this by passing the \texttt{-j [N]} flag to \bashinline{make}.
   You may replace the \texttt{[N]} with a number to indicate the number of your CPU cores to use for building.
 
   \textbf{If you omit the \texttt{[N]} entirely, the build system will use ALL cores!}
@@ -179,7 +179,7 @@ The commands to run, in order, are:
 \end{enumerate}
 
 \begin{blackbox}
-  To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to the \texttt{make} command.
+  To parallelize the Verilator simulator, you must pass the \texttt{VERILATOR\_THREADS} variable to \bashinline{make}.
   \textbf{You must \glslink{multithread}{parallelize} Verilator during building, not just during simulation time.}
   As an example, \bashinline{make VERILATOR_THREADS=4} will inform Verilator to use 4 cores/threads when simulating the design.
 \end{blackbox}
@@ -262,7 +262,7 @@ It will be used to generate several tools that will be used during this project,
 \end{itemize}
 % TODO: Explain what each of these programs does.
 
-These tools take a considerable amount of time and disk space to compile so it is best to run the \texttt{make} command as \mintinline{bash}{make -j`nproc`} to parallelize compiling.
+These tools take a considerable amount of time and disk space to compile so it is best to run \texttt{make} as \bashinline{bash}{make -j`nproc`} to parallelize compiling.
 Note that this will consume many system resources, and you should be prepared to have an unresponsive machine while the system is building these tools.
 
 %%% Local Variables:
