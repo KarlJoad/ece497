@@ -199,7 +199,7 @@ An example of the command to run is shown in \Cref{lst:Running_Example_Design}.
 \label{lst:Running_Example_Design}
 \end{listing}
 
-Chipyard also provides a quality-of-life \texttt{make} directive when running these programs, shown in \Cref{lst:Running_Example_Design-Make}.
+Chipyard also provides a quality-of-life \texttt{make} target when running these programs, shown in \Cref{lst:Running_Example_Design-Make}.
 
 \begin{listing}[h!tbp]
 \begin{bashsource}
@@ -209,7 +209,7 @@ make run-binary BINARY=<path/to/riscv/elf>
 \label{lst:Running_Example_Design-Make}
 \end{listing}
 
-Using the \texttt{make} directive also allows the built design to accept many common command line options, including redirecting \texttt{STDOUT} to a file.
+Using the \texttt{make} target also allows the built design to accept many common command line options, including redirecting \texttt{STDOUT} to a file.
 
 \subsection{Simulating the Example Design}\label{sec:Simulating_Example_Design}
 Similar to \Cref{sec:Running_Example_Design}, the simulations are actually just a set of \Gls{riscv} programs designed to test the built designs.
