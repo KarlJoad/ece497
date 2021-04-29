@@ -28,6 +28,16 @@ This gives the running system \emph{all} available system resources and removes 
 
 \subsection{Docker Container}\label{sec:Docker_Container}
 To ease the distribution of the required dependencies, we have included a \href{https://github.com/KarlJoad/ece497/blob/master/docker/Dockerfile}{Dockerfile} for building an environment very similar to ours.
+\Cref{lst:Build_Docker_Image} shows how to build the image, \emph{after} having cloned \href{https://github.com/KarlJoad/ece497}{our} repository.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+DOCKER_BUILDKIT=1 docker build -t ece497:deliverable ./
+\end{bashsource}
+\caption{Build Docker Image}
+\label{lst:Build_Docker_Image}
+\end{listing}
+
 
 \section{Document Typesetting}\label{sec:Doc_Typesetting}
 This document makes use of a variety of different fonts and colors to denote different aspects of this work.
