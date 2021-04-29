@@ -24,7 +24,11 @@ RUN git clone https://git.veripool.org/git/verilator && \
 
 # Set up the necessary environment for the chipyard user
 USER chipyard
-WORKDIR /home/chipyard
+ENV HOME=/home/chipyard
+WORKDIR $HOME
 
 RUN git clone https://github.com/ucb-bar/chipyard
-ENV HOME /home/chipyard
+ENV CHIPYARD=/home/chipyard/chipyard
+RUN cd $CHIPYARD && \
+	$CHIPYARD/scripts/init-submodules-no-riscv-tools.sh && \
+    $CHIPYARD/scripts/build-toolchains.sh riscv-tools
