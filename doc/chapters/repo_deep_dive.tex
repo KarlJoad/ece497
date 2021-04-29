@@ -170,8 +170,15 @@ It fully implements the 64-bit \Gls{riscv} instruction set, and several extensio
 \item[A] Atomic Operations
 \item[C] Compression/Decompression Operations
 \end{description}
-In addition, it supports three different privilege levels, M, S, and U.
-This allows the chip to run a full Unix-like operating system.
+
+In addition, this design supports all three privilege levels defined in the \Gls{riscv} \Gls{isa}:
+\begin{description}
+\item[M] Machine-mode, the most privileged mode
+\item[S] Supervisor-mode
+\item[U] User-mode, the least privileged mode
+\end{description}
+
+By supporting all three privilege levels and the extensions, this chip can run a full Unix-like operating system.
 
 \subsection{Gemmini}\label{sec:Gemmini_Generator}
 \nocite{gemminiGithub}
