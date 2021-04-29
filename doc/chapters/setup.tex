@@ -38,6 +38,16 @@ DOCKER_BUILDKIT=1 docker build -t ece497:deliverable ./
 \label{lst:Build_Docker_Image}
 \end{listing}
 
+Note that this image will take a \emph{very} long time to build.
+It not only creates a new Ubuntu image for you to work with, it also:
+\begin{enumerate}
+\item Updates Ubuntu to the latest version
+\item Fetches and builds Verilator from \gls{source}
+\item Fetches Chipyard
+\item Initializes Chipyard's submodule dependencies
+\item Builds the \Gls{riscv} toolchain Chipyard relies on
+\end{enumerate}
+
 
 \section{Document Typesetting}\label{sec:Doc_Typesetting}
 This document makes use of a variety of different fonts and colors to denote different aspects of this work.
