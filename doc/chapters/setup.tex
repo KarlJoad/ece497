@@ -48,6 +48,15 @@ It not only creates a new Ubuntu image for you to work with, it also:
 \item Builds the \Gls{riscv} toolchain Chipyard relies on
 \end{enumerate}
 
+Once the Docker image is built, you can spawn as many instances as you need, using the command in \Cref{lst:Run_Enter_Docker_Container}.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+docker run -it --user chipyard ece497:deliverable /bin/bash
+\end{bashsource}
+\caption{Run and Enter Docker Container}
+\label{lst:Run_Enter_Docker_Container}
+\end{listing}
 
 \section{Document Typesetting}\label{sec:Doc_Typesetting}
 This document makes use of a variety of different fonts and colors to denote different aspects of this work.
