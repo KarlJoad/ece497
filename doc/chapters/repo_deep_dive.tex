@@ -202,10 +202,18 @@ Gemmini is intended for integration with other \nameref{sec:Rocket_Chip}s, but c
 Like the \nameref{sec:Gemmini_Generator}, Hwacha is meant to be an \gls{accelerator}.
 Hwacha is a co-processor, designed to be run with other CPU processors, namely the \nameref{sec:Rocket_Chip}s.
 Hwacha, like \nameref{sec:Gemmini_Generator}, is another \gls{simd} co-processor, but designed to work with vectors instead of matrices.
-% TODO: Explain the difference between vectors and matrices in terms of computation,
-% particularly when the difference comes to building an accelerator specifically for them.
 
-It uses several alternative concepts in its design, including:
+In terms of computing, the difference between a vector and a matrix depends on the context.
+A vector could be a list of characters, integers, floating-point values, or booleans.
+On the other hand, a matrix mirrors its mathematical definition, of an $m \times n$ dimensional construct containing values.
+
+However, in this case, when we say the \nameref{sec:Gemmini_Generator} works on matrices and the \nameref{sec:Hwacha} works on matrices, we mean their hardware design for computation.
+The \nameref{sec:Hwacha} is intended to work on long strings of data at the same time.
+The \nameref{sec:Gemmini_Generator} instead works by performing matrix operations (such as matrix multiplication) in a single operation.
+In a processor that does not support matrix operations, matrix multiplication is \emph{very} expensive, because each row and column of a matrix multiplication must be computed separately.
+With hardware-level matrix operations, the entire matrix multiplication can be done with a single instruction, \emph{greatly} speeding up execution.
+
+The \nameref{sec:Hwacha} uses several alternative concepts in its design, including:
 \begin{itemize}
 \item A configurable register file, which is defined by software
 \item A runtime-variable vector length register
