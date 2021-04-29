@@ -106,9 +106,9 @@ The directory for verilator is \file{chipyard/sims/verilator}.
 An example simulation can be run by using \bashinline{make} in the \file{chipyard/verilator/} directory.
 Running the \bashinline{make} command produces a simulator executable in the \file{verilator/} directory.
 
-Custom Chipyard configs can be simulated by running \mintinline{bash}{make CONFIG=<your custom config>}.
-For example, if your project name was ``TestConfig'', running \mintinline{bash}{make CONFIG=TestConfig} would create an executable called \file{simulator-chipyard-TestConfig} in the \file{verilator} directory.
-Custom RISCV code can be run by using the command \mintinline{bash}{./simulator-chipyard-TestConfig /path/to/riscv/executable} from the \file{chipyard/sims/verilator} directory.
+Custom Chipyard configs can be simulated by running \bashinline{make CONFIG=<your custom config>}.
+For example, if your project name was ``TestConfig'', running \bashinline{make CONFIG=TestConfig} would create an executable called \file{simulator-chipyard-TestConfig} in the \file{verilator/} directory.
+Custom \Gls{riscv} code can be run by using the command \bashinline{./simulator-chipyard-TestConfig /path/to/riscv/executable} from the \file{chipyard/sims/verilator} directory.
 
 \section{Generators}\label{sec:Generators}
 In this section, we look at each of the subdirectories inside the \file{chipyard/generators} subdirectory in turn.
