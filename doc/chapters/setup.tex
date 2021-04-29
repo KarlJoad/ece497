@@ -11,14 +11,14 @@ Lastly, Chipyard includes tools for a VLSI-design workflow, to implement the \gl
 
 \section{Project Environment}\label{sec:Project_Environment}
 The first step to using the Chipyard Framework is creating a project environment and obtaining all of the Chipyard dependencies.
-In this document, we assume you are using Ubuntu 20.04 LTS, running in a virtual machine with \textbf{at least}:
+In this document, we assume you are using Ubuntu 20.04 LTS in a virtual machine with the following system specifications, or running the Docker container with the host machine having \textbf{at least}:
 \begin{itemize}
 \item 4 cores
 \item \SI{16}{\giga\byte} of RAM, or more
 \item \SI{250}{\giga\byte} disk image
 \end{itemize}
 
-Much of the disk space that has been allocated will be utilized, as the entire RISC-V toolchain and Xilinx Vivado Suite require a large amount of disk space.
+Much of the disk space that has been allocated will be utilized, as the entire \Gls{riscv} toolchain and Xilinx Vivado Suite require a large amount of disk space.
 
 This document will work equally well in other distributions (Fedora, CentOS, OpenSuSE, Archlinux, etc.), so long as the versions of the dependencies are matched.
 Chipyard has explicit support for CentOS, extending to Fedora and RHEL as well.
@@ -28,6 +28,35 @@ This gives the running system \emph{all} available system resources and removes 
 
 \subsection{Docker Container}\label{sec:Docker_Container}
 To ease the distribution of the required dependencies, we have included a \href{https://github.com/KarlJoad/ece497/blob/master/docker/Dockerfile}{Dockerfile} for building an environment very similar to ours.
+\Cref{lst:Build_Docker_Image} shows how to build the image, \emph{after} having cloned \href{https://github.com/KarlJoad/ece497}{our} repository.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+DOCKER_BUILDKIT=1 docker build -t ece497:deliverable ./
+\end{bashsource}
+\caption{Build Docker Image}
+\label{lst:Build_Docker_Image}
+\end{listing}
+
+Note that this image will take a \emph{very} long time to build.
+It not only creates a new Ubuntu image for you to work with, it also:
+\begin{enumerate}
+\item Updates Ubuntu to the latest version
+\item Fetches and builds Verilator from \gls{source}
+\item Fetches Chipyard
+\item Initializes Chipyard's submodule dependencies
+\item Builds the \Gls{riscv} toolchain Chipyard relies on
+\end{enumerate}
+
+Once the Docker image is built, you can spawn as many instances as you need, using the command in \Cref{lst:Run_Enter_Docker_Container}.
+
+\begin{listing}[h!tbp]
+\begin{bashsource}
+docker run -it --user chipyard ece497:deliverable /bin/bash
+\end{bashsource}
+\caption{Run and Enter Docker Container}
+\label{lst:Run_Enter_Docker_Container}
+\end{listing}
 
 \section{Document Typesetting}\label{sec:Doc_Typesetting}
 This document makes use of a variety of different fonts and colors to denote different aspects of this work.
@@ -35,15 +64,17 @@ Each of the different font settings are explained here.
 
 \begin{description}
 \item[\texttt{Teletype Text}] Computing-related topics/items.
-  This is typically used to denote terms you will see in this document, repository, and other materials surroudning this topic, but do not correlate to any of the other options here.
+  This is typically used to denote terms you will see in this document, repository, and other materials surroudning this topic, but do not correlate to any of the other options presented in this list.
 \item[\file{file/path}] A relative file path.
   This is typically used with \file{chipyard/subdir}, meaning you should move to the specified subdirectory or file \emph{inside} of the Chipyard subdirectory.
-  They will only look this way when a file is specified by itself, not in any commands.
+  File paths will only look this way when a file is specified by itself.
+  In a command, this highlighting will not be present.
 \item[\file{/file/path}] An absolute file path.
   When specified this way, you must provide the entire path specified.
-  They will only look this way when a file is specified by itself, not in any commands.
+  File paths will only look this way when a file is specified by itself.
+  In a command, this highlighting will not be present.
 % NOTE: The textcolors below should match the ones defined in hypersetup in doc.tex!
-\item[\textnormal{\textcolor{blue}{Blue Text}}] A link within this document.
+\item[\textnormal{\textcolor{blue}{Blue Text}}] A link to another location within this document.
   Clicking other word(s) that look like this will take you to a different place inside this document.
 \item[\textnormal{\textcolor{cyan}{URL Link}}] A link to take you outside of this document.
 \item[\bashinline{cmd-to-run}] A command to run in your terminal.
@@ -182,7 +213,7 @@ Finishing the \gls{elaboration} of the design produces an \textbf{executable} ca
 This executable is capable of running any RISC-V compatible code.
 
 \subsection{Running the Example Design}\label{sec:Running_Example_Design}
-To run arbitrary code, the executable takes the ELF file of the program to run as a parameter.
+To run arbitrary code, the executable takes the \Gls{elf} file of the program to run as a parameter.
 An example of the command to run is shown in \Cref{lst:Running_Example_Design}.
 
 \begin{listing}[h!tbp]
