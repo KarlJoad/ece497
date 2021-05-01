@@ -22,39 +22,39 @@ Once the final image is flashed to the FPGA, the debugger will allow the user to
 \end{figure}
 
 \section{Customizing an FPGA Image}\label{sec:Customizing}
-In Chipyard, the directory used for all FPGA prototyping functionality is \mintinline{bash}{/fpga}, located in the root directory. 
+In Chipyard, the directory used for all \Gls{fpga} prototyping functionality is \file{chipyard/fpga}, located in the root directory.
 Inside this directory there are several important files.
 
-\subsection{Makefile}
-Inside the Makefile is where you are able to define a custom Subproject as shown in \Cref{subsec:Makefile_SUB_PROJECT}. 
-This allows users to control what files are compiled and generated for the FPGA Image. 
+\subsection{Makefile}\label{sec:Customizing_FPGA-Makefile}
+Inside the Makefile is where you are able to define a custom Subproject as shown in \Cref{subsec:Makefile_SUB_PROJECT}.
+This allows users to control what files are compiled and generated for the \Gls{fpga} image.
 This is highly recommended as it simplifies the workflow for repeated compilation attempts.
 
-\subsection{Configuration Directory}
-The configuration directory for the Arty FPGA is located under \file{/src/main/scala/arty/}. 
+\subsection{Configuration Directory}\label{sec:Customizing_FPGA-Config_Directory}
+The configuration directory for the Arty \Gls{fpga} is located under \file{/src/main/scala/arty/}.
 This directory includes several useful files, including \file{Configs.scala}, \file{HarnessBinders.scala}, \file{IOBinders.scala}, and \file{TestHarness.scala}.
 
-\subsubsection{Configs.scala}
-This file is where 
+\subsubsection{\file{Configs.scala}}\label{sec:Customizing_FPGA-Configs.scala}
+This file is where
 
-\subsubsection{HarnessBinders.scala}
-This file is where 
+\subsubsection{\file{HarnessBinders.scala}}\label{sec:Customizing_FPGA-HarnessBinders.scala}
+This file is where
 
-\subsubsection{IOBinders.scala}
-This file is where 
+\subsubsection{\file{IOBinders.scala}}\label{sec:Customizing_FPGA-IOBinders.scala}
+This file is where
 
-\subsubsection{TestHarness.scala}
-This file is where 
+\subsubsection{\file{TestHarness.scala}}\label{sec:Customizing_FPGA-TestHarness.scala}
+This file is where
 
-\subsection{Generated-src Directory}
+\subsection{Generated-src Directory}\label{sec:Customizing_FPGA-Generated-src_Directory}
 
-\section{Generating the FPGA Image}
-\subsection{Syntax}
+\section{Generating the FPGA Image}\label{sec:Generating_FPGA_Image}
+\subsection{Syntax}\label{sec:Generating_FPGA_Image-Syntax}
 
 
-\section{Using the FPGA Image}
-\subsection{Flashing the Image}
-\subsection{Uploading Programs to the FPGA}
+\section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
+\subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
+\subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../doc"
