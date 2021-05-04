@@ -1,7 +1,15 @@
 \chapter{FPGA Implementation}\label{chap:FPGA_Implementation}
 This chapter is devoted to discussing how to implement a Chipyard-generated processor design on a \textbf{local} \gls{fpga} for quicker testing and general use.
 Throughout the research project this manual was originally completed in, the Arty \gls{fpga} was used.
+An image of the Arty board can be seen in \Cref{fig:Arty_FPGA}.
 The Arty board is built using a Xilinx \gls{fpga} module and then Arty creates a board surrounding the particular chip.
+
+\begin{figure}[h!tbp]
+  \centering
+  \includegraphics[scale=0.35]{./Arty_FPGA.png}
+  \caption{Arty \Gls{fpga}}
+  \label{fig:Arty_FPGA}
+\end{figure}
 
 \section{About}\label{sec:About}
 The Chipyard Framework contains initial support for \gls{fpga} development and simulation of \gls{soc} designs.
