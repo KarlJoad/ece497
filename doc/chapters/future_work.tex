@@ -19,6 +19,16 @@ In fact, because \Gls{riscv} has been created by the \UCB{}, there are already a
 In the sections below, we discuss several courses offered at \IIT{} that, we believe, would be perfect candidates for a revamp using \Gls{riscv} and Chipyard.
 
 \subsection{\href{http://bulletin.iit.edu/search/?P=ECE 242}{ECE 242 --- Digital Computers and Computing}}\label{sec:ECE_242}
+ECE~242 is intended to be an introductory course to some of the lowerest levels of digital computing.
+Namely, this involves in-depth discussion around both \Gls{cisc} and \Gls{risc} architectures, their differences, and how to write \gls{assembly}.
+
+Currently, the \Gls{risc} architecture taught is \href{https://en.wikipedia.org/wiki/MIPS_architecture}{MIPS}.
+We feel that this is not going to help students in their future work, so we suggest teaching \Gls{riscv} instead.
+The base instruction set is not much more complicated, with just forty-seven~(47) instructions for the user-level 32-bit integer instruction set~\cite[pp.~9--26]{riscvISASpec}.
+Because the \Gls{riscv} \Gls{isa} is significantly more modern, many of the concepts learned here will still translate to other \Gls{risc} \Glspl{isa}.
+
+By virtue of being more modern, students will gain an appreciation and knowledge of an architecture that they are far more likely to encounter in their career.
+This is because \Gls{riscv} supports mixing and matching extensions, so the processors can actually be designed for anything from an embedded microcomputer to high performance computing.
 
 \subsection{\href{http://bulletin.iit.edu/search/?P=ECE 441}{ECE 441 --- Microcomputers and Embedded Computing}}\label{sec:ECE_441}
 
