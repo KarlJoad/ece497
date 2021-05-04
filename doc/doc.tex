@@ -141,6 +141,7 @@ style=numeric]{biblatex} % Must include citation somewhere in document to print 
 % Enable the printing of a glossary
 \usepackage[xindy,toc,acronym,writeglslabels]{glossaries}
 \makeglossaries{}
+% Make sure glossary entry always has first letter capitalized.
 \renewcommand{\glsnamefont}[1]{\makefirstuc{#1}}
 \input{./glossary}
 
