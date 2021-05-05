@@ -173,9 +173,11 @@ It fully implements the 64-bit \Gls{riscv} instruction set, and several extensio
 
 In addition, this design supports all three privilege levels defined in the \Gls{riscv} \Gls{isa}:
 \begin{description}
-\item[M] Machine-mode, the most privileged mode
-\item[S] Supervisor-mode
-\item[U] User-mode, the least privileged mode
+\item[M] Machine-mode, the most privileged mode.
+  Designed for the bootloader, firmware, controlling physical resources, and handling interrupts.
+  It is \emph{not} interruptible, and will never be stopped by actions happening in S or U mode.
+\item[S] Supervisor-mode. Runs the kernel, kernel modules, device drivers, and hypervisors.
+\item[U] User-mode, the least privileged mode. Only runs user processes.
 \end{description}
 
 By supporting all three privilege levels and the extensions, this chip can run a full Unix-like operating system.
