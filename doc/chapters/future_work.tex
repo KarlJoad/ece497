@@ -31,6 +31,23 @@ By virtue of being more modern, students will gain an appreciation and knowledge
 This is because \Gls{riscv} supports mixing and matching extensions, so the processors can actually be designed for anything from an embedded microcomputer to high performance computing.
 
 \subsection{\href{http://bulletin.iit.edu/search/?P=ECE 441}{ECE~441 --- Microcomputers and Embedded Computing}}\label{sec:ECE_441}
+ECE~441 teaches the concept of embedded computing in more depth.
+It handles more advanced microprocessor features, such as hardware interrupting, memory design, and \Gls{mmio}~\cite{iitECE441}.
+
+In previous iterations of this course, the SANPER-1 Educational Lab Unit was used.
+This system is based on the \href{https://en.wikipedia.org/wiki/Motorola_68000}{Motorola 68000} series microprocessor.
+Although there would be some work required to move from a \Gls{cisc} architecture to a \Gls{risc} one, we feel it is appropriate given how the world has already and will continue to move forward.
+Although the principles in the MC68k are sound, they are also quite outdated.
+We suggest a \Gls{riscv} CPU that implements the RV32E integer instruction set~\cite[p.~25]{riscvISASpec} because this course is particularly focused on embedded computing.
+
+\Gls{riscv} processors can be built with the ability to have their bus cycles interrupted, which is a key feature of the SANPER.\@
+In addition, highly desired features can be implemented in the \Gls{riscv} processor's hardware, by extending the already defined instructions with new ones.
+This customization and flexibility is already making \Gls{riscv} a major competitor in the industrial world.
+Taking this same flexible system and bringing it to academia will allow for further \Gls{riscv} environment maturation and more academically up-to-date graduates.
+
+Taking this a step further, to keep the devices up-to-date, using an \Gls{fpga} might be appropriate as well.
+This would allow for greater diversity in CPU design exposure during hte actual laboratory session.
+If need be, key functionality can be added to the system between laboratory sessions.
 
 \subsection{\href{http://bulletin.iit.edu/search/?P=ECE 485}{ECE~485 --- Computer Organization and Design}}\label{sec:ECE_485}
 
