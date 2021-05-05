@@ -50,6 +50,24 @@ This would allow for greater diversity in CPU design exposure during hte actual 
 If need be, key functionality can be added to the system between laboratory sessions.
 
 \subsection{\href{http://bulletin.iit.edu/search/?P=ECE 485}{ECE~485 --- Computer Organization and Design}}\label{sec:ECE_485}
+ECE~485 is designed to teach fundamental concepts of computer architecture, organization, and design~\cite{iitECE485}.
+All of these topics can be covered and explored in even \emph{more} depth by having access to an \gls{extensible} \Gls{isa}.
+
+Many of the sub-projects that Chipyard makes use of would be very appropriate for a reworked version of this course.
+The \nameref{sec:cva6_Generator} and \nameref{sec:RISC-V_Sodor} would be perfect for this course.
+They are already very small designs, implementing minimal functionality.
+
+The \nameref{sec:RISC-V_Sodor} design would be best for introducing topics, because it has multiple stages that support different levels of simulation.
+Because the simulations are done completely in software, there is minimal student overhead for testing new designs and learning about how the system is designed.
+The different stages allow for students to view and simulate progressively more complex CPU designs.
+
+The \nameref{sec:cva6_Generator} could be used as a simpler example of a full CPU design, as it supports multiple extensions and multiple privilege levels.
+Because the \nameref{sec:cva6_Generator} is a single issue, in-order design, the circuitry is less complex than similar chips (\nameref{sec:Rocket_Chip} and \nameref{sec:BOOM_Generator}).
+This makes the \nameref{sec:cva6_Generator} perfect to show component integration onto a single device.
+
+We believe focusing the revamped version of this course around an \Gls{fpga} would also be most appropriate, as students could make new designs on-the-fly and test them.
+This could open a completely different world up to this course.
+Being able to not only learn about processor architecture and design, but the chance to implement this functionality on an \Gls{fpga} would make everything being learned tangible.
 
 %%% Local Variables:
 %%% mode: latex
