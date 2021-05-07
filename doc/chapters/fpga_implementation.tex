@@ -43,20 +43,33 @@ The configuration directory for the Arty \Gls{fpga} is located under \file{chipy
 This directory includes several useful files, including \file{Configs.scala}, \file{HarnessBinders.scala}, \file{IOBinders.scala}, and \file{TestHarness.scala}.
 
 \subsubsection{\file{Configs.scala}}\label{sec:Customizing_FPGA-Configs.scala}
-This file is where custom Chipyard SoC configurations are stored and utilized for \Gls{fpga} prototyping. There are several custom configuration parameters for the Arty \Gls{fpga} in this file. The default configuration utilized to make an image for the Arty Board is labeled as "TinyRocketArtyConfig", which then utilized the custom parameters defined for "WithArtyTweaks" and "WithDefaultPeripherals" in the same file. The addresses specified in the "WithDefaultParameters" configurations alter how the memory mapped peripherals for the Arty \Gls{fpga} will be connected.
+This file is where custom Chipyard SoC configurations are stored and utilized for \Gls{fpga} prototyping. There are several custom configuration parameters for the Arty \Gls{fpga} in this file. 
+The default configuration utilized to make an image for the Arty board is labeled as "TinyRocketArtyConfig", which then utilized the custom parameters defined for "WithArtyTweaks" and "WithDefaultPeripherals" in the same file. 
+The addresses specified in the "WithDefaultParameters" configurations alter how the memory mapped peripherals for the Arty \Gls{fpga} will be connected.
 
 \subsubsection{\file{HarnessBinders.scala}}\label{sec:Customizing_FPGA-HarnessBinders.scala}
-This file is where custom "harness binders" for the Arty \Gls{fpga} are defined. These harness binders utilize pins specified in the master "ArtyShell" pin definitions for the Arty board (provided by Digilent for use in Xilinx Vivado). This file is located under \file{chipyard/fpga/fpga-shells/src/main/scala/shell/xilinx/ArtyShell.scala}. These pin mappings are the same mappings that would be used when interfacing with the Arty board when designing in Xilinx Vivado. Harness binders in this file are provided for the JTAG interface, \Gls{spi} flash, and the \Gls{uart} connector. These three connections are critical to the \Gls{fpga} design, and to ensuring that programs can be successfully uploaded and run on the \Gls{fpga}. It is important to note that the harness binders connects to the "TestHarness", and not the physical IO \cite{Chipyard_IO}. This was done such that separation could be created between the simulation and physical design. To connect to the physical IO pins, IOBinders are also needed.
+This file is where custom "harness binders" for the Arty \Gls{fpga} are defined. 
+These harness binders utilize pins specified in the master "ArtyShell" pin definitions for the Arty board (provided by Digilent for use in Xilinx Vivado). 
+This file is located under \file{chipyard/fpga/fpga-shells/src/main/scala/shell/xilinx/ArtyShell.scala}. These pin mappings are the same mappings that would be used when interfacing with the Arty board when designing in Xilinx Vivado. 
+Harness binders in this file are provided for the JTAG interface, \Gls{spi} flash, and the \Gls{uart}  connector. These three connections are critical to the \Gls{fpga} design, and to ensuring that programs can be successfully uploaded and run on the \Gls{fpga}. 
+It is important to note that the harness binders connects to the "TestHarness", and not the physical IO \cite{Chipyard_IO}. 
+This was done such that separation could be created between the simulation and physical design. 
+To connect to the physical IO pins, IOBinders are also needed.
 
 \subsubsection{\file{IOBinders.scala}}\label{sec:Customizing_FPGA-IOBinders.scala}
-This file is where the physical IO pins are connected to the harness binders defined previously. In this file are custom configurations for the \Gls{spi} flash and JTAG connectors that will be utilized in the default design. In the future, additional IOBinders for other peripherals on the Arty \Gls{fpga} should be implemented.
+This file is where the physical IO pins are connected to the harness binders defined previously. 
+In this file are custom configurations for the \Gls{spi} flash and JTAG connectors that will be utilized in the default design. 
+In the future, additional IOBinders for other peripherals on the Arty \Gls{fpga} should be implemented.
 
 \subsubsection{\file{TestHarness.scala}}\label{sec:Customizing_FPGA-TestHarness.scala}
-This file is where miscellaneous connections are made between pins, global clock and reset variable are defined, and the Harness Binders are actually applied to the \Gls{soc} design. No modification to this file shoudl be needed in order to implement new peripheral devices in the future.
+This file is where miscellaneous connections are made between pins, global clock and reset variable are defined, and the Harness Binders are actually applied to the \Gls{soc} design. No modification to this file should be needed in order to implement new peripheral devices in the future.
 
 \subsection{generated-src Directory}\label{sec:Customizing_FPGA-Generated-src_Directory}
 
-The generated-src directory is the directory in which all files created from compiling the \Gls{soc} design and \Gls{fpga} image will be stored. This means that the memory map, \Gls{fpga} bitstream, and other important files will be stored in this directory. This directory can be found at \file{chipyard/fpga/generated-src}. This directory will not be created until a \Gls{fpga} design run is initiated.
+The generated-src directory is the directory in which all files created from compiling the \Gls{soc} design and \Gls{fpga} image will be stored. 
+This means that the memory map, \Gls{fpga} bitstream, and other important files will be stored in this directory. 
+This directory can be found at \file{chipyard/fpga/generated-src}. 
+This directory will not be created until a \Gls{fpga} design run is initiated.
 
 
 
