@@ -20,7 +20,7 @@ This branch fixes the \gls{uart} implementation and enables the \gls{spi} flash 
 \section{Prerequisites}\label{sec:Prerequisites}
 To assist with the proper setup, we approached the \Gls{fpga} implementation of an \Gls{soc} by following the \citetitle{FreedomDevGuide}~\cite{FreedomDevGuide}.
 This outlined many of the steps we would eventually need to take, starting with purchasing an \href{https://www.digikey.com/en/products/detail/olimex-ltd/ARM-USB-TINY-H/3471388}{Olimex JTAG Debugger}~\cite{OlimexJTAG}.
-Once the final image is flashed to the \Gls{fpga}, the debugger will allow the user to upload C programs and execute them on the RISC-V processor. Without the JTAG Debugger, we were unable to upload programs to the \Gls{fpga}, so this is a necessity.
+Once the final image is flashed to the \Gls{fpga}, the debugger will allow the user to upload C programs and execute them on the RISC-V processor. Without the \gls{jtag} Debugger, we were unable to upload programs to the \Gls{fpga}, so this is a necessity.
 
 \begin{figure}[h!tbp]
   \centering
@@ -33,10 +33,6 @@ Once the final image is flashed to the \Gls{fpga}, the debugger will allow the u
 In Chipyard, the directory used for all \Gls{fpga} prototyping functionality is \file{chipyard/fpga}, located in the root directory.
 Inside this directory there are several important files.
 
-\subsection{Makefile}\label{sec:Customizing_FPGA-Makefile}
-Inside the Makefile is where you are able to define a custom subproject as shown in \Cref{subsec:Makefile_SUB_PROJECT}.
-This allows users to control what files are compiled and generated for the \Gls{fpga} image.
-This is highly recommended as it simplifies the workflow for repeated compilation attempts.
 
 \subsection{Configuration Directory}\label{sec:Customizing_FPGA-Config_Directory}
 The configuration directory for the Arty \Gls{fpga} is located under \file{chipyard/fpga/src/main/scala/arty/}.
@@ -51,31 +47,43 @@ The addresses specified in the "WithDefaultParameters" configurations alter how 
 This file is where custom "harness binders" for the Arty \Gls{fpga} are defined. 
 These harness binders utilize pins specified in the master "ArtyShell" pin definitions for the Arty board (provided by Digilent for use in Xilinx Vivado). 
 This file is located under \file{chipyard/fpga/fpga-shells/src/main/scala/shell/xilinx/ArtyShell.scala}. These pin mappings are the same mappings that would be used when interfacing with the Arty board when designing in Xilinx Vivado. 
-Harness binders in this file are provided for the JTAG interface, \Gls{spi} flash, and the \Gls{uart}  connector. These three connections are critical to the \Gls{fpga} design, and to ensuring that programs can be successfully uploaded and run on the \Gls{fpga}. 
+Harness binders in this file are provided for the \Gls{jtag} interface, \Gls{spi} flash, and the \Gls{uart}  connector. These three connections are critical to the \Gls{fpga} design, and to ensuring that programs can be successfully uploaded and run on the \Gls{fpga}. 
 It is important to note that the harness binders connects to the "TestHarness", and not the physical IO \cite{Chipyard_IO}. 
 This was done such that separation could be created between the simulation and physical design. 
 To connect to the physical IO pins, IOBinders are also needed.
 
 \subsubsection{\file{IOBinders.scala}}\label{sec:Customizing_FPGA-IOBinders.scala}
 This file is where the physical IO pins are connected to the harness binders defined previously. 
-In this file are custom configurations for the \Gls{spi} flash and JTAG connectors that will be utilized in the default design. 
+In this file are custom configurations for the \Gls{spi} flash and \Gls{jtag} connectors that will be utilized in the default design. 
 In the future, additional IOBinders for other peripherals on the Arty \Gls{fpga} should be implemented.
 
 \subsubsection{\file{TestHarness.scala}}\label{sec:Customizing_FPGA-TestHarness.scala}
 This file is where miscellaneous connections are made between pins, global clock and reset variable are defined, and the Harness Binders are actually applied to the \Gls{soc} design. No modification to this file should be needed in order to implement new peripheral devices in the future.
 
-\subsection{generated-src Directory}\label{sec:Customizing_FPGA-Generated-src_Directory}
+%\subsection{generated-src Directory}\label{sec:Customizing_FPGA-Generated-src_Directory}
 
 The generated-src directory is the directory in which all files created from compiling the \Gls{soc} design and \Gls{fpga} image will be stored. 
 This means that the memory map, \Gls{fpga} bitstream, and other important files will be stored in this directory. 
 This directory can be found at \file{chipyard/fpga/generated-src}. 
 This directory will not be created until a \Gls{fpga} design run is initiated.
 
-
+\subsection{Makefile}\label{sec:Customizing_FPGA-Makefile}
+Inside the Makefile is where you are able to define a custom subproject as shown in \Cref{subsec:Makefile_SUB_PROJECT} and \Cref{subsec:Building_Each_Subproject}.
+This allows users to control what files are compiled and generated for the \Gls{fpga} image.
+This is highly recommended as it simplifies the workflow for repeated compilation attempts.
 
 \section{Generating the FPGA Image}\label{sec:Generating_FPGA_Image}
+
 \subsection{Syntax}\label{sec:Generating_FPGA_Image-Syntax}
 
+
+Much like generating a verilog simulation, there are many options when it comes to generating an FPGA image in Chipyard. The complete syntax is as follows:\cite{Chipyard_Prototyping}
+
+
+\$ \hspace{1pt} \mintinline[breaklines]{bash}{make SBT_PROJECT=... MODEL=... VLOG_MODEL=... MODEL_PACKAGE=... CONFIG=... CONFIG_PACKAGE=... GENERATOR_PACKAGE=... TB=... TOP=... BOARD=... FPGA_BRAND=... bitstream}
+
+The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is as follows:
+\\ \$ \hspace{1pt} \mintinline[breaklines]{bash}{make SUB_PROJECT=<sub_project> bitstream}
 
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
