@@ -304,7 +304,7 @@
 \newglossaryentry{assembly}{
   name = {assembly},
   description = {Any low-level programming language in which there is a very strong correspondence between the instructions in the language and the architecture's machine code instructions.
-    Because assembly depends on the machine code instructions, every assembly language is designed for exactly one specific computer architecture.
+    Because assembly depends on the machine code instructions, every assembly language is designed for exactly one specific computer architecture.JTAG~(Joint Test Action Group)
     Assembly language may also be called symbolic machine code},
 }
 
@@ -323,16 +323,30 @@
 
 \newglossaryentry{jtag}
 {type = \acronymtype,
- name={JTAG},
- description={Joint Test Action Group},
+ name = {JTAG},
+ description = {Joint Test Action Group},
  first = {JTAG~(Joint Test Action Group)\glsadd{jtagg}},
- see=[Glossary:]{jtagg}
+ see = [Glossary:]{jtagg}
  }
 \newglossaryentry{jtagg}
 {
- name={name},
+ name={JTAG},
  description={An industry standard connector type for verifying designs and testing printed circuit boards after manufacture. Used for communicating at a low level with the SoC design implemented in Chipyard}
  }
+
+\newglossaryentry{mcs}
+{
+ type = \acronymtype,
+ name = {MCS},
+ description = {Memory Configuration File},
+ first = {MCS~(Memory Configuration File)\glsadd{mcsg}},
+ see = [Glossary:]{mcsg}
+}
+
+\newglossaryentry{mcsg}
+{
+ name={MCS},
+ description={A descriptive file containing the contents of what will be flashed to the FPGA utilizing ASCII format. The MCS file includes additional information beyond the payload, such as headers and comment information}}
 
 
 

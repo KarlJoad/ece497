@@ -81,7 +81,7 @@ Much like generating a verilog simulation, there are many options when it comes 
 
 \begin{listing}[h!tbp]
 	\begin{bashsource}
-		make SBT_PROJECT=... MODEL=... VLOG_MODEL=... MODEL_PACKAGE=... CONFIG=... CONFIG_PACKAGE=... GENERATOR_PACKAGE=... TB=... TOP=... BOARD=... FPGA_BRAND=... bitstream
+		make SBT_PROJECT=... MODEL=... VLOG_MODEL=... MODEL_PACKAGE=... CONFIG=... CONFIG_PACKAGE=... GENERATOR_PACKAGE=... TB=... TOP=... BOARD=... FPGA_BRAND=... [-j[N]] bitstream
 	\end{bashsource}
 	\caption{Command to generate \Gls{fpga} image using long format}
 	\label{lst:extended_fpga_cmd}
@@ -91,11 +91,18 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 
 \begin{listing}[h!tbp]
 	\begin{bashsource}
-		make SUB_PROJECT=<sub_project> bitstream
+		make SUB_PROJECT=<sub_project> [-j[N]] bitstream
 	\end{bashsource}
-	\caption{Command to generate \Gls{fpga} image using subproject}
+	\caption{Command to generate \Gls{fpga} image using subproject.}
 	\label{lst:condensed_fpga_cmd}
 \end{listing}
+
+	It is highly recommended to make use of the \texttt{-jN} flag to allow multi-threading and speed up generation. Without multi-threading the process of generating an image can take multiple hours.
+	
+	When generating the default Arty image, we noticed that the script would produce an error about "Failed to meet timing by \$timing\_slack" however the image still appeared to run correctly, so further investigation is needed into why this error occurs.
+	
+	Upon successful generation, the bitstream file will be saved to \\ \file{chipyard/fpga/generated-src/<long\_project\_name>/obj/<ConfigName>.bit}. From this file, utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
+
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
 \subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
