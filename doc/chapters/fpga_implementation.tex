@@ -101,7 +101,35 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 	
 	When generating the default Arty image, we noticed that the script would produce an error about "Failed to meet timing by \$timing\_slack" however the image still appeared to run correctly, so further investigation is needed into why this error occurs.
 	
-	Upon successful generation, the bitstream file will be saved to \\ \file{chipyard/fpga/generated-src/<long\_project\_name>/obj/<ConfigName>.bit}. From this file, utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
+	Upon successful generation, the bitstream file will be saved to \\ \file{chipyard/fpga/generated-src/<long\_project\_name>/obj/<ConfigName>.bit}. 
+	
+\subsection{Creating MCS File}
+	After generating a bitstream file, one should utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
+	
+	To begin, open Xilinx Vivado, and enter the "Hardware Manager". Under the "Tools" dropdown, select "Generate Memory Configuration File".
+	\begin{figure}[h!tbp]
+		\centering
+		\includegraphics[scale=0.25]{./Vivado_HW_Manager.png}
+		\caption{Vivado Hardware Manager Window}
+		\label{fig:Vivado_HW_Manager}
+	\end{figure}
+
+	Inside this wizard, there are several options that must be filled.
+	\begin{itemize}
+		\item Memory Part: Select the memory part present on your specific \Gls{fpga} board. For the Arty board we used, this was the "s25fl128sxxxxxx0-spi-x1\_x2\_x4" device
+		\item Filename: Specify a new output location and name for the MCS file that will be generated
+		\item Interface: Specify \Gls{spi}x4 for the Arty board. Other options include a x1 or x2 wide \Gls{spi} interface
+		\item Bitfile: Select the bitstream file generated previously by Chipyard.
+		\item Datafile: In theory, this should allow one to upload a .hex or .elf program file to be run by the Arty board, however in our experience we had better success when uploaded using the \Gls{jtag} debugger after flashing the \Gls{fpga}
+	\end{itemize}
+
+	\begin{figure}[h!tbp]
+		\centering
+		\includegraphics[scale=0.25]{./MCS_Generation_Window.png}
+		\caption{Vivado MCS Generation Window}
+		\label{fig:Vivado_MCS_Window}
+	\end{figure}
+	
 
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
