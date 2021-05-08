@@ -103,10 +103,10 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 	
 	Upon successful generation, the bitstream file will be saved to \\ \file{chipyard/fpga/generated-src/<long\_project\_name>/obj/<ConfigName>.bit}. 
 	
-\subsection{Creating MCS File}
+\subsection{Creating MCS File}\label{sec:Creating_MCS_file}
 	After generating a bitstream file, one should utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
 	
-	To begin, open Xilinx Vivado, and enter the "Hardware Manager". Under the "Tools" dropdown, select "Generate Memory Configuration File".
+	To begin, open Xilinx Vivado, and enter the "Hardware Manager" (shown in \Cref{fig:Vivado_HW_Manager}). Under the "Tools" dropdown, select "Generate Memory Configuration File".
 	\begin{figure}[h!tbp]
 		\centering
 		\includegraphics[scale=0.25]{./Vivado_HW_Manager.png}
@@ -114,7 +114,7 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 		\label{fig:Vivado_HW_Manager}
 	\end{figure}
 
-	Inside this wizard, there are several options that must be filled.
+	Inside this wizard (shown in \Cref{fig:Vivado_MCS_Window}), there are several options that must be filled.
 	\begin{itemize}
 		\item Memory Part: Select the memory part present on your specific \Gls{fpga} board. For the Arty board we used, this was the "s25fl128sxxxxxx0-spi-x1\_x2\_x4" device
 		\item Filename: Specify a new output location and name for the MCS file that will be generated
@@ -133,8 +133,33 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
+	In order to flash the MCS file generated in \Cref{sec:Creating_MCS_file}, first open Vivado Hardware Manager (\ref{fig:Vivado_HW_Manager}) and connect the Arty board via USB. Inside Hardware Manager, click the "Open target" prompt and select "Auto Connect" at the top of the window to connect to the Arty board. In the Hardware section of the window, the Arty board will now be shown as "xc7a35t\_0" (shown in \Cref{fig:Vivado_HW_connected}). 
+	
+	\begin{figure}[h!tbp]
+		\centering
+		\includegraphics[scale=0.5]{./arty_connected_window.png}
+		\caption{Hardware section of Vivado Hardware Manager}
+		\label{fig:Vivado_HW_connected}
+	\end{figure}
+	
+	Next, right-click on "xc7a35t\_0", select "Add Configuration Memory Device", and navigate to the same memory configuration device selected previously (\ref{fig:add_config_mem}). After clicking "OK", you will be prompted to program the configuration memory device. In this prompt, select the MCS file generated previously. After selecting "OK", flashing of the image will commence. At this point, if the wrong memory part was selected, you will receive an error message depicting the correct memory part. If this occurs, repeat creating the MCS file (\ref{sec:Creating_MCS_file}), adding the memory configuration device, and try again.
+	
+	\begin{figure}[h!tbp]
+		\centering
+		\includegraphics[scale=0.35]{./add_config_mem.png}
+		\caption{Add Configuration Memory Device}
+		\label{fig:add_config_mem}
+	\end{figure}
+	
+	\begin{figure}[h!tbp]
+		\centering
+		\includegraphics[scale=0.35]{./prog_config_mem.png}
+		\caption{Program Configuration Memory Device}
+		\label{fig:prog_config_mem}
+	\end{figure}
+	
 \subsection{Compiling Programs}\label{sec:Compiling_Programs}
-	In order to compile programs for the Arty board, we utilized the Freedom E SDK (Mentioned in \Cref{sec:Freedom_E_SDK}) project provided by SiFive \cite{freedomESDK}.
+	In order to compile programs for the Arty board, we utilized the Freedom E SDK (Mentioned in \Cref{sec:Freedom_E_SDK}) project provided by SiFive \cite{freedomESDK}. 
 \subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
 %%% Local Variables:
 %%% mode: latex
