@@ -79,12 +79,23 @@ This is highly recommended as it simplifies the workflow for repeated compilatio
 
 Much like generating a verilog simulation, there are many options when it comes to generating an FPGA image in Chipyard. The complete syntax is as follows:\cite{Chipyard_Prototyping}
 
-
-\$ \hspace{1pt} \mintinline[breaklines]{bash}{make SBT_PROJECT=... MODEL=... VLOG_MODEL=... MODEL_PACKAGE=... CONFIG=... CONFIG_PACKAGE=... GENERATOR_PACKAGE=... TB=... TOP=... BOARD=... FPGA_BRAND=... bitstream}
+\begin{listing}[h!tbp]
+	\begin{bashsource}
+		make SBT_PROJECT=... MODEL=... VLOG_MODEL=... MODEL_PACKAGE=... CONFIG=... CONFIG_PACKAGE=... GENERATOR_PACKAGE=... TB=... TOP=... BOARD=... FPGA_BRAND=... bitstream
+	\end{bashsource}
+	\caption{Command to generate \Gls{fpga} image using long format}
+	\label{lst:extended_fpga_cmd}
+\end{listing}
 
 The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is as follows:
-\\ \$ \hspace{1pt} \mintinline[breaklines]{bash}{make SUB_PROJECT=<sub_project> bitstream}
 
+\begin{listing}[h!tbp]
+	\begin{bashsource}
+		make SUB_PROJECT=<sub_project> bitstream
+	\end{bashsource}
+	\caption{Command to generate \Gls{fpga} image using subproject}
+	\label{lst:condensed_fpga_cmd}
+\end{listing}
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
 \subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
