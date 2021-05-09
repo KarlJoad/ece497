@@ -338,16 +338,22 @@
 {
  type = \acronymtype,
  name = {MCS},
- description = {Memory Configuration File},
- first = {MCS~(Memory Configuration File)\glsadd{mcsg}},
+ description = {Memory Configuration File Format},
+ first = {MCS~(Memory Configuration File Format)\glsadd{mcsg}},
  see = [Glossary:]{mcsg}
 }
 
 \newglossaryentry{mcsg}
 {
  name={MCS},
- description={A descriptive file containing the contents of what will be flashed to the FPGA utilizing ASCII format. The MCS file includes additional information beyond the payload, such as headers and comment information}}
+ description={A descriptive file containing the contents of what will be flashed to the \Gls{fpga} utilizing ASCII format. MCS files include additional information beyond the payload, such as headers and comment information}
+}
 
+\newglossaryentry{spike}
+{
+ name={SPIKE},
+ description={A RISC-V ISA Simulator that is useful for validating the results of a SoC implementation to ensure the ISA is implemented correctly}
+}
 
 
 %%% Local Variables:

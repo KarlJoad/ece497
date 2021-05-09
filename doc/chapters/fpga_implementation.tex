@@ -87,7 +87,7 @@ Much like generating a verilog simulation, there are many options when it comes 
 	\label{lst:extended_fpga_cmd}
 \end{listing}
 
-The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is as follows:
+The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is as follows:
 
 \begin{listing}[h!tbp]
 	\begin{bashsource}
@@ -97,19 +97,24 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 	\label{lst:condensed_fpga_cmd}
 \end{listing}
 
-	It is highly recommended to make use of the \texttt{-jN} flag to allow multi-threading and speed up generation. Without multi-threading the process of generating an image can take multiple hours.
+	It is highly recommended to make use of the \texttt{-jN} flag to allow multi-threading and speed up generation. 
+	Without multi-threading the process of generating an image can take multiple hours.
 	
-	When generating the default Arty image, we noticed that the script would produce an error about "Failed to meet timing by \$timing\_slack" however the image still appeared to run correctly, so further investigation is needed into why this error occurs.
+	When generating the default Arty image, we noticed that the script would produce an error about "Failed to meet timing by \$timing\_slack". 
+	However, we found that the image still appears to run correctly, so further investigation is needed into why this error occurs.
 	
 	Upon successful generation, the bitstream file will be saved to \\ \file{chipyard/fpga/generated-src/<long\_project\_name>/obj/<ConfigName>.bit}. 
 	
+	The branch of chipyard with the best functionality for the Arty board is currently the "arty-spi-flash" branch, so use of this branch is recommended.
+	
 \subsection{Creating MCS File}\label{sec:Creating_MCS_file}
-	After generating a bitstream file, one should utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
+	After generating a bitstream file, one should utilize Xilinx Vivado to create a \gls{mcs} file in order to save the design to the SPI flash on the Arty board. 
+	This will allow the design to be automatically reloaded onto the Arty board after power is disconnected.
 	
 	To begin, open Xilinx Vivado, and enter the "Hardware Manager" (shown in \Cref{fig:Vivado_HW_Manager}). Under the "Tools" dropdown, select "Generate Memory Configuration File".
 	\begin{figure}[h!tbp]
 		\centering
-		\includegraphics[scale=0.25]{./Vivado_HW_Manager.png}
+		\includegraphics[scale=0.20]{./Vivado_HW_Manager.png}
 		\caption{Vivado Hardware Manager Window}
 		\label{fig:Vivado_HW_Manager}
 	\end{figure}
@@ -125,7 +130,7 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 
 	\begin{figure}[h!tbp]
 		\centering
-		\includegraphics[scale=0.25]{./MCS_Generation_Window.png}
+		\includegraphics[scale=0.20]{./MCS_Generation_Window.png}
 		\caption{Vivado MCS Generation Window}
 		\label{fig:Vivado_MCS_Window}
 	\end{figure}
@@ -133,7 +138,9 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 
 \section{Using the FPGA Image}\label{sec:Using_FPGA_Image}
 \subsection{Flashing the Image}\label{sec:Flash_FPGA_Image}
-	In order to flash the MCS file generated in \Cref{sec:Creating_MCS_file}, first open Vivado Hardware Manager (\ref{fig:Vivado_HW_Manager}) and connect the Arty board via USB. Inside Hardware Manager, click the "Open target" prompt and select "Auto Connect" at the top of the window to connect to the Arty board. In the Hardware section of the window, the Arty board will now be shown as "xc7a35t\_0" (shown in \Cref{fig:Vivado_HW_connected}). 
+	In order to flash the MCS file generated in \Cref{sec:Creating_MCS_file}, first open Vivado Hardware Manager (\Cref{fig:Vivado_HW_Manager}) and connect the Arty board via USB. 
+	Inside Hardware Manager, click the "Open target" prompt and select "Auto Connect" at the top of the window to connect to the Arty board. 
+	In the Hardware section of the window, the Arty board will now be shown as "xc7a35t\_0" (shown in \Cref{fig:Vivado_HW_connected}). 
 	
 	\begin{figure}[h!tbp]
 		\centering
@@ -142,7 +149,12 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 		\label{fig:Vivado_HW_connected}
 	\end{figure}
 	
-	Next, right-click on "xc7a35t\_0", select "Add Configuration Memory Device", and navigate to the same memory configuration device selected previously (\ref{fig:add_config_mem}). After clicking "OK", you will be prompted to program the configuration memory device. In this prompt, select the MCS file generated previously. After selecting "OK", flashing of the image will commence. At this point, if the wrong memory part was selected, you will receive an error message depicting the correct memory part. If this occurs, repeat creating the MCS file (\ref{sec:Creating_MCS_file}), adding the memory configuration device, and try again.
+	Next, right-click on "xc7a35t\_0", select "Add Configuration Memory Device", and navigate to the same memory configuration device selected previously (\Cref{fig:add_config_mem}).
+	After clicking "OK", you will be prompted to program the configuration memory device (\Cref{fig:prog_config_mem}). 
+	In this prompt, select the \Gls{mcs} file generated previously. 
+	After selecting "OK", flashing of the image will commence. 
+	At this point, if the wrong memory part was selected, you will receive an error message depicting the correct memory part. 
+	If this occurs, repeat creating the \Gls{mcs} file (\Cref{sec:Creating_MCS_file}), adding the memory configuration device, and try again.
 	
 	\begin{figure}[h!tbp]
 		\centering
@@ -157,9 +169,45 @@ The condensed syntax, as implemented in \ref{sec:Customizing_FPGA-Makefile} is a
 		\caption{Program Configuration Memory Device}
 		\label{fig:prog_config_mem}
 	\end{figure}
+
+	After the flashing of the MCS file, ensure that jumper JP1 is shorted so that the FPGA boots from the SPI flash, and press the "PROG" button on the Arty board. 
+	The "DONE" LED on the Arty board should be lit, indicating that flashing the FPGA image was a success. 
+	We can now proceed to compile and upload C programs to the FPGA.
 	
 \subsection{Compiling Programs}\label{sec:Compiling_Programs}
 	In order to compile programs for the Arty board, we utilized the Freedom E SDK (Mentioned in \Cref{sec:Freedom_E_SDK}) project provided by SiFive \cite{freedomESDK}. 
+	To correctly configure the Freedom E SDK for the Chipyard Arty implementation, we must first specify the \Gls{jtag} debugger that will be used in this project. 
+	This can be done in the file \file{/freedom-e-sdk/bsp/freedom-e310-arty/openocd.cfg}. 
+	In this file, edit line 9 to "set protocol jtag" and line 14 to "set connection probe". 
+	These settings will allow the Freedom E SDK to utilize the Olimex debugger purchased for this project. 
+	
+	Documentation for the Freedom E SDK can be found at the \href{https://sifive.github.io/freedom-metal-docs/}{Freedom Metal Library Github page}.
+	It is important to note that much of the functionality regarding physical features (GPIO, Buttons, LEDs, etc.) are currently not functional on the Chipyard SoC implementation for the Arty. In the future, additional compatability should be added.
+	
+	In the Freedom E SDK, default and custom projects are defined in the directory \file{/freedom-e-sdk/software/}. To load a default or custom project onto the Arty board, use the following syntax:
+	
+	
+
+	\begin{listing}[h!tbp]
+		\begin{bashsource}
+			make TARGET=freedom-e310-arty PROGRAM=<program> CONFIGURATION=debug upload
+		\end{bashsource}
+		\caption{Command used to flash a program to the Arty board}
+		\label{lst:upload_to_arty}
+	\end{listing}
+	
+	Other useful make targets include debug, simulate, clean, and help. 
+	
+	For example, to simulate the "hello" program in \gls{spike}\cite{SpikeSimulator}, use the following command:
+
+	\begin{listing}[h!tbp]
+		\begin{bashsource}
+			make TARGET=spike PROGRAM=hello CONFIGURATION=debug simulate
+		\end{bashsource}
+		\caption{Command used to simulate a program in \gls{spike}}
+		\label{lst:simulate_in_spike}
+	\end{listing}
+	
 \subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
 %%% Local Variables:
 %%% mode: latex
