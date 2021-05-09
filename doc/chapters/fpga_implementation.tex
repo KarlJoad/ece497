@@ -30,12 +30,31 @@ Without the \gls{jtag} Debugger, we were unable to upload programs to the \Gls{f
   \label{fig:olimexsetup}
 \end{figure}
 
-\begin{figure}
+\begin{table}[h!tbp]
 	\centering
-	\includegraphics[width=0.7\linewidth]{./JTAG_connections.png}
-	\caption{Olimex Debugger Pin Connections~\cite[p.~4]{FreedomDevGuide}}
-	\label{fig:olimexpins}
-\end{figure}
+	\begin{tabular}{ | c | c | c | c |}
+		\hline Signal Name & ARM-USB-TINY-H Pin Number & Suggested Jumper Color & Arty PMOD JD Pin Number \\ \hline
+		VREF & 1 & red & 12 \\ \hline
+		VREF & 2 & brown & 6("VCC") \\ \hline
+		nTRST & 3 & orange & 2 \\ \hline
+		TDI & 5 & yellow & 7 \\ \hline
+		TMS & 7 & green & 8 \\ \hline
+		TCK & 9 & blue & 3 \\ \hline
+		TDO & 13 & purple & 1 \\ \hline
+		GND & 14 & black & 5("GND") \\ \hline
+		nRST & 15 & grey & 9 \\ \hline
+		GND & 16 & white & 11 \\ \hline
+	\end{tabular}
+	\caption{Olimex Pin Connections Setup}
+	\label{table:Olimex_Pin_Setup}
+\end{table}
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{./JTAG_connections.png}
+%	\caption{Olimex Debugger Pin Connections~\cite[p.~4]{FreedomDevGuide}}
+%	\label{fig:olimexpins}
+%\end{figure}
 
 \section{Customizing an FPGA Image}\label{sec:Customizing}
 In Chipyard, the directory used for all \Gls{fpga} prototyping functionality is \file{chipyard/fpga}, located in the root directory.
