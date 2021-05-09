@@ -46,14 +46,16 @@ The default configuration utilized to make an image for the Arty board is labele
 The addresses specified in the "WithDefaultParameters" configurations alter how the memory mapped peripherals for the Arty \Gls{fpga} will be connected.
 
 \subsubsection{\file{HarnessBinders.scala}}\label{sec:Customizing_FPGA-HarnessBinders.scala}
-This file is where custom "harness binders" for the Arty \Gls{fpga} are defined.
-These harness binders utilize pins specified in the master "ArtyShell" pin definitions for the Arty board (provided by Digilent for use in Xilinx Vivado).
-This file is located under \file{chipyard/fpga/fpga-shells/src/main/scala/shell/xilinx/ArtyShell.scala}.
-These pin mappings are the same mappings that would be used when interfacing with the Arty board when designing in Xilinx Vivado.
+This file is where custom "harness binders"\footnote{Harness Binders are utilized by Chipyard to connect the name of pins in HDL to the pins in the "TestHarness" Verilog model. To connect to the physical pins of the FPGA board, IOBinders will map the TestHarness pins to the physical pins of the FPGA.}
+
+ for the Arty \Gls{fpga} are defined.
+These harness binders utilize pins specified in the master "ArtyShell" pin definitions file for the Arty board (provided by Digilent for use in Xilinx Vivado).
+This file is located at \file{chipyard/fpga/fpga-shells/src/main/scala/shell/xilinx/ArtyShell.scala}.
+The pin mappings in this file are the same mappings that would be utilized when interfacing with the Arty board when designing in Xilinx Vivado.
 Harness binders in this file are provided for the \Gls{jtag} interface, \Gls{spi} flash, and the \Gls{uart}  connector.
 These three connections are critical to the \Gls{fpga} design, and to ensuring that programs can be successfully uploaded and run on the \Gls{fpga}.
 It is important to note that the harness binders connects to the "TestHarness", and not the physical IO~\cite{Chipyard_IO}.
-This was done such that separation could be created between the simulation and physical design.
+This was done such that separation could be created between the simulated and physical designs.
 To connect to the physical IO pins, IOBinders are also needed.
 
 \subsubsection{\file{IOBinders.scala}}\label{sec:Customizing_FPGA-IOBinders.scala}
@@ -99,6 +101,26 @@ The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is 
   \end{bashsource}
   \caption{Command to generate \Gls{fpga} image using subproject.}
   \label{lst:condensed_fpga_cmd}
+\end{listing}
+
+\begin{listing}[h!tbp]
+	\begin{bashsource}
+		ifeq ($(SUB_PROJECT),artyCustom) # Customize SUB_PROJECT name to artyCustom
+			SBT_PROJECT       ?= fpga_platforms
+			MODEL             ?= ArtyFPGATestHarness #Still utilize Arty Test Harness
+			VLOG_MODEL        ?= ArtyFPGATestHarness 
+			MODEL_PACKAGE     ?= chipyard.fpga.arty
+			CONFIG            ?= ArtyCustomConfig #Change SoC configuration to build
+			CONFIG_PACKAGE    ?= chipyard.fpga.arty #Package where custom config can be found
+			GENERATOR_PACKAGE ?= chipyard 
+			TB                ?= none # unused
+			TOP               ?= ChipTop
+			BOARD             ?= arty
+			FPGA_BRAND        ?= xilinx
+		endif
+	\end{bashsource} 
+	\caption{Example of sub project variables customization}
+	\label{lst:$makefile_subproject_example}
 \end{listing}
 
 It is highly recommended to make use of the \texttt{-jN} flag to allow multi-threading and speed up generation.
