@@ -33,19 +33,20 @@ Without the \gls{jtag} Debugger, we were unable to upload programs to the \Gls{f
 \begin{table}[h!tbp]
 	\centering
 	\begin{tabular}{ | c | c | c | c |}
-		\hline Signal Name & ARM-USB-TINY-H Pin Number & Suggested Jumper Color & Arty PMOD JD Pin Number \\ \hline
+      \hline
+      Signal Name & ARM-USB-TINY-H Pin Number & Suggested Jumper Color & Arty PMOD JD Pin Number \\ \hline
 		VREF & 1 & red & 12 \\ \hline
-		VREF & 2 & brown & 6("VCC") \\ \hline
+		VREF & 2 & brown & 6 (VCC) \\ \hline
 		nTRST & 3 & orange & 2 \\ \hline
 		TDI & 5 & yellow & 7 \\ \hline
 		TMS & 7 & green & 8 \\ \hline
 		TCK & 9 & blue & 3 \\ \hline
 		TDO & 13 & purple & 1 \\ \hline
-		GND & 14 & black & 5("GND") \\ \hline
+		GND & 14 & black & 5 (GND) \\ \hline
 		nRST & 15 & grey & 9 \\ \hline
 		GND & 16 & white & 11 \\ \hline
 	\end{tabular}
-	\caption{Olimex Pin Connections Setup}
+	\caption{Olimex Pin Connections Setup~\cite[p.~4]{FreedomDevGuide}}
 	\label{table:Olimex_Pin_Setup}
 \end{table}
 
@@ -134,17 +135,17 @@ The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is 
 		ifeq ($(SUB_PROJECT),artyCustom) # Customize SUB_PROJECT name to artyCustom
 			SBT_PROJECT       ?= fpga_platforms
 			MODEL             ?= ArtyFPGATestHarness #Still utilize Arty Test Harness
-			VLOG_MODEL        ?= ArtyFPGATestHarness 
+			VLOG_MODEL        ?= ArtyFPGATestHarness
 			MODEL_PACKAGE     ?= chipyard.fpga.arty
 			CONFIG            ?= ArtyCustomConfig #Change SoC configuration to build
 			CONFIG_PACKAGE    ?= chipyard.fpga.arty #Package where custom config can be found
-			GENERATOR_PACKAGE ?= chipyard 
+			GENERATOR_PACKAGE ?= chipyard
 			TB                ?= none # unused
 			TOP               ?= ChipTop
 			BOARD             ?= arty
 			FPGA_BRAND        ?= xilinx
 		endif
-	\end{bashsource} 
+	\end{bashsource}
 	\caption{Example of sub project variables customization}
 	\label{lst:$makefile_subproject_example}
 \end{listing}
@@ -236,7 +237,7 @@ These settings will allow the Freedom E SDK to utilize the Olimex debugger purch
 
 Documentation for the Freedom E SDK can be found at the \href{https://sifive.github.io/freedom-metal-docs/}{Freedom Metal Library Github page}.
 It is important to note that much of the functionality regarding physical features (GPIO, Buttons, LEDs, etc.) are currently not functional on the Chipyard SoC implementation for the Arty.
-Additionally, we found that some functionality in the Metal library was buggy. 
+Additionally, we found that some functionality in the Metal library was buggy.
 For example, sending output to the serial terminal did not work when using \mintinline{C}{printf()}, but did work when utilizing \mintinline{C}{putc()}.
 In the future, compatibility and functionality should be improved for this C library.
 
