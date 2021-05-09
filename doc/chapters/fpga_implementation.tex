@@ -184,9 +184,23 @@ The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is 
 	Documentation for the Freedom E SDK can be found at the \href{https://sifive.github.io/freedom-metal-docs/}{Freedom Metal Library Github page}.
 	It is important to note that much of the functionality regarding physical features (GPIO, Buttons, LEDs, etc.) are currently not functional on the Chipyard SoC implementation for the Arty. In the future, additional compatability should be added.
 	
-	In the Freedom E SDK, default and custom projects are defined in the directory \file{/freedom-e-sdk/software/}. To load a default or custom project onto the Arty board, use the following syntax:
+	In the Freedom E SDK, default and custom projects are defined in the directory \file{/freedom-e-sdk/software/}. To compile a project for the Arty board, run the following command:
+
+	\begin{listing}[h!tbp]
+		\begin{bashsource}
+			make TARGET=freedom-e310-arty PROGRAM=<program> CONFIGURATION=debug software
+		\end{bashsource}
+		\caption{Command used to compile a program for the Arty board in the Freedom E SDK}
+		\label{lst:compile_in_sdk}
+	\end{listing}
 	
 	
+	
+\subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
+	
+	 Before running a program on the Arty board, it is important to start a serial connection to the Arty board, so that you can view the serial output from the Arty board. Other documentation has declared that the design should output to UART at a baud rate of 115200, however we have found that the correct baud rate is 57600. The serial terminal we utilized for this project is CuteCom\cite{CuteCom}, due to its ease of adjusting settings and graphical interface, although other options include GNU Screen, minicom, PuTTY, etc.
+	
+	 To load a default or custom project onto the Arty board, use the following syntax:
 
 	\begin{listing}[h!tbp]
 		\begin{bashsource}
@@ -196,9 +210,9 @@ The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is 
 		\label{lst:upload_to_arty}
 	\end{listing}
 	
-	Other useful make targets include debug, simulate, clean, and help. 
+	Pressing the reset button on the Arty board will cause the board to reinitialize and run the program again.
 	
-	For example, to simulate the "hello" program in \gls{spike}\cite{SpikeSimulator}, use the following command:
+	Other useful make targets include debug, simulate, clean, and help. For example, to simulate the "hello" program in \gls{spike}\cite{SpikeSimulator}, use the following command:
 
 	\begin{listing}[h!tbp]
 		\begin{bashsource}
@@ -208,7 +222,7 @@ The condensed syntax, as implemented in \cref{sec:Customizing_FPGA-Makefile} is 
 		\label{lst:simulate_in_spike}
 	\end{listing}
 	
-\subsection{Uploading Programs to the FPGA}\label{sec:Upload_Programs_to_Flashed_FPGA}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "../doc"
