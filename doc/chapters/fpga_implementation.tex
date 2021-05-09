@@ -30,6 +30,13 @@ Without the \gls{jtag} Debugger, we were unable to upload programs to the \Gls{f
   \label{fig:olimexsetup}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{./JTAG_connections.png}
+	\caption{Olimex Debugger Pin Connections~\cite[p.~4]{FreedomDevGuide}}
+	\label{fig:olimexpins}
+\end{figure}
+
 \section{Customizing an FPGA Image}\label{sec:Customizing}
 In Chipyard, the directory used for all \Gls{fpga} prototyping functionality is \file{chipyard/fpga}, located in the root directory.
 Inside this directory there are several important files.
@@ -210,7 +217,9 @@ These settings will allow the Freedom E SDK to utilize the Olimex debugger purch
 
 Documentation for the Freedom E SDK can be found at the \href{https://sifive.github.io/freedom-metal-docs/}{Freedom Metal Library Github page}.
 It is important to note that much of the functionality regarding physical features (GPIO, Buttons, LEDs, etc.) are currently not functional on the Chipyard SoC implementation for the Arty.
-In the future, additional compatability should be added.
+Additionally, we found that some functionality in the Metal library was buggy. 
+For example, sending output to the serial terminal did not work when using \mintinline{C}{printf()}, but did work when utilizing \mintinline{C}{putc()}.
+In the future, compatibility and functionality should be improved for this C library.
 
 In the Freedom E SDK, default and custom projects are defined in the directory \file{/freedom-e-sdk/software/}.
 To compile a project for the Arty board, run the following command:
